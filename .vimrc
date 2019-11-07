@@ -46,7 +46,7 @@ set relativenumber
 set clipboard=unnamedplus
 set complete=.,w,b,u,t,i,kspell
 set dictionary=/usr/share/dict/american-english
-set splitbelow
+set splitbelow splitright
 
 " Sets omnifunc to language-based completion, but only in the case of cpp-files (python files have good completion by 'default', it's probably a plug-in's fault)
 if has("autocmd") && exists("+omnifunc")
