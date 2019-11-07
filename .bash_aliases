@@ -1,0 +1,6 @@
+alias vim='vim --servername vim'
+alias project='cd ~/Dropbox/ntnu/project'
+alias vimrc='vim ~/.vimrc'
+alias bashrc='vim ~/.bashrc'
+alias sa='sudo apt'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.git-dotfiles/ --work-tree=$HOME'
