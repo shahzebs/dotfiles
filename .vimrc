@@ -32,15 +32,22 @@ call plug#end()
 
 """ Useful remaps
 inoremap jk   <esc>
-" set Meta+j,k to Alt+j,k
+" map Meta+j,k to Alt+j,k
 execute "set <M-j>=\ej"
 execute "set <M-k>=\ek"
+" move lines up and down
 nnoremap <M-j> :move .+1<CR>
 nnoremap <M-k> :move .-2<CR>
 inoremap <M-j> <Esc>:move .+1<CR>==gi
 inoremap <M-k> <Esc>:move .-2<CR>==gi
 vnoremap <M-j> :move '>+1<CR>gv=gv
 vnoremap <M-k> :move '<-2<CR>gv=gv
+
+" move between buffers/splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 syntax on
 filetype plugin on
@@ -78,7 +85,7 @@ let g:vimtex_compiler_latexmk = {
             \}
 let g:tex_conceal = ""
 
-autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi SpellBad cterm=underline ctermfg=red
+autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi clear SpellRare | hi clear SpellCap | hi SpellBad cterm=underline ctermfg=red
 autocmd FileType tex colorscheme badwolf
 autocmd FileType tex inoremap <C-\> \(\)<Esc>hi
 autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi
