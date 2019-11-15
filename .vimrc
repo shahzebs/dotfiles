@@ -30,13 +30,17 @@ Plug 'JuliaEditorSupport/julia-vim'
  " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+""" Useful remaps
 inoremap jk   <esc>
-nnoremap <C-j> :move .+1<CR>
-nnoremap <C-k> :move .-2<CR>
-inoremap <C-j> <Esc>:move .+1<CR>==gi
-inoremap <C-k> <Esc>:move .-2<CR>==gi
-vnoremap <C-j> :move '>+1<CR>gv=gv
-vnoremap <C-k> :move '<-2<CR>gv=gv
+" set Meta+j,k to Alt+j,k
+execute "set <M-j>=\ej"
+execute "set <M-k>=\ek"
+nnoremap <M-j> :move .+1<CR>
+nnoremap <M-k> :move .-2<CR>
+inoremap <M-j> <Esc>:move .+1<CR>==gi
+inoremap <M-k> <Esc>:move .-2<CR>==gi
+vnoremap <M-j> :move '>+1<CR>gv=gv
+vnoremap <M-k> :move '<-2<CR>gv=gv
 
 syntax on
 filetype plugin on
@@ -56,14 +60,17 @@ if has("autocmd") && exists("+omnifunc")
           \	endif
 endif
 
-" Inserts '#!/bin/bash' to first line when creating a *.sh file
 autocmd BufNewFile *.sh norm i#!/bin/bash
-" Inserts 'import numpy as np' to first line when creating a *.py file
+
+""" Python commands
 autocmd BufNewFile *.py :normal iimport numpy as np
 autocmd BufNewFile *.py :normal o
 autocmd FileType python :nnoremap <F5> :w<CR>:!clear;python3 %<CR>
 
+set termguicolors
+colorscheme gruvbox | hi Normal guibg=#000000
 
+""" LaTeX commands
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_latexmk = {
@@ -72,4 +79,7 @@ let g:vimtex_compiler_latexmk = {
 let g:tex_conceal = ""
 
 autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi SpellBad cterm=underline ctermfg=red
+autocmd FileType tex colorscheme badwolf
 autocmd FileType tex inoremap <C-\> \(\)<Esc>hi
+autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi
+
