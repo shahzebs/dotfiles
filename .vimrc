@@ -49,6 +49,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" don't add character deletions to main clipboard
+nnoremap <Del> "_x
+inoremap <Del> <Esc>l"_xi
+nnoremap x "_x
+
 syntax on
 filetype plugin on
 set tabstop=4
@@ -88,5 +93,5 @@ let g:tex_conceal = ""
 autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi clear SpellRare | hi clear SpellCap | hi SpellBad cterm=underline ctermfg=red
 autocmd FileType tex colorscheme badwolf
 autocmd FileType tex inoremap <C-\> \(\)<Esc>hi
-autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi
+autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi 
 
