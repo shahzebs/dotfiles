@@ -26,6 +26,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'psliwka/vim-smoothie'
 
  " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
