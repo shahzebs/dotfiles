@@ -91,8 +91,8 @@ let g:vimtex_compiler_latexmk = {
             \}
 let g:tex_conceal = ""
 
-autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi clear SpellRare | hi clear SpellCap | hi SpellBad cterm=underline ctermfg=red
 autocmd FileType tex colorscheme badwolf
+autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi clear SpellRare | hi clear SpellCap | hi SpellBad cterm=underline ctermfg=red
 autocmd FileType tex inoremap <C-\> \(\)<Esc>hi
 autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi 
 
