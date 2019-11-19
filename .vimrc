@@ -26,7 +26,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
 Plug 'JuliaEditorSupport/julia-vim'
-Plug 'psliwka/vim-smoothie'
 
  " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -81,7 +80,7 @@ autocmd BufNewFile *.py :normal o
 autocmd FileType python :nnoremap <F5> :w<CR>:!clear;python3 %<CR>
 
 set termguicolors
-colorscheme gruvbox | hi Normal guibg=#000000
+colorscheme gruvbox | hi Normal guibg=#1c1c1c
 
 """ LaTeX commands
 let g:tex_flavor = 'latex'
@@ -94,5 +93,5 @@ let g:tex_conceal = ""
 autocmd FileType tex colorscheme badwolf
 autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi clear SpellRare | hi clear SpellCap | hi SpellBad cterm=underline ctermfg=red
 autocmd FileType tex inoremap <C-\> \(\)<Esc>hi
-autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi 
+autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi
 
