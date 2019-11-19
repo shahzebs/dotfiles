@@ -32,6 +32,7 @@ call plug#end()
 
 """ Useful remaps
 inoremap jk   <esc>
+
 " map Meta+j,k to Alt+j,k
 execute "set <M-j>=\ej"
 execute "set <M-k>=\ek"
@@ -54,15 +55,19 @@ nnoremap <Del> "_x
 inoremap <Del> <Esc>l"_xi
 nnoremap x "_x
 
+" map <leader> to backslash \
+let mapleader = "\\"
+
 syntax on
 filetype plugin on
 set tabstop=4
-set number
-set relativenumber
+set number relativenumber
 set clipboard=unnamedplus
 set complete=.,w,b,u,t,i,kspell
 set dictionary=/usr/share/dict/american-english
 set splitbelow splitright
+set termguicolors
+colorscheme gruvbox | hi Normal guibg=#1f1f1f
 
 " Sets omnifunc to language-based completion, but only in the case of cpp-files (python files have good completion by 'default', it's probably a plug-in's fault)
 if has("autocmd") && exists("+omnifunc")
@@ -78,9 +83,6 @@ autocmd BufNewFile *.sh norm i#!/bin/bash
 autocmd BufNewFile *.py :normal iimport numpy as np
 autocmd BufNewFile *.py :normal o
 autocmd FileType python :nnoremap <F5> :w<CR>:!clear;python3 %<CR>
-
-set termguicolors
-colorscheme gruvbox | hi Normal guibg=#1c1c1c
 
 """ LaTeX commands
 let g:tex_flavor = 'latex'
