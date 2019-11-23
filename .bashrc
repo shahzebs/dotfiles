@@ -118,3 +118,4 @@ fi
 
 export PAGER="most"
 # set -o vi
+
