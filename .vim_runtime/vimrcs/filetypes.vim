@@ -20,6 +20,7 @@ autocmd FileType tex inoremap <C-\> \(\)<Esc>hi
 autocmd FileType tex inoremap `/ \frac{}{}<Esc>hhi
 autocmd FileType tex nnoremap <leader>bb ciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
 autocmd FileType tex inoremap <leader>bb <Esc>ciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
+autocmd FileType tex nnoremap cim /\\)<CR>%lc/\\)<CR><ESC>:noh<CR>li
 
 """ Bash
 autocmd BufNewFile *.sh norm i#!/bin/bash
