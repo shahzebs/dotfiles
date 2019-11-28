@@ -38,6 +38,18 @@ call plug#end()
 """ Useful remaps
 inoremap jk <esc>
 
+" Simple surround commands
+nnoremap ;" ciw"<ESC>pa"<ESC>
+nnoremap ;' ciw'<ESC>pa'<ESC>
+nnoremap ;( ciw(<ESC>pa)<ESC>
+nnoremap ;[ ciw[<ESC>pa]<ESC>
+nnoremap ;{ ciw{<ESC>pa}<ESC>
+vnoremap ;" c"<ESC>pi"<ESC>
+vnoremap ;' c'<ESC>pi'<ESC>
+vnoremap ;( c(<ESC>pi)<ESC>
+vnoremap ;[ c[<ESC>pi]<ESC>
+vnoremap ;{ c{<ESC>pi}<ESC>
+
 set scrolloff=10
 set number relativenumber
 set clipboard=unnamedplus
