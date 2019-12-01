@@ -38,6 +38,9 @@ call plug#end()
 """ Useful remaps
 inoremap jk <esc>
 
+" Jump to first <++> and enter insert mode
+nnoremap <leader><space> /<++><CR>:noh<CR>"_cf>
+
 " Simple surround commands
 nnoremap ;" ciw"<ESC>pa"<ESC>
 nnoremap ;' ciw'<ESC>pa'<ESC>
