@@ -2,3 +2,4 @@ set highlight-color "#ffffff"
 set highlight-active-color "#ff0000"
 set highlight-transparency 0.1
 set selection-clipboard clipboard
+set sandbox none
