@@ -22,6 +22,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 
+" Syntastic config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -31,6 +32,9 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['flake8']
+
+" Polyglot config
+let g:polyglot_disabled = ['latex']
 
  " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -66,5 +70,4 @@ colorscheme gruvbox-material "| hi Normal guibg=#1f1f1f
 let g:gruvbox_material_background = 'hard'
 " let g:lightline = {'colorscheme' : 'gruvbox_material'}
 
-let g:polyglot_disabled = ['latex']
 
