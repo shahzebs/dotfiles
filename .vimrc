@@ -22,6 +22,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 
+ " List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
 " Syntastic config
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -36,14 +39,12 @@ let g:syntastic_python_checkers = ['flake8']
 " Polyglot config
 let g:polyglot_disabled = ['latex']
 
- " List ends here. Plugins become visible to Vim after this call.
-call plug#end()
-
 """ Useful remaps
 inoremap jk <esc>
 
-" Jump to first <++> and enter insert mode
+" Jump to first <++>, delete it, and enter insert mode
 nnoremap <leader><space> /<++><CR>:noh<CR>"_cf>
+inoremap <leader><space> <ESC>/<++><CR>:noh<CR>"_cf>
 
 " Simple surround commands
 nnoremap ;" ciw"<ESC>pa"<ESC>
