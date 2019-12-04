@@ -155,3 +155,5 @@ endtry
 
 iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
+" Increment/decrement alpha characters with <C-A>/<C-X>
+set nrformats+=alpha

@@ -47,16 +47,16 @@ nnoremap <leader><space> /<++><CR>:noh<CR>"_cf>
 inoremap <leader><space> <ESC>/<++><CR>:noh<CR>"_cf>
 
 " Simple surround commands
-nnoremap ;" ciw"<ESC>pa"<ESC>
-nnoremap ;' ciw'<ESC>pa'<ESC>
-nnoremap ;( ciw(<ESC>pa)<ESC>
-nnoremap ;[ ciw[<ESC>pa]<ESC>
-nnoremap ;{ ciw{<ESC>pa}<ESC>
-vnoremap ;" c"<ESC>pi"<ESC>
-vnoremap ;' c'<ESC>pi'<ESC>
-vnoremap ;( c(<ESC>pi)<ESC>
-vnoremap ;[ c[<ESC>pi]<ESC>
-vnoremap ;{ c{<ESC>pi}<ESC>
+nnoremap ;" "tciw"<C-R>""<ESC>
+nnoremap ;' "tciw'<C-R>"'<ESC>
+nnoremap ;( "tciw(<C-R>")<ESC>
+nnoremap ;[ "tciw[<C-R>"]<ESC>
+nnoremap ;{ "tciw{<C-R>"}<ESC>
+vnoremap ;" "tc"<C-R>""<ESC>
+vnoremap ;' "tc'<C-R>"'<ESC>
+vnoremap ;( "tc(<C-R>")<ESC>
+vnoremap ;[ "tc[<C-R>"]<ESC>
+vnoremap ;{ "tc{<C-R>"}<ESC>
 
 set scrolloff=10
 set number relativenumber
@@ -70,5 +70,4 @@ set background=dark
 colorscheme gruvbox-material "| hi Normal guibg=#1f1f1f
 let g:gruvbox_material_background = 'hard'
 " let g:lightline = {'colorscheme' : 'gruvbox_material'}
-
 

@@ -18,8 +18,8 @@ autocmd FileType tex colorscheme badwolf
 autocmd FileType tex setlocal spell spelllang=en_us | hi clear SpellBad | hi clear SpellRare | hi clear SpellCap | hi SpellBad cterm=underline ctermfg=red
 autocmd FileType tex inoremap <C-\> \(\)<++><Esc>F\i
 autocmd FileType tex inoremap `/ \frac{}{<++>}<++><Esc>F{hi
-autocmd FileType tex nnoremap <leader>bb ciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
-autocmd FileType tex inoremap <leader>bb <Esc>ciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
+autocmd FileType tex nnoremap <leader>bb "tciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
+autocmd FileType tex inoremap <leader>bb <Esc>"tciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
 autocmd FileType tex nnoremap cim /\\)<CR>%lc/\\)<CR><ESC>:noh<CR>li
 autocmd FileType tex nnoremap ;f i\begin{figure}[]<CR>\centering<CR>\includegraphics[width=<++>\textwidth]{<++>}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><++><ESC>?\\begin<CR>:noh<CR>f[a
 autocmd FileType tex inoremap ;f \begin{figure}[]<CR>\centering<CR>\includegraphics[width=<++>\textwidth]{<++>}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><++><ESC>?\\begin<CR>:noh<CR>f[a
