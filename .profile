@@ -27,6 +27,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # launch Albert launcher if it exists and if it isn't running already
-if [ -x "$(command -v /usr/bin/albert)" && ! $(pgrep albert) ]; then
+if [ -x "$(command -v /usr/bin/albert)" ] && [ ! "$(pgrep albert)" ]; then
     /usr/bin/albert &
 fi
