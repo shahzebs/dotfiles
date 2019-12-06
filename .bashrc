@@ -117,5 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 export PAGER="most"
+shopt -s autocd
 # set -o vi
 
