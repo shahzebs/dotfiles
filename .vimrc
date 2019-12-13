@@ -43,8 +43,12 @@ let g:polyglot_disabled = ['latex']
 inoremap jk <esc>
 
 " Jump to first <++>, delete it, and enter insert mode
-nnoremap <leader><space> /<++><CR>:noh<CR>"_cf>
-inoremap <leader><space> <ESC>/<++><CR>:noh<CR>"_cf>
+nnoremap g<space> /<++><CR>:noh<CR>"_cf>
+inoremap g<space> <ESC>/<++><CR>:noh<CR>"_cf>
+
+" Delete/change until first <++> (forward direction)
+nnoremap d<Space> d/<++><CR>d4l:noh<CR>
+nnoremap c<Space> d/<++><CR>d4l:noh<CR>i
 
 " Simple surround commands
 nnoremap ;" "tciw"<C-R>""<ESC>
