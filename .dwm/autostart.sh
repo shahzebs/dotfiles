@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$HOME/.screenlayout/fysikkland_threemonitor.sh &
+# $HOME/.screenlayout/fysikkland_threemonitor.sh &
 
 $HOME/.fehbg &
 
