@@ -1,0 +1,4 @@
+vimrc           /home/shahzebs/.vimrc
+dwm             /home/shahzebs/.dwm/config.h
+bashrc          /home/shahzebs/.bashrc
+bash_aliases    /home/shahzebs/.bash_aliases
