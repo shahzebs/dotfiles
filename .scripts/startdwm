@@ -1,0 +1,2 @@
+# Enables dwm to restart without needing to close all X sessions (windows and applications)
+while true;  do  /usr/bin/dwm > /dev/null; done;
