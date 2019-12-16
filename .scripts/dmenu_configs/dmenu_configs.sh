@@ -1,7 +1,9 @@
 #!/bin/bash
 
-filename=$(awk "/$(cat /home/shahzebs/.scripts/dmenu_configs/config_files.txt | awk '{print $1}' | dmenu)/ {print \$2}" /home/shahzebs/.scripts/dmenu_configs/config_files.txt)
+filename=$(awk "/$(cat $HOME/.scripts/dmenu_configs/config_files.txt | awk '{print $1}' | dmenu)/ {print \$2}" $HOME/.scripts/dmenu_configs/config_files.txt)
+
+filedir=$(echo $filename | sed 's|\(.*\)\/.*|\1\/|')
 
 if [[ "$filename" != *$'\n'* ]]; then
-    gnome-terminal -- /bin/sh -c "vim $filename; $SHELL"
+    gnome-terminal --working-directory=$filedir -- /bin/sh -c "vim $filename; $SHELL"
 fi
