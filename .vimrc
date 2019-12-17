@@ -51,16 +51,16 @@ nnoremap d<Space> d/<++><CR>d4l:noh<CR>
 nnoremap c<Space> d/<++><CR>d4l:noh<CR>i
 
 " Simple surround commands
-nnoremap ;" "tciw"<C-R>""<ESC>
-nnoremap ;' "tciw'<C-R>"'<ESC>
-nnoremap ;( "tciw(<C-R>")<ESC>
-nnoremap ;[ "tciw[<C-R>"]<ESC>
-nnoremap ;{ "tciw{<C-R>"}<ESC>
-vnoremap ;" "tc"<C-R>""<ESC>
-vnoremap ;' "tc'<C-R>"'<ESC>
-vnoremap ;( "tc(<C-R>")<ESC>
-vnoremap ;[ "tc[<C-R>"]<ESC>
-vnoremap ;{ "tc{<C-R>"}<ESC>
+nnoremap "" "tciw"<C-R>""<ESC>
+nnoremap '' "tciw'<C-R>"'<ESC>
+nnoremap (( "tciw(<C-R>")<ESC>
+nnoremap [[ "tciw[<C-R>"]<ESC>
+nnoremap {{ "tciw{<C-R>"}<ESC>
+vnoremap "" h"tc"<C-R>""<ESC>
+vnoremap '' h"tc'<C-R>"'<ESC>
+vnoremap (( h"tc(<C-R>")<ESC>
+vnoremap [[ h"tc[<C-R>"]<ESC>
+vnoremap {{ h"tc{<C-R>"}<ESC>
 
 set scrolloff=10
 set number relativenumber
