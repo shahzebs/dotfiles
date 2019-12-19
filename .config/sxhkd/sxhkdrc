@@ -1,0 +1,42 @@
+
+## Basic binds
+
+# Launch st terminal
+super + Return
+        st
+
+# Launch Firefox
+super + x
+        firefox > /dev/null 2>&1
+
+# Launch Google Chrome
+super + g
+        google-chrome > /dev/null 2>&1
+
+# Launch Thunderbird
+super + e
+        thunderbird > /dev/null 2>&1
+
+# Launch Spotify
+super + s
+        spotify > /dev/null 2>&1
+
+# Launch dmenu prompt for editing config files
+super + c
+        $HOME/.scripts/dmenu_configs/dmenu_configs.sh
+
+# Launch python shell with numpy
+super + shift + c
+        st -t "Python Shell" -e python3 -ic "import numpy as np"
+
+# Play/pause audio
+super + p
+        playerctl play-pause > /dev/null 2>&1
+
+# Go to next/previous track
+super + shift + {plus,minus}
+        playerctl {next,previous} > /dev/null 2>&1
+
+# Increase/decrease volume by 10%
+super + {plus,minus}
+        amixer -D pulse sset Master {10%+,10%-} > /dev/null 2>&1
