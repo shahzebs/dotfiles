@@ -92,3 +92,7 @@ autocmd BufWritePost sxhkdrc :!kill -9 $(pgrep sxhkd); sxhkd &
 
 " After writing dwmbar file, kill all intances and run new
 autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar &
+
+" Make background transparent and the tildes visible
+hi Normal ctermbg=none
+hi EndOfBuffer ctermbg=none ctermfg=243
