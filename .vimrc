@@ -69,9 +69,20 @@ set complete=.,w,b,u,t,i,kspell
 set dictionary=/usr/share/dict/american-english
 set splitbelow splitright
 
-set termguicolors
+if &term != 'st-256color'
+    set termguicolors
+endif
+
 set background=dark
 colorscheme gruvbox-material "| hi Normal guibg=#1f1f1f
 let g:gruvbox_material_background = 'hard'
 " let g:lightline = {'colorscheme' : 'gruvbox_material'}
 
+" Changes working directory
+set acd
+
+" Recompile when writing a suckless program, e.g. dwm or st
+let myfilepath = expand('%:p')
+if myfilepath =~ "dwm" || myfilepath =~ "st"
+    autocmd BufWritePost * :make && sudo make install
+endif
