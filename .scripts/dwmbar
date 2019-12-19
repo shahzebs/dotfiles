@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true; do
+    # Status bar commands
+    dte=$(date +"%a %d. %b %H:%M")
+    vol=$(amixer -D pulse get Master | awk -F[][] '/%/ {print $2;exit}')
+    wifi=$(grep "^\s*w" /proc/net/wireless | awk '{print "XX", int($3 * 100 / 70) "%"}')
+    xsetroot -name "Vol: $vol | $dte"
+    sleep 10
+done &
+

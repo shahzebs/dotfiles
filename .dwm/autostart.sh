@@ -4,7 +4,10 @@
 
 $HOME/.fehbg &
 
-sxhkd &
-compton &
+if ! [[ "$(pgrep sxhkd)" ]]; then
+    sxhkd > /dev/null 2>&1 &
+fi
 
-# dwm & $HOME/.scripts/sleeper
+compton > /dev/null 2>&1 &
+
+$HOME/.scripts/dwmbar &

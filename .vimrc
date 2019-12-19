@@ -83,9 +83,12 @@ set acd
 
 " Recompile when writing a suckless program, e.g. dwm or st
 let myfilepath = expand('%:p')
-if myfilepath =~ "dwm" || myfilepath =~ "\/st\/"
+if myfilepath =~ "dwm\/" || myfilepath =~ "\/st\/"
     autocmd BufWritePost * :!make && sudo make install
 endif
 
 " After writing sxhkdrc, kill existing instance and launch new
 autocmd BufWritePost sxhkdrc :!kill -9 $(pgrep sxhkd); sxhkd &
+
+" After writing dwmbar file, kill all intances and run new
+autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar &
