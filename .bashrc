@@ -120,3 +120,4 @@ export PAGER="most"
 shopt -s autocd
 # set -o vi
 
+cd $HOME
