@@ -1,4 +1,6 @@
 vimrc           /home/shahzebs/.vimrc
 dwm             /home/shahzebs/.dwm/config.h
+st              /home/shahzebs/st/config.h
 bashrc          /home/shahzebs/.bashrc
 bash_aliases    /home/shahzebs/.bash_aliases
+sxhkd           /home/shahzebs/.config/sxhkd/sxhkdrc
