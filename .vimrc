@@ -83,6 +83,9 @@ set acd
 
 " Recompile when writing a suckless program, e.g. dwm or st
 let myfilepath = expand('%:p')
-if myfilepath =~ "dwm" || myfilepath =~ "st"
-    autocmd BufWritePost * :make && sudo make install
+if myfilepath =~ "dwm" || myfilepath =~ "\/st\/"
+    autocmd BufWritePost * :!make && sudo make install
 endif
+
+" After writing sxhkdrc, kill existing instance and launch new
+autocmd BufWritePost sxhkdrc :!kill -9 $(pgrep sxhkd); sxhkd &
