@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/shahzebs/Pictures/rainforest.jpg' 
+feh --bg-fill '/home/shahzebs/Dropbox/pictures/surface.jpg' 
