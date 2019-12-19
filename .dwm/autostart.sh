@@ -4,4 +4,7 @@
 
 $HOME/.fehbg &
 
+sxhkd &
+compton &
+
 # dwm & $HOME/.scripts/sleeper
