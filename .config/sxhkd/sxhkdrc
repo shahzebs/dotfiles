@@ -18,7 +18,7 @@ super + e
         thunderbird > /dev/null 2>&1
 
 # Launch Spotify
-super + s
+super + ctrl + s
         spotify > /dev/null 2>&1
 
 # Launch dmenu prompt for editing config files
