@@ -56,11 +56,11 @@ nnoremap '' "tciw'<C-R>"'<ESC>
 nnoremap (( "tciw(<C-R>")<ESC>
 nnoremap [[ "tciw[<C-R>"]<ESC>
 nnoremap {{ "tciw{<C-R>"}<ESC>
-vnoremap "" h"tc"<C-R>""<ESC>
-vnoremap '' h"tc'<C-R>"'<ESC>
-vnoremap (( h"tc(<C-R>")<ESC>
-vnoremap [[ h"tc[<C-R>"]<ESC>
-vnoremap {{ h"tc{<C-R>"}<ESC>
+vnoremap "" "tc"<C-R>""<ESC>
+vnoremap '' "tc'<C-R>"'<ESC>
+vnoremap (( "tc(<C-R>")<ESC>
+vnoremap [[ "tc[<C-R>"]<ESC>
+vnoremap {{ "tc{<C-R>"}<ESC>
 
 set scrolloff=10
 set number relativenumber
@@ -84,14 +84,14 @@ set acd
 " Recompile when writing a suckless program, e.g. dwm or st
 let myfilepath = expand('%:p')
 if myfilepath =~ "dwm\/" || myfilepath =~ "\/st\/"
-    autocmd BufWritePost * :!make && sudo make install
+    autocmd BufWritePost *.c,*.h :!make && sudo make install
 endif
 
 " After writing sxhkdrc, kill existing instance and launch new
-autocmd BufWritePost sxhkdrc :!kill -9 $(pgrep sxhkd); sxhkd &
+autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
 
 " After writing dwmbar file, kill all intances and run new
-autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar &
+autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar > /dev/null 2>&1 &
 
 " Make background transparent and the tildes visible
 hi Normal ctermbg=none

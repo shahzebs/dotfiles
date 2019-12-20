@@ -1,11 +1,65 @@
 #!/bin/bash
 
+# Status bar commands
+
+delim="|"
+
+dte() {
+    echo "$(date +"%a %d. %b %H:%M")"
+}
+
+volume() {
+    # echo "Vol: $(amixer -D pulse get Master | awk -F[][] '/%/ {print $2;exit}')"
+    volstat="$(amixer -D pulse get Master)"
+
+    echo "$volstat" | grep "\[off\]" >/dev/null && printf "🔇\n" && echo "$delim" && return
+
+    vol=$(echo "$volstat" | awk -F[][] '/%/ {print $2;exit}' | awk -F% '{print $1}')
+
+    if [ "$vol" -gt "70" ]; then
+        icon="🔊"
+    elif [ "$vol" -lt "30" ]; then
+        icon="🔈"
+    else
+        icon="🔉"
+    fi
+
+    printf "%s %s%%\\n" "$icon" "$vol"
+    echo "$delim"
+}
+
+wifi() {
+    # echo "$(grep "^\s*w" /proc/net/wireless | awk '{print "WiFi:", int($3 * 100 / 70) "%"}')"
+    [ "$(cat /sys/class/net/w*/operstate)" = 'down'  ] && wifiicon="📡"
+    [ ! -n "${wifiicon+var}"  ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print "📶", int($3 * 100 / 70) "%"  }')
+    printf "%s %s\n" "$wifiicon" "$(cat /sys/class/net/e*/operstate | sed "s/down/❎/;s/up/🌐/")"
+    echo "$delim"
+}
+
+memory() {
+    mem=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
+    icon="🧠"
+    printf "%s %s" "$icon $mem"
+    echo "$delim"
+}
+
+cpu_temp() {
+    temp=$(sensors | awk '/Tdie/ {print $2}')
+    icon=🖥
+    printf "%s %s" "$icon $temp"
+    echo "$delim"
+}
+
+status() {
+    cpu_temp
+    memory
+    wifi
+    volume
+    dte
+}
+
 while true; do
-    # Status bar commands
-    dte=$(date +"%a %d. %b %H:%M")
-    vol=$(amixer -D pulse get Master | awk -F[][] '/%/ {print $2;exit}')
-    wifi=$(grep "^\s*w" /proc/net/wireless | awk '{print "XX", int($3 * 100 / 70) "%"}')
-    xsetroot -name "Vol: $vol | $dte"
+    xsetroot -name " $(status | tr "\n" " ")"
     sleep 10
 done &
 

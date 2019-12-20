@@ -39,4 +39,12 @@ super + shift + {plus,minus}
 
 # Increase/decrease volume by 10%
 super + {plus,minus}
-        amixer -D pulse sset Master {10%+,10%-} > /dev/null 2>&1
+        amixer -D pulse set Master {10%+,10%-} > /dev/null 2>&1; $HOME/.scripts/refdwmbar &
+
+# Mute/unmute audio
+super + ctrl + p
+        amixer -D pulse set Master toggle > /dev/null 2>&1; $HOME/.scripts/refdwmbar &
+
+# Shutdown/reboot
+super + ctrl + alt + {p,r}
+        {shutdown now,reboot}
