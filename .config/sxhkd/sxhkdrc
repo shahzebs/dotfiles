@@ -10,7 +10,7 @@ super + x
         firefox > /dev/null 2>&1
 
 # Launch Google Chrome
-super + g
+super + shift + g
         google-chrome > /dev/null 2>&1
 
 # Launch Thunderbird
@@ -39,10 +39,10 @@ super + shift + {plus,minus}
 
 # Increase/decrease volume by 10%
 super + {plus,minus}
-        amixer -D pulse set Master {10%+,10%-} > /dev/null 2>&1; $HOME/.scripts/refdwmbar &
+        amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; $HOME/.scripts/refdwmbar &
 
 # Mute/unmute audio
-super + ctrl + p
+super + shift + p
         amixer -D pulse set Master toggle > /dev/null 2>&1; $HOME/.scripts/refdwmbar &
 
 # Shutdown/reboot

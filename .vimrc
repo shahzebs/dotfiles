@@ -94,5 +94,7 @@ autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
 autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar > /dev/null 2>&1 &
 
 " Make background transparent and the tildes visible
-hi Normal ctermbg=none
-hi EndOfBuffer ctermbg=none ctermfg=243
+hi Normal ctermbg=none 
+hi EndOfBuffer ctermbg=none ctermfg=243 
+hi LineNr ctermbg=none 
+hi FoldColumn ctermbg=none
