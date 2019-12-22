@@ -1,5 +1,0 @@
-b="vimrc\t~/.vimrc
-\nbashrc\t~/.bashrc
-\nhellokjsdhasjdgsjhgsjdk\thello/hoyy"
-
-echo -e $b
