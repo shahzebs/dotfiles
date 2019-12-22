@@ -119,16 +119,16 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set laststatus=2
 
 " Map Meta+j,k to Alt+j,k
-execute "set <M-j>=\ej"
-execute "set <M-k>=\ek"
+"execute "set <M-j>=\ej"
+"execute "set <M-k>=\ek"
 
 " Move lines up and down
-nnoremap <M-j> :move .+1<CR>
-nnoremap <M-k> :move .-2<CR>
-inoremap <M-j> <Esc>:move .+1<CR>==gi
-inoremap <M-k> <Esc>:move .-2<CR>==gi
-vnoremap <M-j> :move '>+1<CR>gv=gv
-vnoremap <M-k> :move '<-2<CR>gv=gv
+nnoremap <C-S-j> :move .+1<CR>
+nnoremap <C-S-k> :move .-2<CR>
+inoremap <C-S-j> <Esc>:move .+1<CR>==gi
+inoremap <C-S-k> <Esc>:move .-2<CR>==gi
+vnoremap <C-S-j> :move '>+1<CR>gv=gv
+vnoremap <C-S-k> :move '<-2<CR>gv=gv
 
 " Remap VIM 0 to first non-blank character
 map 0 ^

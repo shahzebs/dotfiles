@@ -78,12 +78,18 @@ colorscheme gruvbox-material "| hi Normal guibg=#1f1f1f
 let g:gruvbox_material_background = 'hard'
 " let g:lightline = {'colorscheme' : 'gruvbox_material'}
 
+" Make background transparent and the tildes visible
+hi Normal ctermbg=none 
+hi EndOfBuffer ctermbg=none ctermfg=243 
+hi LineNr ctermbg=none 
+hi FoldColumn ctermbg=none
+
 " Changes working directory
 set acd
 
 " Recompile when writing a suckless program, e.g. dwm or st
 let myfilepath = expand('%:p')
-if myfilepath =~ "dwm\/" || myfilepath =~ "\/st\/"
+if myfilepath =~ "dwm" || myfilepath =~ "\/st\/"
     autocmd BufWritePost *.c,*.h :!make && sudo make install
 endif
 
@@ -93,8 +99,3 @@ autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
 " After writing dwmbar file, kill all intances and run new
 autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar > /dev/null 2>&1 &
 
-" Make background transparent and the tildes visible
-hi Normal ctermbg=none 
-hi EndOfBuffer ctermbg=none ctermfg=243 
-hi LineNr ctermbg=none 
-hi FoldColumn ctermbg=none
