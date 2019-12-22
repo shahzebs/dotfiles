@@ -38,19 +38,35 @@ wifi() {
 
 memory() {
     mem=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
-    icon="🧠"
+    icon=""
     printf "%s %s" "$icon $mem"
     echo "$delim"
 }
 
 cpu_temp() {
     temp=$(sensors | awk '/Tdie/ {print $2}')
-    icon=🖥
+    icon=""
     printf "%s %s" "$icon $temp"
     echo "$delim"
 }
 
+dropbx() {
+    if [[ "$(pgrep dropbox)" ]]; then
+        echo ""
+    else
+        return
+    fi
+    dropbox status | grep "Sync" > /dev/null && echo "♻️"
+    echo "$delim"
+}
+
+bluetooth() {
+    [ "$(bluetoothctl info | awk '/Connected/ {print $2}')" = 'yes' ] && echo -e "\n$delim"
+}
+
 status() {
+    bluetooth
+    dropbx
     cpu_temp
     memory
     wifi
