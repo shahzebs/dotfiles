@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mem=$(free -h | awk '/^Mem:/ {print $3 "/" $2}')
+icon=""
+
+printf "%s%s" "$icon $mem"
+
+printf " | "

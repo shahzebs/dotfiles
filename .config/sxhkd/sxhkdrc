@@ -39,12 +39,16 @@ super + shift + {plus,minus}
 
 # Increase/decrease volume by 10%
 super + {plus,minus}
-        amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; $HOME/.scripts/refdwmbar &
+        amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # Mute/unmute audio
 super + shift + p
-        amixer -D pulse set Master toggle > /dev/null 2>&1; $HOME/.scripts/refdwmbar &
+        amixer -D pulse set Master toggle > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}
+
+# Restart dwmblocks (status bar)
+super + shift + b
+        killall dwmblocks; dwmblocks > /dev/null 2>&1 &

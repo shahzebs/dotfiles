@@ -5,9 +5,11 @@
 $HOME/.fehbg &
 
 if ! [[ "$(pgrep sxhkd)" ]]; then
-    sxhkd > /dev/null 2>&1 &
+    sxhkd -m 1 > /dev/null 2>&1 &
 fi
 
 compton > /dev/null 2>&1 &
 
-$HOME/.scripts/dwmbar &
+dropbox start > /dev/null &
+
+dwmbar > /dev/null 2>&1 &

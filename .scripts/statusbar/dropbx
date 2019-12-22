@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ "$(pgrep dropbox)" ]]; then
+    printf ""
+else
+    return
+fi
+dropbox status | grep "Sync" > /dev/null && printf "♻️"
+
+printf " | "

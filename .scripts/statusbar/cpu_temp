@@ -1,0 +1,8 @@
+#!/bin/bash
+
+temp="$(sensors | awk '/Tdie/{print $2}')"
+icon=""
+
+printf "%s%s" "$icon $temp"
+
+printf " | "
