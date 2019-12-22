@@ -2,10 +2,9 @@
 
 pathtoconfiglist=$HOME/.scripts/dmenu_configs/config_files.txt
 
-filename=$(awk "/$(cat $pathtoconfiglist | awk '{print $1}' | dmenu)/ {print \$2}" $pathtoconfiglist)
+query=$(awk '{print $1}' $pathtoconfiglist | dmenu)
 
-# filedir=$(echo $filename | sed 's|\(.*\)\/.*|\1|')
-
-if [[ $filename ]] && [[ "$filename" != *$'\n'* ]] ; then
+if [ "$(echo $query)" ] && [ "$(awk "\$1~/$query/" $pathtoconfiglist)" ]; then
+    filename=$(awk "/$query/ {print \$2;exit}" $pathtoconfiglist)
     st -e vim "$filename"
 fi

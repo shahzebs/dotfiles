@@ -12,4 +12,4 @@ compton > /dev/null 2>&1 &
 
 dropbox start > /dev/null &
 
-dwmbar > /dev/null 2>&1 &
+dwmblocks > /dev/null 2>&1 &

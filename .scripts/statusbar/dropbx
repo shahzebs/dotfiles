@@ -2,9 +2,6 @@
 
 if [[ "$(pgrep dropbox)" ]]; then
     printf ""
-else
-    return
+    dropbox status | grep "Sync" > /dev/null && printf "♻️"
+    printf " | "
 fi
-dropbox status | grep "Sync" > /dev/null && printf "♻️"
-
-printf " | "
