@@ -97,5 +97,5 @@ endif
 autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
 
 " After writing dwmbar file, kill all intances and run new
-autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar > /dev/null 2>&1 &
+"autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar > /dev/null 2>&1 &
 
