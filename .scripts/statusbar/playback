@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ "$(playerctl -l)" ]; then
+    if [ "$(playerctl status)" = 'Playing' ]; then
+        icon=""
+    else
+        icon=""
+    fi
+    artist="$(playerctl metadata | awk '/:artist/{for(i=3;i<=NF;++i)printf $i " "}')"
+    title="$(playerctl metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | cut -c 1-11).."
+    trackinfo="$(echo "$artist- $title")"
+
+    printf "%s %s" "$icon" "$trackinfo"
+    printf " | "
+fi

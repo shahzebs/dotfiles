@@ -31,11 +31,11 @@ super + shift + c
 
 # Play/pause audio
 super + p
-        playerctl play-pause > /dev/null 2>&1
+        playerctl play-pause > /dev/null 2>&1; pkill -RTMIN+7 dwmblocks
 
 # Go to next/previous track
 super + shift + {plus,minus}
-        playerctl {next,previous} > /dev/null 2>&1
+        playerctl {next,previous} > /dev/null 2>&1; pkill -RTMIN+7 dwmblocks
 
 # Increase/decrease volume by 10%
 super + {plus,minus}

@@ -1,8 +1,17 @@
 #!/bin/bash
 
-[ "$(cat /sys/class/net/w*/operstate)" = 'down'  ] && wifiicon="📡"
-[ ! -n "${wifiicon+var}"  ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print "📶", int($3 * 100 / 70) "%"  }')
+#ifstat 0.1 1 | awk 'NR==3{printf("%.1f",$3/1000)}'
+upload=""
+download=""
 
-printf "%s %s" "$wifiicon" "$(cat /sys/class/net/e*/operstate | sed "s/down/❎/;s/up/🌐/")"
+if [ "$(cat /sys/class/net/w*/operstate)" = 'down' ]; then
+    wifiicon=""
+else
+    wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) "%"  }')
+    download=" $(ifstat 0.1 1 | awk 'NR==3{printf("%.1f",$3/1000)}')MB/s"
+    upload=" $(ifstat 0.1 1 | awk 'NR==3{printf("%.1f",$4/1000)}')MB/s"
+fi
+printf "%s %s " "$download" "$upload" 
+printf "%s %s" "$wifiicon" "$(cat /sys/class/net/e*/operstate | sed "s/down//;s/up//")"
 
 printf " | "
