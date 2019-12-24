@@ -2,7 +2,8 @@
 st.alpha: 0.92
 
 !! Set a default font and font size as below:
-! st.font: Monospace:inconsolata:pixelsize=13:antialias=true:hinting=true;
+! st.font: UbuntuMono\ Nerd\ Font:pixelsize=16:antialias=true:autohint=true;
+! st.font: SauceCodePro Nerd Font:style=Regular:pixelsize=16:antialias=true:autohint=true;
 
 ! st.termname: st-256color
 ! st.borderpx: 2

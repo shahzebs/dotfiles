@@ -13,3 +13,4 @@ compton > /dev/null 2>&1 &
 dropbox start > /dev/null &
 
 dwmblocks > /dev/null 2>&1 &
+

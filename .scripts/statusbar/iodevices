@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ "$(pacmd list-sinks | awk 'f{print;f=0} /\*/{f=1}')" == *"bluez"* ]]; then
+    printf " "
+fi
+
+if [[ "$(pacmd list-sources | awk 'f{print;f=0} /\*/{f=1}')" == *"Snowball"* ]]; then
+    printf " "
+fi
+
+printf " | "

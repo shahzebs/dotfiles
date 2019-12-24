@@ -123,12 +123,12 @@ set laststatus=2
 "execute "set <M-k>=\ek"
 
 " Move lines up and down
-nnoremap <C-S-j> :move .+1<CR>
-nnoremap <C-S-k> :move .-2<CR>
-inoremap <C-S-j> <Esc>:move .+1<CR>==gi
-inoremap <C-S-k> <Esc>:move .-2<CR>==gi
-vnoremap <C-S-j> :move '>+1<CR>gv=gv
-vnoremap <C-S-k> :move '<-2<CR>gv=gv
+"nnoremap <C-Q> :move .+1<CR>
+"nnoremap <C-W> :move .-2<CR>
+"inoremap m + k <Esc>:move .+1<CR>==gi
+"inoremap m + j <Esc>:move .-2<CR>==gi
+"vnoremap <C-Q> :move '>+1<CR>gv=gv
+"vnoremap <C-W> :move '<-2<CR>gv=gv
 
 " Remap VIM 0 to first non-blank character
 map 0 ^

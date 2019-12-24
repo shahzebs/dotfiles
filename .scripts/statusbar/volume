@@ -3,14 +3,14 @@
 volstat="$(amixer -D pulse get Master)"
 
 if [ "$(echo $volstat | grep "\[off\]")" ]; then
-    printf ""
+    printf "ﱝ"
 else
     vol=$(echo "$volstat" | awk -F[][] '/%/ {print $2;exit}' | awk -F% '{print $1}')
 
     if [ "$vol" -gt "50" ]; then
         icon=""
-    #elif [ "$vol" -lt "30" ]; then
-    #    icon="🔈"
+    elif [ "$vol" -lt "30" ]; then
+        icon=""
     else
         icon=""
     fi
@@ -18,4 +18,4 @@ else
     printf "%s %s%%" "$icon" "$vol"
 fi
 
-printf " | "
+# printf " | "
