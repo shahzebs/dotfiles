@@ -5,6 +5,10 @@
 super + Return
         st
 
+# Lock screen
+super + shift + l
+        $HOME/.scripts/isinstalled slock && ( slock & xset dpms force off ; playerctl pause )
+
 # Launch Firefox
 super + x
         firefox > /dev/null 2>&1
@@ -34,7 +38,7 @@ super + p
         playerctl play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
 
 # Go to next/previous track
-super + shift + {plus,minus}
+super + {Right,Left}
         playerctl {next,previous} > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
 
 # Increase/decrease volume by 10%
@@ -44,6 +48,10 @@ super + {plus,minus}
 # Mute/unmute audio
 super + shift + p
         amixer -D pulse set Master toggle > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+
+# Increase/decrease screen brightness
+super + shift + {plus,minus}
+        xbacklight -{inc,dec} 10 > /dev/null 2>&1; pkill -RTMIN+4 dwmblocks
 
 # Shutdown/reboot
 super + ctrl + alt + {p,r}

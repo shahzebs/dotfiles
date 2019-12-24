@@ -1,0 +1,30 @@
+#!/bin/bash
+# Give battery name as argument, e.g. 'BAT0'
+
+capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$1"/status)
+
+charging=""
+notcharging=""
+stagnantcharge="♻️"
+charged="⚡"
+lowbattery=""
+
+if [ "$capacity" -ge 90  ]; then
+    capicon=""
+elif [ "$capacity" -ge 70  ]; then
+    capicon=""
+elif [ "$capacity" -ge 50  ]; then
+    capicon=""
+elif [ "$capacity" -ge 25  ]; then
+    capicon=""
+else
+    capicon=""
+    warn="$lowbattery "
+fi
+
+[ -z $warn  ] && warn=""
+
+printf "%s%s%s%s" "$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not charging/$notcharging /;s/Charging/$charging /;s/Unknown/$stagnantcharge /;s/Full/$charged /;s/ 0*/ /g;s/ :/ /g")" "$warn" "$capicon  " "$(echo "$capacity" | sed -e 's/$/%/')"
+
+printf " | "

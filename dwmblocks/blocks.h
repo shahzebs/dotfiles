@@ -7,8 +7,10 @@ static const Block blocks[] = {
     {"", "$HOME/.scripts/statusbar/cpu_temp", 3, 0},
     {"", "$HOME/.scripts/statusbar/memory", 5, 0},
     {"", "$HOME/.scripts/statusbar/wifi", 10, 2},
-    {"", "$HOME/.scripts/statusbar/volume", 0, 1},
+    {"", "$HOME/.scripts/statusbar/volume", 60, 1},
     {"", "$HOME/.scripts/statusbar/iodevices", 10, 1},
+    {"", "$HOME/.scripts/statusbar/brightness", 0, 4},
+    {"", "$HOME/.scripts/statusbar/battery BAT0", 15, 0},
 	{"", "$HOME/.scripts/statusbar/date", 30, 0},
 
 };
