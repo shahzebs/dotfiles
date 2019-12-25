@@ -1,0 +1,7 @@
+#!/bin/bash
+shopt -s expand_aliases
+alias dmenu='dmenu -fn "UbuntuMono Nerd Font:size=10" -nb "#222222" -nf "#bbbbbb" -sb "#006666" -sf "#eeeeee"'
+
+
+nmcli device wifi connect $(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $1}' | dmenu -l 10 -p "Select WiFi:")
+
