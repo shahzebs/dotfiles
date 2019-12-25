@@ -2,7 +2,7 @@
 
 # $HOME/.screenlayout/fysikkland_threemonitor.sh &
 
-$HOME/.scripts/local/localcommands &
+$HOME/.scripts/local/localcommands > /dev/null 2>&1 &
 
 $HOME/.fehbg &
 
