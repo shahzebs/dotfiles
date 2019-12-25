@@ -2,9 +2,11 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
     {" ", "$HOME/.scripts/statusbar/playback", 15, 3},
+    {"", "$HOME/.scripts/statusbar/weather/weather", 300, 0},
     // {"", "$HOME/.scripts/statusbar/bluetooth", 10, 0},
     {"", "$HOME/.scripts/statusbar/dropbx", 10, 0},
-    {"", "$HOME/.scripts/statusbar/cpu_temp", 3, 0},
+    {"", "$HOME/.scripts/statusbar/cpuload", 3, 0},
+    {"", "$HOME/.scripts/statusbar/cputemp", 3, 0},
     {"", "$HOME/.scripts/statusbar/memory", 5, 0},
     {"", "$HOME/.scripts/statusbar/wifi", 10, 2},
     {"", "$HOME/.scripts/statusbar/volume", 60, 1},

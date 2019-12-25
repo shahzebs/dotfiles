@@ -9,5 +9,5 @@ fi
 
 brightness="$(echo $brightness | awk '{print int($1 + 0.5)}')"
 
-printf "%s %.*f%%" "" 0 $brightness
+printf "%s %.*f%%" "盛" 0 $brightness
 printf " | "

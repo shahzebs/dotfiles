@@ -1,8 +1,8 @@
 #!/bin/bash
 
 temp="$(sensors | awk -F: '/Tdie/{print $2;exit}; /Core/{print $2;exit}; /CPU/{print $2;exit}' | awk '{print $1}')"
-icon=""
+icon=""
 
-printf "%s%s" "$icon $temp"
+printf "%s%s" "$icon" "$temp"
 
 printf " | "

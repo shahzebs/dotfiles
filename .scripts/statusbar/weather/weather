@@ -1,0 +1,24 @@
+#!/bin/bash
+
+codes=$HOME/.scripts/statusbar/weather/weathercodes.txt
+verbose=$HOME/.scripts/statusbar/weather/weatherverbose.txt
+symbols=$HOME/.scripts/statusbar/weather/weathersymbols.txt
+
+report="$(curl -s wttr.in/?format="%C+%t")" || exit
+descr="$(echo $report | awk '{print $1}')"
+temp="$(echo $report | awk '{print $2}')"
+
+icon=""
+
+code="$(awk "/$descr/{print \$1}" $verbose)"
+key="$(awk "/$code/{print \$2}" $codes)"
+symbol="$(awk "/$key/{print \$1}" $symbols)"
+
+if [ "$(echo $symbol)" ]; then
+    icon=$symbol
+fi
+
+printf "%s%s" "$icon  " "$temp"
+
+printf " | "
+
