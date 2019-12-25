@@ -2,6 +2,8 @@
 
 # $HOME/.screenlayout/fysikkland_threemonitor.sh &
 
+$HOME/.scripts/local/localcommands &
+
 $HOME/.fehbg &
 
 if ! [[ "$(pgrep sxhkd)" ]]; then
