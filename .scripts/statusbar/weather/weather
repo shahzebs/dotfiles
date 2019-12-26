@@ -10,15 +10,14 @@ temp="$(echo $report | awk -F: '{print $2}')"
 
 icon=""
 
-code="$(awk "/$descr/{print \$1}" $verbose)"
-key="$(awk "/$code/{print \$2}" $codes)"
-symbol="$(awk "/$key/{print \$1}" $symbols)"
+code="$(awk -F: -v var="$descr" 'tolower($2)==tolower(var){print $1}' $verbose)"
+key="$(awk -F: "/$code/{print \$2}" $codes)"
+symbol="$(awk -F: "/$key/{print \$1}" $symbols)"
 
 if [ "$(echo $symbol)" ]; then
     icon=$symbol
 fi
 
-printf "%s%s" "$icon  " "$temp"
+printf "%s%s" "$icon " "$temp"
 
 printf " | "
-
