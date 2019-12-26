@@ -53,6 +53,10 @@ super + shift + p
 super + shift + {plus,minus}
         xbacklight -{inc,dec} 10 > /dev/null 2>&1; pkill -RTMIN+4 dwmblocks
 
+# dmenu prompt with list of processes to kill (processes executed by user shahzebs)
+super + shift + k
+        $HOME/.scripts/killallclients > /dev/null 2>&1
+
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}

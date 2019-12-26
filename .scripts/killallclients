@@ -1,0 +1,5 @@
+#!/bin/bash
+shopt -s expand_aliases
+alias dmenu='dmenu -fn "UbuntuMono Nerd Font:size=10" -nb "#222222" -nf "#bbbbbb" -sb "#006666" -sf "#eeeeee"'
+
+killall "$(pgrep -u shahzebs -l | awk '{first = $1; $1 = "";print $0}' | sed 's/^\s//' | sort -u | dmenu -l 20)"
