@@ -57,6 +57,10 @@ super + shift + {plus,minus}
 super + shift + k
         $HOME/.scripts/killallclients > /dev/null 2>&1
 
+# dmenu prompt to change WiFi (should give feedback)
+super + shift + w
+        $HOME/.scripts/wificonnect > /dev/null 2>&1
+
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}
