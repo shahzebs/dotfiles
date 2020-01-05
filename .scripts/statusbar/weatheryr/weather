@@ -4,7 +4,7 @@ geolocation="$(curl -s https://freegeoip.app/json/ | sed 's/,/\n/g; s/"//g' | aw
 lat=$(echo $geolocation | awk '{print $1}')
 lon=$(echo $geolocation | awk '{print $2}')
 
-report="$(curl -s "https://api.met.no/weatherapi/locationforecast/1.9/?lat=$lat&lon=$lon" | awk '/\<\/temperature\>/; /\<\/precipitation\>/; /\<\/symbol\>/' | head -3 | sed 's/<\/\([^$]*\)$//g; s/"//g; s/<//; s/>//' | awk '/temp/{print $4}; /precip/{print $3}; /symbol/{print $2}' | sed 's/value\=//; s/id\=//')"
+report="$(curl -s "https://api.met.no/weatherapi/locationforecast/1.9/?lat=$lat&lon=$lon" | awk '/\<\/temperature\>/; /\<\/precipitation\>/; /\<\/symbol\>/' | head -3 | sed 's/<\/\([^$]*\)$//g; s/"//g; s/<//; s/>//' | awk '/temp/{print $4}; /precip/{print $5}; /symbol/{print $2}' | sed 's/maxvalue\=//; s/value\=//; s/id\=//')"
 
 temp="$(echo $report | awk '{print $1}')"
 precip="$(echo $report | awk '{print $2}')"
