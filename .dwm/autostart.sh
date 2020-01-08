@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# $HOME/.screenlayout/fysikkland_threemonitor.sh &
+/usr/lib/notification-daemon/notification-daemon &
 
 $HOME/.scripts/local/localcommands > /dev/null 2>&1 &
 
