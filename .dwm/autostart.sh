@@ -1,5 +1,7 @@
 #!/bin/bash
 
+/usr/lib/notification-daemon/notification-daemon &
+
 $HOME/.scripts/local/localcommands > /dev/null 2>&1 &
 
 $HOME/.fehbg &
