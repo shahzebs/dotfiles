@@ -122,3 +122,5 @@ shopt -s autocd
 # set -o vi
 
 cd $HOME
+# to make Java applications behave in WM like DWM (e.g. PyCharm)
+export _JAVA_AWT_WM_NONREPARENTING=1
