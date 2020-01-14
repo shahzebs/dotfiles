@@ -3,3 +3,12 @@ set highlight-active-color "#ff0000"
 set highlight-transparency 0.1
 set selection-clipboard clipboard
 set sandbox none
+
+unmap d
+unmap <C-d>
+unmap <C-u>
+
+map <C-d> toggle_page_mode
+map d scroll half-down
+map u scroll half-up
+
