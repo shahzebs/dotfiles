@@ -1,5 +1,5 @@
  :Cloudy
-14 :Fog
+ :Fog
  :HeavyRain
  :HeavyShowers
  :HeavySnow
