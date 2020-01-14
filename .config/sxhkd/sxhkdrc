@@ -68,3 +68,7 @@ super + ctrl + alt + {p,r}
 # Restart dwmblocks (status bar)
 super + shift + b
         killall dwmblocks; dwmblocks > /dev/null 2>&1 &
+
+# Toggle dark/light mode (change background)
+super + alt + d
+        {feh --no-fehbg --bg-fill $HOME/Dropbox/pictures/landscape/duskdunes.jpeg,$HOME/.fehbg}
