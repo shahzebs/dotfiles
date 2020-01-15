@@ -71,4 +71,4 @@ super + shift + b
 
 # Toggle dark/light mode (change background)
 super + alt + d
-        {feh --no-fehbg --bg-fill $HOME/Dropbox/pictures/landscape/duskdunes.jpeg,$HOME/.fehbg}
+        {feh --no-fehbg --no-xinerama --bg-fill $HOME/Dropbox/pictures/landscape/duskdunes.jpeg,$HOME/.fehbg}
