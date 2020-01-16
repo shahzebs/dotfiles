@@ -72,3 +72,7 @@ super + shift + b
 # Toggle dark/light mode (change background)
 super + alt + d
         {feh --no-fehbg --no-xinerama --bg-fill $HOME/Dropbox/pictures/landscape/duskdunes.jpeg,$HOME/.fehbg}
+
+# Screenshot by selection and add to clipboard
+super + shift + F12
+        sleep 0.2; $HOME/.scripts/screen_copy.sh
