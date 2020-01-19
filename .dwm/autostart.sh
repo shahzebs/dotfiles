@@ -4,8 +4,6 @@
 
 $HOME/.scripts/local/localcommands > /dev/null 2>&1 &
 
-$HOME/.fehbg &
-
 if ! [[ "$(pgrep sxhkd)" ]]; then
     sxhkd -m 1 > /dev/null 2>&1 &
 fi
