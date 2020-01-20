@@ -18,6 +18,7 @@ if [ "$(echo $symbol)" ]; then
     icon=$symbol
 fi
 
-printf "%s%s%s%s" "$icon " "$temp°C " " $precip" "mm"
-
-printf " | "
+if [ "$(echo $temp)" ] && [ "$(echo $precip)" ]; then
+    printf "%s%s%s%s" "$icon " "$temp°C " " $precip" "mm"
+    printf " | "
+fi

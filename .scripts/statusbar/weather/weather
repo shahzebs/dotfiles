@@ -1,22 +1,27 @@
 #!/bin/bash
 
-codes=$HOME/.scripts/statusbar/weather/weathercodes.txt
-symbols=$HOME/.scripts/statusbar/weather/weathersymbols.txt
+yrreport="$($HOME/.scripts/statusbar/weatheryr/weather)"
+if [ "$(echo $yrreport)" ]; then
+    printf "%s" "$yrreport"
+else
+    codes=$HOME/.scripts/statusbar/weather/weathercodes.txt
+    symbols=$HOME/.scripts/statusbar/weather/weathersymbols.txt
 
-report="$(curl -s wttr.in/?format=j1 | awk -F: '/precipMM/{print $2}; /temp_C/{print $2}; /weatherCode/{print $2;exit}' | sed 's/"//g; s/,//' | sed 's/^\s//')" || exit
-precip="$(echo $report | awk '{print $1}')"
-temp="$(echo $report | awk '{print $2}')"
-weathercode="$(echo $report | awk '{print $3}')"
+    report="$(curl -s wttr.in/?format=j1 | awk -F: '/precipMM/{print $2}; /temp_C/{print $2}; /weatherCode/{print $2;exit}' | sed 's/"//g; s/,//' | sed 's/^\s//')" || exit
+    precip="$(echo $report | awk '{print $1}')"
+    temp="$(echo $report | awk '{print $2}')"
+    weathercode="$(echo $report | awk '{print $3}')"
 
-icon=""
+    icon=""
 
-key="$(awk -F: "/$weathercode/{print \$2}" $codes)"
-symbol="$(awk -F: -v var=$key '{if ($2 == var) {print $1}}' $symbols)"
+    key="$(awk -F: "/$weathercode/{print \$2}" $codes)"
+    symbol="$(awk -F: -v var=$key '{if ($2 == var) {print $1}}' $symbols)"
 
-if [ "$(echo $symbol)" ]; then
-    icon=$symbol
+    if [ "$(echo $symbol)" ]; then
+        icon=$symbol
+    fi
+
+    printf "%s%s%s%s" "$icon " "$temp°C " " $precip" "mm"
+
+    printf " | "
 fi
-
-printf "%s%s%s%s" "$icon " "$temp°C " " $precip" "mm"
-
-printf " | "
