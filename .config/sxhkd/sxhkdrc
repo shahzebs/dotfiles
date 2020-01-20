@@ -61,6 +61,10 @@ super + shift + k
 super + shift + w
         $HOME/.scripts/wificonnect > /dev/null 2>&1
 
+# dmenu prompt to open a pdf file under the home directory
+super + shift + o
+        $HOME/.scripts/openpdf > /dev/null 2>&1
+
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}

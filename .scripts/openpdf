@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pdffile=$(find $HOME \( -iname '*.pdf' ! -iwholename '/home/shahzebs/.*' \) | dmenu -l 10)
+
+if [ "$(echo $pdffile)" ]; then
+    zathura $pdffile &
+fi
