@@ -8,6 +8,15 @@ else
     # upload=" $(ifstat 0.1 1 | awk 'NR==3{printf("%.1f",$4/1000)}')MB/s"
     # printf "%s %s " "$download" "$upload" 
 fi
-printf "%s%s" "$wifistatus" "$(cat /sys/class/net/e*/operstate | sed "s/down/ /;s/up/ /")"
+
+ethernet="$(cat /sys/class/net/e*/operstate | sed "s/down/ /;s/up/ /")"
+
+connectivity=""
+ping -c1 google.com > /dev/null 2>&1
+if [ "$?" == 0 ]; then
+    connectivity=""
+fi
+
+printf "%s%s%s" "$wifistatus" "$ethernet" " $connectivity"
 
 printf " | "
