@@ -65,6 +65,10 @@ super + shift + w
 super + shift + o
         $HOME/.scripts/openpdf > /dev/null 2>&1
 
+# dmenu promt for translating text
+super + ctrl + t
+        $HOME/.scripts/translate > /dev/null 2>&1
+
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}
@@ -79,4 +83,4 @@ super + alt + d
 
 # Screenshot by selection and add to clipboard
 super + shift + F12
-        sleep 0.2; $HOME/.scripts/screen_copy.sh
+        sleep 0.2; $HOME/.scripts/screen_copy.sh > /dev/null 2>&1

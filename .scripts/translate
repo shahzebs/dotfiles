@@ -1,0 +1,19 @@
+#!/bin/bash
+
+query=$(echo "" | dmenu -p 'Translate [from] [to] [query]:')
+
+sl=$(echo $query | awk '{print $1}')
+tl=$(echo $query | awk '{print $2}')
+text=$(echo $query | cut -d " " -f 3- | sed 's/ /+/g')
+# awk '{for(i=3;i<=NF;++i)print $i}')
+
+if ! [ "$(echo $sl)" ] || ! [ "$(echo $tl)" ] || ! [ "$(echo $text)" ]; then
+    exit
+fi
+
+translation=$(curl -s "https://translate.googleapis.com/translate_a/single?client=gtx&sl=$sl&tl=$tl&dt=t&q=$text" | sed 's/^.\+\(".\+",".\+",null\).*/\1/g' | head -1 | sed 's/"//g;s/,null//g;s/,/\n/g' | dmenu -p "Translation results:" -l 5)
+
+if [ "$(echo $translation)" ]; then
+    echo "$translation" | xclip -selection clipboard
+fi
+
