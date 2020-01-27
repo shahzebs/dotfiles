@@ -1,5 +1,6 @@
 alias vim='vim --servername vim'
 alias project='cd ~/Dropbox/ntnu/project'
+alias master='cd ~/Dropbox/ntnu/master'
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
 alias sa='sudo apt'
