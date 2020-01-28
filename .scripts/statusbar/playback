@@ -6,12 +6,15 @@ if [ "$(playerctl -l)" ]; then
     else
         icon=""
     fi
+
+    printf "$icon"
+
     artist="$(playerctl metadata | awk '/:artist/{for(i=3;i<=NF;++i)printf $i " "}')"
     title="$(playerctl metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | cut -c 1-11)"
     if [ "$(echo $artist)" ] && [ "$(echo $title)" ]; then
         trackinfo="$(echo "$artist- $title..")"
-
-        printf "%s %s" "$icon" "$trackinfo"
-        printf " | "
+        printf "  $trackinfo"
     fi
+
+    printf " | "
 fi
