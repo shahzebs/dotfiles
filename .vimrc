@@ -39,6 +39,9 @@ let g:syntastic_python_checkers = ['flake8']
 " Polyglot config
 let g:polyglot_disabled = ['latex']
 
+" Auto-pairs config
+let g:AutoPairsShortcutFastWrap = ''
+
 """ Useful remaps
 inoremap jk <esc>
 
