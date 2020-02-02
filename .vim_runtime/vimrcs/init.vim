@@ -157,3 +157,17 @@ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 " Increment/decrement alpha characters with <C-A>/<C-X>
 set nrformats+=alpha
+
+" Fix Ctrl+Arrows mapping
+nnoremap <esc>[1;5A <C-Up>
+inoremap <esc>[1;5A <C-Up>
+vnoremap <esc>[1;5A <C-Up>
+nnoremap <esc>[1;5B <C-Down>
+inoremap <esc>[1;5B <C-Down>
+vnoremap <esc>[1;5B <C-Down>
+nnoremap <esc>[1;5C <C-Right>
+inoremap <esc>[1;5C <C-Right>
+vnoremap <esc>[1;5C <C-Right>
+nnoremap <esc>[1;5D <C-Left>
+inoremap <esc>[1;5D <C-Left>
+vnoremap <esc>[1;5D <C-Left>
