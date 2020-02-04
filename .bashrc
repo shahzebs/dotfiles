@@ -124,3 +124,7 @@ shopt -s autocd
 cd $HOME
 # to make Java applications behave in WM like DWM (e.g. PyCharm)
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+export EDITOR="vim"
+export BROWSER="firefox"
+export PDFVIEWER="zathura"
