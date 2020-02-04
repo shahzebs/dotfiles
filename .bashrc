@@ -126,5 +126,5 @@ cd $HOME
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export EDITOR="vim"
-export BROWSER="firefox"
+export BROWSER="brave-browser"
 export PDFVIEWER="zathura"
