@@ -73,6 +73,10 @@ super + shift + o
 super + ctrl + t
         $HOME/.scripts/translate > /dev/null 2>&1
 
+# Open Facebook Messenger CLI inside venv
+super + shift + f
+        $HOME/.scripts/fbcli > /dev/null 2>&1
+
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}
