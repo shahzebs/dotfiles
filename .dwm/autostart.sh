@@ -4,7 +4,7 @@
 
 $HOME/.scripts/local/localcommands > /dev/null 2>&1 &
 
-xset s off -dpms &
+xset s off dpms 0 0 0 &
 
 if ! [[ "$(pgrep sxhkd)" ]]; then
     sxhkd -m 1 > /dev/null 2>&1 &
