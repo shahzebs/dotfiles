@@ -69,13 +69,13 @@ super + shift + w
 super + shift + o
         $HOME/.scripts/openpdf > /dev/null 2>&1
 
-# dmenu promt for translating text
+# dmenu prompt for translating text
 super + ctrl + t
         $HOME/.scripts/translate > /dev/null 2>&1
 
-# Open Facebook Messenger CLI inside venv
+# Open Caprine (Facebook Messenger app)
 super + shift + f
-        $HOME/.scripts/fbcli > /dev/null 2>&1
+        caprine > /dev/null 2>&1 &
 
 # Shutdown/reboot
 super + ctrl + alt + {p,r}

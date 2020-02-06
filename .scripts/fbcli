@@ -1,7 +1,0 @@
-#!/bin/bash
-
-source $HOME/Documents/venvfornode/bin/activate
-
-st -e "fb-messenger-cli"
-
-deactivate
