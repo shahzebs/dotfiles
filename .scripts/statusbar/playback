@@ -3,8 +3,10 @@
 if [ "$(playerctl -l)" ]; then
     if [ "$(playerctl status)" = 'Playing' ]; then
         icon=""
-    else
+    elif [ "$(playerctl status)" = 'Paused' ]; then
         icon=""
+    else
+        exit
     fi
 
     printf "$icon"
