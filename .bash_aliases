@@ -12,3 +12,4 @@ alias dmenu='dmenu -fn "UbuntuMono Nerd Font:size=10" -nb "#222222" -nf "#bbbbbb
 alias wificonnect='~/.scripts/wificonnect'
 alias hddstandby='sudo hdparm -y /dev/sdb /dev/sdc'
 alias :q='exit'
+alias rip='rm -rf'
