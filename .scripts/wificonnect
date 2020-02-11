@@ -3,5 +3,38 @@ shopt -s expand_aliases
 alias dmenu='dmenu -fn "UbuntuMono Nerd Font:size=10" -nb "#222222" -nf "#bbbbbb" -sb "#006666" -sf "#eeeeee"'
 
 activewifi="$(nmcli device wifi list | awk '/\*/{print $2}')"
-nmcli device wifi connect $(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $1}' | dmenu -l 10 -p "Current WiFi is $activewifi:")
+
+function exitifblank {
+
+    if ! [ "$(echo $1)" ]; then
+        exit 
+    fi
+}
+
+function selectwifi {
+    selectedwifi="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $1}' | dmenu -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
+
+    exitifblank $selectedwifi
+
+    status="$(nmcli device wifi connect $selectedwifi)"
+
+    while [[ $status != *"success"* ]]; do
+        password="$(echo "" | dmenu -p "Enter password for $selectedwifi or ':q' to return to selection:")"
+
+        exitifblank $password
+        
+        if [[ $password == ":q" ]]; then
+            selectwifi
+            break
+        fi
+
+        nmcli connection delete $selectedwifi
+        status="$(nmcli device wifi connect $selectedwifi password $password)"
+    done
+}
+
+selectwifi
+
+
+
 
