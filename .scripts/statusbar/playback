@@ -11,10 +11,15 @@ if [ "$(playerctl -l)" ]; then
 
     printf "$icon"
 
-    artist="$(playerctl metadata | awk '/:artist/{for(i=3;i<=NF;++i)printf $i " "}')"
-    title="$(playerctl metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | cut -c 1-11)"
+    MAXLENGTH=15
+
+    artist="$(playerctl metadata | awk '/:artist/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
+    title="$(playerctl metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
     if [ "$(echo $artist)" ] && [ "$(echo $title)" ]; then
-        trackinfo="$(echo "$artist- $title..")"
+        if [ $(printf "$title" | wc -c) -gt $MAXLENGTH ]; then
+            title="$(printf "$title" | cut -c 1-$MAXLENGTH).."
+        fi
+        trackinfo="$artist - $title"
         printf "  $trackinfo"
     fi
 
