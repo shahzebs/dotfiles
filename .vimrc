@@ -3,8 +3,8 @@
 set runtimepath+=~/.vim_runtime
 set t_Co=256
 
-source ~/.vim_runtime/vimrcs/init.vim
-source ~/.vim_runtime/vimrcs/filetypes.vim
+source ~/.vim/runtime/vimrcs/init.vim
+"source ~/.vim_runtime/vimrcs/filetypes.vim
 
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -46,8 +46,8 @@ let g:AutoPairsShortcutFastWrap = ''
 inoremap jk <esc>
 
 " Jump to first <++>, delete it, and enter insert mode
-nnoremap ;; /<++><CR>:noh<CR>"_cf>
-inoremap ;; <ESC>/<++><CR>:noh<CR>"_cf>
+nnoremap <silent> ;; /<++><CR>:noh<CR>"_cf>
+inoremap <silent> ;; <ESC>/<++><CR>:noh<CR>"_cf>
 
 " Delete/change until first <++> (forward direction)
 nnoremap d<Space> d/<++><CR>d4l:noh<CR>
@@ -98,7 +98,4 @@ endif
 
 " After writing sxhkdrc, kill existing instance and launch new
 autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
-
-" After writing dwmbar file, kill all intances and run new
-"autocmd BufWritePost dwmbar :!killall dwmbar; setsid $HOME/.scripts/dwmbar > /dev/null 2>&1 &
 
