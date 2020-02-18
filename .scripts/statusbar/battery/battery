@@ -9,18 +9,24 @@ notcharging=""
 stagnantcharge="♻️"
 charged="⚡"
 lowbattery=""
+bgimage=""
 
 if [ "$capacity" -ge 90  ]; then
     capicon=""
+    bgimage="battery100"
 elif [ "$capacity" -ge 70  ]; then
     capicon=""
+    bgimage="battery75"
 elif [ "$capacity" -ge 50  ]; then
     capicon=""
+    bgimage="battery50"
 elif [ "$capacity" -ge 25  ]; then
     capicon=""
+    bgimage="battery25"
 else
     capicon=""
     warn="$lowbattery "
+    bgimage="battery0"
 fi
 
 [ -z $warn  ] && warn=""
@@ -28,3 +34,9 @@ fi
 printf "%s%s%s%s" "$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not charging/$notcharging /;s/Charging/$charging /;s/Unknown/$stagnantcharge /;s/Full/$charged /;s/ 0*/ /g;s/ :/ /g")" "$warn" "$capicon  " "$(echo "$capacity" | sed -e 's/$/%/')"
 
 printf " | "
+
+if [ "$status" == "Charging" ]; then
+    feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/$bgimage-charging.png"
+# else
+#     feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/$bgimage.png"
+fi
