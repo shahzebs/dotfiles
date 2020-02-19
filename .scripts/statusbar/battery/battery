@@ -36,7 +36,8 @@ printf "%s%s%s%s" "$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not chargi
 printf " | "
 
 if [ "$status" == "Charging" ]; then
-    feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/$bgimage-charging.png"
-# else
+    feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/charging-$bgimage.png"
+else
+    $HOME/.scripts/local/fehbg
 #     feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/$bgimage.png"
 fi
