@@ -1,9 +1,19 @@
 #!/bin/bash
 
-if [ "$(playerctl -l)" ]; then
-    if [ "$(playerctl status)" = 'Playing' ]; then
+if [ $(playerctl -l | wc -l) -ge 1 ]; then
+    player=""
+
+    for p in $(playerctl -l)
+    do
+        if [ "$(playerctl -p $p status)" != 'Stopped' ]; then
+            player="$p"
+            break
+        fi
+    done
+
+    if [ "$(playerctl -p $player status)" = 'Playing' ]; then
         icon=""
-    elif [ "$(playerctl status)" = 'Paused' ]; then
+    elif [ "$(playerctl -p $player status)" = 'Paused' ]; then
         icon=""
     else
         exit
@@ -13,8 +23,8 @@ if [ "$(playerctl -l)" ]; then
 
     MAXLENGTH=15
 
-    artist="$(playerctl metadata | awk '/:artist/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
-    title="$(playerctl metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
+    artist="$(playerctl -p $player metadata | awk '/:artist/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
+    title="$(playerctl -p $player metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
     if [ "$(echo $artist)" ] && [ "$(echo $title)" ]; then
         if [ $(printf "$title" | wc -c) -gt $MAXLENGTH ]; then
             title="$(printf "$title" | cut -c 1-$MAXLENGTH).."
