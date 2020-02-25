@@ -117,9 +117,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PAGER="most"
 shopt -s autocd
-# set -o vi
 
 cd $HOME
 # to make Java applications behave in WM like DWM (e.g. PyCharm)
@@ -128,3 +126,13 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR="vim"
 export BROWSER="brave-browser"
 export PDFVIEWER="zathura"
+
+# Colorful LESS-pager
+export LESS=-R
+export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
+export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
