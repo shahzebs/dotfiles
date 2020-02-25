@@ -1,5 +1,5 @@
 !! Transparency (0-1):
-st.alpha: 0.90
+st.alpha: 0.80
 
 !! Set a default font and font size as below:
 ! st.font: UbuntuMono\ Nerd\ Font:pixelsize=16:antialias=true:autohint=true;
