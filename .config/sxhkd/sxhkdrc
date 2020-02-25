@@ -9,17 +9,9 @@ super + Return
 super + shift + l
         $HOME/.scripts/isinstalled slock && ( slock & xset dpms force off ; playerctl pause )
 
-# Launch Brave browser
-super + x
-        brave-browser > /dev/null 2>&1
-
-# Launch Firefox
-super + shift + x
-        firefox > /dev/null 2>&1
-
-# Launch Google Chrome
-super + shift + g
-        google-chrome > /dev/null 2>&1
+# Launch Brave/Firefox/Chrome browser
+super + {+,shift,ctrl} + x
+        {brave-browser,firefox,google-chrome} > /dev/null 2>&1
 
 # Launch Thunderbird
 super + e
