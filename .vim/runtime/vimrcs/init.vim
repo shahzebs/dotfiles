@@ -175,3 +175,4 @@ nnoremap <esc>[1;5D <C-Left>
 vnoremap <esc>[1;5D <C-Left>
 noremap! <esc>[1;5D <C-Left>
 
+map Y y$
