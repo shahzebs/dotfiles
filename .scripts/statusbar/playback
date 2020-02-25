@@ -12,9 +12,9 @@ if [ $(playerctl -l | wc -l) -ge 1 ]; then
     done
 
     if [ "$(playerctl -p $player status)" = 'Playing' ]; then
-        icon=""
+        icon="  "
     elif [ "$(playerctl -p $player status)" = 'Paused' ]; then
-        icon=""
+        icon=" "
     else
         exit
     fi
@@ -27,10 +27,10 @@ if [ $(playerctl -l | wc -l) -ge 1 ]; then
     title="$(playerctl -p $player metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
     if [ "$(echo $artist)" ] && [ "$(echo $title)" ]; then
         if [ $(printf "$title" | wc -c) -gt $MAXLENGTH ]; then
-            title="$(printf "$title" | cut -c 1-$MAXLENGTH).."
+            title="$(printf "$title" | cut -c 1-$MAXLENGTH | sed 's/ $//').."
         fi
         trackinfo="$artist - $title"
-        printf "  $trackinfo"
+        printf "$trackinfo"
     fi
 
     printf " | "
