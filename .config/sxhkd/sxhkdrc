@@ -65,6 +65,10 @@ super + shift + o
 super + ctrl + t
         $HOME/.scripts/translate > /dev/null 2>&1
 
+# dmenu prompt for finding a window client
+super + ctrl + f
+        $HOME/.scripts/findclient > /dev/null 2>&1
+
 # Open Caprine (Facebook Messenger app)
 super + shift + f
         caprine > /dev/null 2>&1 &

@@ -1,0 +1,2 @@
+#!/bin/bash
+wmctrl -a $(wmctrl -l | sed 's/\S\+//1; s/\S\+//1; s/\S\+//1; s/^ \+//g' | dmenu -l 10)
