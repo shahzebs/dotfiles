@@ -1,0 +1,12 @@
+#!/bin/bash
+
+output="$(nvidia-settings --query CurrentMetaMode | grep ForceCompositionPipeline)"
+
+if [[ "$output" ]]; then
+    setstate="Off"        
+else
+    setstate="On"
+fi
+    
+nvidia-settings --assign CurrentMetaMode="2560x1440_75 @2560x1440 +0+0 {AllowGSYNCCompatible=On, ViewPortIn=2560x1440, ViewPortOut=2560x1440+0+0, ForceCompositionPipeline=$setstate}" && notify-send "NVIDIA Settings" "ForceCompositionPipeline set to $setstate"
+

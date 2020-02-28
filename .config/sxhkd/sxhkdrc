@@ -88,3 +88,7 @@ super + alt + d
 # Screenshot by selection and add to clipboard
 super + shift + F12
         sleep 0.2; $HOME/.scripts/screen_copy.sh > /dev/null 2>&1
+
+# Toggle ForceCompositionPipeline setting in nvidia-settings
+super + shift + n
+        $HOME/.scripts/togglenvidiapipeline
