@@ -16,3 +16,5 @@ dropbox start > /dev/null 2>&1 &
 
 dwmblocks > /dev/null 2>&1 &
 
+# to make Java applications behave in WM like DWM (e.g. PyCharm)
+export _JAVA_AWT_WM_NONREPARENTING=1
