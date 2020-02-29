@@ -30,3 +30,6 @@ fi
 # if [ -x "$(command -v /usr/bin/albert)" ] && [ ! "$(pgrep albert)" ]; then
 #     /usr/bin/albert &
 # fi
+
+# to make Java applications behave in WM like DWM (e.g. PyCharm)
+export _JAVA_AWT_WM_NONREPARENTING=1
