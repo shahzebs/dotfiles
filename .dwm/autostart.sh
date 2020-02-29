@@ -21,3 +21,6 @@ dropbox start > /dev/null 2>&1 &
 
 # statusbar
 dwmblocks > /dev/null 2>&1 &
+
+# update X resources database (for st)
+xrdb $HOME/.Xresources
