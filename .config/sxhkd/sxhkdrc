@@ -31,7 +31,7 @@ super + shift + c
 
 # Play/pause audio
 super + p
-        playerctl play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
+        playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
 
 # Go to next/previous track
 super + {Right,Left}
@@ -68,6 +68,10 @@ super + ctrl + t
 # dmenu prompt for finding a window client
 super + ctrl + f
         $HOME/.scripts/findclient > /dev/null 2>&1
+
+# dmenu prompt for changing audio streams of applications
+super + ctrl + a
+        $HOME/.scripts/selectaudioinput > /dev/null 2>&1
 
 # Open Caprine (Facebook Messenger app)
 super + shift + f

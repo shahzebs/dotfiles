@@ -1,0 +1,16 @@
+#!/bin/bash
+
+streamid="$(pactl list sink-inputs | grep -i "sink input #" | sed 's/[^0-9]//g')"
+streamname="$(pactl list sink-inputs | awk '/application\.name/{print $3}' | sed 's/\t//g; s/\"//g; s/^\(.\)/\U\1\E/g')"
+
+if [[ $(echo "$streamid" | wc -l) -ge 2 ]]; then
+    name="$(echo "$streamname" | dmenu -p 'Select an audio stream to redirect:')" 
+    linenr=$(echo "$streamname" | awk "/$name/{print NR}")
+    id="$(echo "$streamid" | sed -n "${linenr}p")"
+    streamid=$id
+    streamname=$name
+fi
+
+sinkinput="$(pactl list short sinks | awk '{print $2}' | dmenu -p "Change audio stream of $streamname to which sink?" -l 5)"
+
+pactl move-sink-input $streamid $sinkinput && notify-send "Audio Playback" "$streamname now streams to $sinkinput"
