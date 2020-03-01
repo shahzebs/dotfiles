@@ -1,15 +1,17 @@
 #!/bin/bash
 
 if [ $(playerctl -l | wc -l) -ge 1 ]; then
-    player=""
-
-    for p in $(playerctl -l)
-    do
-        if [ "$(playerctl -p $p status)" != 'Stopped' ]; then
-            player="$p"
-            break
-        fi
-    done
+    player="$(playerctl -l | grep -i 'spotify')"
+    
+    if ! [ $(echo $player) ]; then
+        for p in $(playerctl -l)
+        do
+            if [ "$(playerctl -p $p status)" != 'Stopped' ]; then
+                player="$p"
+                break
+            fi
+        done
+    fi
 
     if [ "$(playerctl -p $player status)" = 'Playing' ]; then
         icon="  "
