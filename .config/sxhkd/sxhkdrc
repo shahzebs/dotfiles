@@ -7,7 +7,7 @@ super + Return
 
 # Lock screen
 super + shift + l
-        $HOME/.scripts/isinstalled slock && ( sleep 0.1; xset dpms force off && slock & playerctl pause )
+        $HOME/.scripts/isinstalled slock && ( sleep 0.5; xset dpms force off && slock & playerctl pause )
 
 # Launch Brave/Firefox/Chrome browser
 super + {+,shift,ctrl} + x
