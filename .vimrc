@@ -86,6 +86,9 @@ hi EndOfBuffer ctermbg=none ctermfg=243
 hi LineNr ctermbg=none 
 hi FoldColumn ctermbg=none
 
+" Set a visible Visual highlight bg color
+hi Visual ctermbg=239
+
 " Changes working directory
 set acd
 
