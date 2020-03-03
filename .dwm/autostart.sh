@@ -24,3 +24,6 @@ dwmblocks > /dev/null 2>&1 &
 
 # update X resources database (for st)
 xrdb $HOME/.Xresources
+
+# set Norwegian win-keys layout
+setxkbmap -layout no -variant winkeys
