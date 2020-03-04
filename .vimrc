@@ -76,9 +76,7 @@ if &term != 'st-256color'
 endif
 
 set background=dark
-colorscheme gruvbox-material "| hi Normal guibg=#1f1f1f
-let g:gruvbox_material_background = 'hard'
-" let g:lightline = {'colorscheme' : 'gruvbox_material'}
+colorscheme gruvbox-material
 
 " Make background transparent and the tildes visible
 hi Normal ctermbg=none 
