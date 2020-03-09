@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo pacman -S git curl openssh picom xorg-xset xorg-server pkgconfig sxiv sxhkd dropbox-cli xorg-xinit gvim sudo libnotify notification-daemon alsa-utils
