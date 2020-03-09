@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # daemon for notifications like notify-send
-/usr/lib/notification-daemon/notification-daemon &
+/usr/lib/notification-daemon*/notification-daemon &
 
 # run commands specific to the host machine
 $HOME/.scripts/local/localcommands > /dev/null 2>&1 &
@@ -15,9 +15,17 @@ if ! [[ "$(pgrep sxhkd)" ]]; then
 fi
 
 # compositor
-compton > /dev/null 2>&1 &
+if [ -x "$(command -v picom)" ]; then
+    picom --no-fading-openclose > /dev/null 2>&1 &
+else
+    compton > /dev/null 2>&1 &
+fi
 
-dropbox start > /dev/null 2>&1 &
+if [ -x "$(command -v dropbox-cli)" ]; then
+    dropbox-cli start > /dev/null 2>&1 &
+else
+    dropbox start > /dev/null 2>&1 &
+fi
 
 # statusbar
 dwmblocks > /dev/null 2>&1 &

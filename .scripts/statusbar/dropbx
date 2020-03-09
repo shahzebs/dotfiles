@@ -1,7 +1,13 @@
 #!/bin/bash
 
-if [[ "$(pgrep dropbox)" ]]; then
+if [ -x "$(command -v dropbox-cli)" ]; then
+    dropbox='dropbox-cli'
+else
+    dropbox='dropbox'
+fi
+
+if [[ "$(pgrep $dropbox)" ]]; then
     printf ""
-    dropbox status | grep "Sync" > /dev/null && printf " 累"
+    $dropbox status | grep "Sync" > /dev/null && printf " 累"
     printf "  | "
 fi
