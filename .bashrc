@@ -122,7 +122,7 @@ shopt -s autocd
 cd $HOME
 
 export EDITOR="vim"
-export BROWSER="brave-browser"
+export BROWSER="brave"
 export PDFVIEWER="zathura"
 
 # Colorful LESS-pager
