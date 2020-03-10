@@ -2,7 +2,7 @@
 shopt -s expand_aliases
 alias dmenu='dmenu -fn "UbuntuMono Nerd Font:size=10" -nb "#222222" -nf "#bbbbbb" -sb "#006666" -sf "#eeeeee"'
 
-activewifi="$(nmcli device wifi list | awk '/\*/{print $2}')"
+activewifi="$(nmcli device wifi list | awk '/\*/{print $3}')"
 
 function exitifblank {
 
@@ -12,7 +12,7 @@ function exitifblank {
 }
 
 function selectwifi {
-    selectedwifi="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $1}' | dmenu -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
+    selectedwifi="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $2}' | dmenu -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
 
     exitifblank $selectedwifi
 
