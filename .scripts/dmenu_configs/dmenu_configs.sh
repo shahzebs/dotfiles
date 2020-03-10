@@ -8,7 +8,7 @@ menulist="$(awk '{print $1}' $pathtoconfiglist)\nstatusbar"
 query=$(echo -e "$menulist" | dmenu -p "What do you want to configure?")
 
 if [ "$(echo $query)" ] && [ "$(awk "\$1~/$query/" $pathtoconfiglist)" ]; then
-    filename=$(awk "/$query/ {print \$2;exit}" $pathtoconfiglist)
+    filename=$(awk "/^$query\s/ {print \$2;exit}" $pathtoconfiglist)
     st -e vim "$filename"
 elif [ "$query" = "statusbar" ]; then
     files="$(ls $HOME/.scripts/statusbar/)"

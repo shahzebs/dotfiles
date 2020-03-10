@@ -1,8 +1,8 @@
 vimrc           /home/shahzebs/.vimrc
-dwm             /home/shahzebs/dwm/config.h
-dwmblocks       /home/shahzebs/dwmblocks/blocks.h
-dwm_autostart   /home/shahzebs/.dwm/autostart.sh
-st              /home/shahzebs/st/config.h
+dwm             /home/shahzebs/.suckless/dwm/config.h
+dwmblocks       /home/shahzebs/.suckless/dwmblocks/blocks.h
+dwm_autostart   /home/shahzebs/.suckless/.dwm/autostart.sh
+st              /home/shahzebs/.suckless/st/config.h
 bashrc          /home/shahzebs/.bashrc
 bash_aliases    /home/shahzebs/.bash_aliases
 sxhkd           /home/shahzebs/.config/sxhkd/sxhkdrc
