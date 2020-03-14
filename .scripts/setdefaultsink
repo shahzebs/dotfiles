@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sinkinput="$(pactl list short sinks | awk '{print $2}' | dmenu -p "Change default sink to which sink?" -l 5)"
+
+pactl set-default-sink $sinkinput && notify-send "Audio Playback" "Default sink changed to $sinkinput"
+
