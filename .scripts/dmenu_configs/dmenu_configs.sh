@@ -1,6 +1,4 @@
 #!/bin/bash
-shopt -s expand_aliases
-alias dmenu='dmenu -fn "UbuntuMono Nerd Font:size=10" -nb "#222222" -nf "#bbbbbb" -sb "#006666" -sf "#eeeeee"'
 
 pathtoconfiglist=$HOME/.scripts/dmenu_configs/config_files.txt
 
