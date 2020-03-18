@@ -73,9 +73,9 @@ super + ctrl + f
 super + ctrl + a
         $HOME/.scripts/selectaudioinput > /dev/null 2>&1
 
-# Open Caprine (Facebook Messenger app)
-super + shift + f
-        caprine > /dev/null 2>&1 &
+# dmenu prompt for changing default audio sink
+super + ctrl + shift + a
+        $HOME/.scripts/setdefaultsink > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # Shutdown/reboot
 super + ctrl + alt + {p,r}

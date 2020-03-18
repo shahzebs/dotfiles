@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 Plug 'lervag/vimtex'
-"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
 Plug 'sainnhe/gruvbox-material'
@@ -19,22 +18,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-syntastic/syntastic'
 
  " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-
+"
 " Polyglot config
 let g:polyglot_disabled = ['latex']
 
@@ -85,14 +72,14 @@ hi LineNr ctermbg=none
 hi FoldColumn ctermbg=none
 
 " Set a visible Visual highlight bg color
-hi Visual ctermbg=239
+hi Visual ctermbg=241
 
 " Changes working directory
 set acd
 
 " Recompile when writing a suckless program, e.g. dwm or st
 let myfilepath = expand('%:p')
-if myfilepath =~ "dwm" || myfilepath =~ "\/st\/"
+if myfilepath =~ "\.suckless"
     autocmd BufWritePost *.c,*.h :!make && sudo make install
 endif
 

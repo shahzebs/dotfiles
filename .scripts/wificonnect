@@ -1,6 +1,4 @@
 #!/bin/bash
-shopt -s expand_aliases
-alias dmenu='dmenu -fn "UbuntuMono Nerd Font:size=10" -nb "#222222" -nf "#bbbbbb" -sb "#006666" -sf "#eeeeee"'
 
 activewifi="$(nmcli device wifi list | awk '/\*/{print $3}')"
 

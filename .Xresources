@@ -8,6 +8,13 @@ st.font: UbuntuMono\ Nerd\ Font:pixelsize=16:antialias=true:autohint=true;
 ! st.termname: st-256color
 ! st.borderpx: 2
 
+!! dmenu font and colors
+dmenu.font: UbuntuMono\ Nerd\ Font:size=10
+dmenu.background: #222222
+dmenu.foreground: #bbbbbb
+dmenu.selbackground: #458588
+dmenu.selforeground: #eeeeee
+
 !! Set the background, foreground and cursor colors as below:
 *.background: #282828
 *.foreground: white
