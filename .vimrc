@@ -21,7 +21,7 @@ Plug 'sheerun/vim-polyglot'
 
  " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-"
+
 " Polyglot config
 let g:polyglot_disabled = ['latex']
 
@@ -50,6 +50,12 @@ vnoremap '' "tc'<C-R>"'<ESC>
 vnoremap (( "tc(<C-R>")<ESC>
 vnoremap [[ "tc[<C-R>"]<ESC>
 vnoremap {{ "tc{<C-R>"}<ESC>
+
+" :W = write all, :Q = quit all
+cnoremap W wa
+cnoremap Q qa
+cnoremap WQ wqa
+cnoremap Wq wqa
 
 set scrolloff=10
 set number relativenumber
