@@ -1,7 +1,5 @@
 #!/bin/bash
 
-activewifi="$(nmcli device wifi list | awk '/\*/{print $3}')"
-
 function exitifblank {
 
     if ! [ "$(echo $1)" ]; then
@@ -10,6 +8,8 @@ function exitifblank {
 }
 
 function selectwifi {
+    activewifi="$(nmcli device wifi list | awk '/^\*/{print $3}')"
+
     selectedwifi="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $2}' | dmenu -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
 
     exitifblank $selectedwifi
