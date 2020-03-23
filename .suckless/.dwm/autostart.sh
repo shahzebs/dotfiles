@@ -35,3 +35,6 @@ xrdb $HOME/.Xresources
 
 # set Norwegian win-keys layout
 setxkbmap -layout no -variant winkeys
+
+# turn on bluetooth controller
+bluetoothctl power on > /dev/null
