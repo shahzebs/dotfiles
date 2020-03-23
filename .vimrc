@@ -92,3 +92,6 @@ endif
 " After writing sxhkdrc, kill existing instance and launch new
 autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
 
+" Run xrdb on Xresources on write
+autocmd BufWritePost .Xresources :!xrdb %
+
