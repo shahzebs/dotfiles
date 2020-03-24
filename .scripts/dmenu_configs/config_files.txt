@@ -1,6 +1,6 @@
 vimrc           /home/shahzebs/.vimrc
 dwm             /home/shahzebs/.suckless/dwm/config.h
-dwmblocks       /home/shahzebs/.suckless/dwmblocks/blocks.h
+dwmblocks       /home/shahzebs/.suckless/dwmblocks/config.h
 dwm_autostart   /home/shahzebs/.suckless/.dwm/autostart.sh
 st              /home/shahzebs/.suckless/st/config.h
 bashrc          /home/shahzebs/.bashrc
