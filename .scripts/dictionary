@@ -1,0 +1,11 @@
+#!/bin/bash
+
+word="$(echo "" | dmenu -p "Enter word to look up in dictionary:")"
+
+[ "$word" != "" ] || exit 1
+
+curl -s dict://dict.org/d:$word > /tmp/def
+
+! [ "$(grep '^151' /tmp/def)" ] && notify-send "No definition for '$word'" && exit 1
+
+st -t "Definition of $word" -e less /tmp/def

@@ -81,6 +81,10 @@ super + ctrl + shift + a
 super + ctrl + e
         $HOME/.scripts/emojis/dmenuemoji > /dev/null 2>&1
 
+# dmenu prompt for looking up word in dictionary
+super + ctrl + d
+        $HOME/.scripts/dictionary > /dev/null 2>&1
+
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}
