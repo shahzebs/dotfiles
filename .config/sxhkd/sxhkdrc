@@ -77,6 +77,10 @@ super + ctrl + a
 super + ctrl + shift + a
         $HOME/.scripts/setdefaultsink > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
+# dmenu prompt for selecting emoji to add to clipboard
+super + ctrl + e
+        $HOME/.scripts/emojis/dmenuemoji > /dev/null 2>&1
+
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
         {shutdown now,reboot}
