@@ -10,14 +10,14 @@ function exitifblank {
 function selectwifi {
     activewifi="$(nmcli device wifi list | awk '/^\*/{print $3}')"
 
-    selectedwifi="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $2}' | dmenu -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
+    selectedwifi="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $2}' | dmenu -i -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
 
     exitifblank $selectedwifi
 
     status="$(nmcli device wifi connect $selectedwifi)"
 
     while [[ $status != *"success"* ]]; do
-        password="$(echo "" | dmenu -p "Enter password for $selectedwifi or ':q' to return to selection:")"
+        password="$(echo "" | dmenu -i -p "Enter password for $selectedwifi or ':q' to return to selection:")"
 
         exitifblank $password
         

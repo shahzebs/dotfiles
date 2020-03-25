@@ -1,6 +1,6 @@
 #!/bin/bash
 
-word="$(echo "" | dmenu -p "Enter word to look up in dictionary:")"
+word="$(echo "" | dmenu -i -p "Enter word to look up in dictionary:")"
 
 [ "$word" != "" ] || exit 1
 

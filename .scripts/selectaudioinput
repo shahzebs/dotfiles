@@ -8,13 +8,13 @@ if ! [ "$(echo $streamid)" ]; then
 fi
 
 if [[ $(echo "$streamid" | wc -l) -ge 2 ]]; then
-    name="$(echo "$streamname" | dmenu -p 'Select an audio stream to redirect:')" 
+    name="$(echo "$streamname" | dmenu -i -p 'Select an audio stream to redirect:')" 
     linenr=$(echo "$streamname" | awk "/$name/{print NR}")
     id="$(echo "$streamid" | sed -n "${linenr}p")"
     streamid=$id
     streamname=$name
 fi
 
-sinkinput="$(pactl list short sinks | awk '{print $2}' | dmenu -p "Change audio stream of $streamname to which sink?" -l 5)"
+sinkinput="$(pactl list short sinks | awk '{print $2}' | dmenu -i -p "Change audio stream of $streamname to which sink?" -l 5)"
 
 pactl move-sink-input $streamid $sinkinput && notify-send "Audio Playback" "$streamname now streams to $sinkinput"

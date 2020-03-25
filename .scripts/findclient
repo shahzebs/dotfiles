@@ -1,2 +1,2 @@
 #!/bin/bash
-wmctrl -a $(wmctrl -l | sed 's/\S\+//1; s/\S\+//1; s/\S\+//1; s/^ \+//g' | dmenu -p "Find which client?" -l 10)
+wmctrl -a $(wmctrl -l | sed 's/\S\+//1; s/\S\+//1; s/\S\+//1; s/^ \+//g' | dmenu -i -p "Find which client?" -l 10)
