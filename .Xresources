@@ -1,40 +1,54 @@
+
+/* gruvbox colors: */
+#define c00 #1d2021
+#define c01 #cc241d
+#define c02 #98971a
+#define c03 #d79921
+#define c04 #458588
+#define c05 #b16286
+#define c06 #689d6a
+#define c07 #a89984
+#define c08 #928374
+#define c09 #fb4934
+#define c10 #b8bb26
+#define c11 #fabd2f
+#define c12 #83a598
+#define c13 #d3869b
+#define c14 #8ec07c
+#define c15 #ebdbb2
+
+/* st: */
 !! Transparency (0-1):
 st.alpha: 0.80
-
-!! Set a default font and font size as below:
-! st.font: UbuntuMono\ Nerd\ Font:pixelsize=16:antialias=true:autohint=true;
-! st.font: Inconsolata\ for\ Powerline:pixelsize=16:antialias=true:autohint=true;
-
-! st.termname: st-256color
-! st.borderpx: 2
-
-!! dmenu font and colors
-dmenu.font: UbuntuMono\ Nerd\ Font:size=10
-dmenu.background: #222222
-dmenu.foreground: #bbbbbb
-dmenu.selbackground: #458588
-dmenu.selforeground: #eeeeee
 
 !! Set the background, foreground and cursor colors as below:
 *.background: #282828
 *.foreground: white
 *.cursorColor: white
 
-/* !! gruvbox: */
-*.color0: #1d2021
-*.color1: #cc241d
-*.color2: #98971a
-*.color3: #d79921
-*.color4: #458588
-*.color5: #b16286
-*.color6: #689d6a
-*.color7: #a89984
-*.color8: #928374
-*.color9: #fb4934
-*.color10: #b8bb26
-*.color11: #fabd2f
-*.color12: #83a598
-*.color13: #d3869b
-*.color14: #8ec07c
-*.color15: #ebdbb2
+/* dmenu: */
+!! dmenu font and colors
+dmenu.font: UbuntuMono\ Nerd\ Font:size=10
+dmenu.background: #222222
+dmenu.foreground: #bbbbbb
+dmenu.selbackground: c04
+dmenu.selforeground: #eeeeee
+
+/* colors: */
+*.color0:  c00
+*.color1:  c01
+*.color2:  c02
+*.color3:  c03
+*.color4:  c04
+*.color5:  c05
+*.color6:  c06
+*.color7:  c07
+*.color8:  c08
+*.color9:  c09
+*.color10: c10
+*.color11: c11
+*.color12: c12
+*.color13: c13
+*.color14: c14
+*.color15: c15
 
