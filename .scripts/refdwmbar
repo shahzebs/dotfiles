@@ -1,4 +1,0 @@
-#!/bin/bash
-
-killall dwmbar
-setsid $HOME/.scripts/dwmbar &
