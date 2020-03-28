@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[ -d "$HOME/.local/bin" ] || mkdir $HOME/.local/bin
+
+for file in $(find $HOME/.scripts/ -executable -type f); do
+    ln -s $file $HOME/.local/bin/
+done
+

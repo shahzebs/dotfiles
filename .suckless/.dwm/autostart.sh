@@ -4,7 +4,7 @@
 /usr/lib/notification-daemon*/notification-daemon &
 
 # run commands specific to the host machine
-$HOME/.scripts/local/localcommands > /dev/null 2>&1 &
+localcommands > /dev/null 2>&1 &
 
 # turn off auto screen dimming
 xset s off dpms 0 0 0 &

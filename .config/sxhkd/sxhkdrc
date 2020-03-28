@@ -7,7 +7,7 @@ super + Return
 
 # Lock screen
 super + shift + l
-        $HOME/.scripts/isinstalled slock && ( sleep 0.5; xset dpms force off && slock & playerctl pause )
+        isinstalled slock && ( sleep 0.5; xset dpms force off && slock & playerctl pause )
 
 # Launch Brave/Firefox/Chrome browser
 super + {+,shift,ctrl} + x
@@ -23,7 +23,7 @@ super + ctrl + s
 
 # Launch dmenu prompt for editing config files
 super + c
-        $HOME/.scripts/dmenu_configs/dmenu_configs.sh
+        dmenu_configs
 
 # Launch python shell with numpy
 super + shift + c
@@ -51,39 +51,39 @@ super + shift + {plus,minus}
 
 # dmenu prompt with list of processes to kill (processes executed by user shahzebs)
 super + ctrl + k
-        $HOME/.scripts/killallclients > /dev/null 2>&1
+        killallclients > /dev/null 2>&1
 
 # dmenu prompt to change WiFi (should give feedback)
 super + ctrl + w
-        $HOME/.scripts/wificonnect > /dev/null 2>&1
+        wificonnect > /dev/null 2>&1
 
 # dmenu prompt to open a pdf file under the home directory
 super + ctrl + o
-        $HOME/.scripts/openpdf > /dev/null 2>&1
+        openpdf > /dev/null 2>&1
 
 # dmenu prompt for translating text
 super + ctrl + t
-        $HOME/.scripts/translate > /dev/null 2>&1
+        translate > /dev/null 2>&1
 
 # dmenu prompt for finding a window client
 super + ctrl + f
-        $HOME/.scripts/findclient > /dev/null 2>&1
+        findclient > /dev/null 2>&1
 
 # dmenu prompt for changing audio streams of applications
 super + ctrl + a
-        $HOME/.scripts/selectaudioinput > /dev/null 2>&1
+        selectaudioinput > /dev/null 2>&1
 
 # dmenu prompt for changing default audio sink
 super + ctrl + shift + a
-        $HOME/.scripts/setdefaultsink > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+        setdefaultsink > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # dmenu prompt for selecting emoji to add to clipboard
 super + ctrl + e
-        $HOME/.scripts/emojis/dmenuemoji > /dev/null 2>&1
+        dmenuemoji > /dev/null 2>&1
 
 # dmenu prompt for looking up word in dictionary
 super + ctrl + d
-        $HOME/.scripts/dictionary > /dev/null 2>&1
+        dictionary > /dev/null 2>&1
 
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
@@ -95,8 +95,8 @@ super + shift + b
 
 # Screenshot by selection and add to clipboard
 super + shift + F12
-        sleep 0.2; $HOME/.scripts/screen_copy.sh > /dev/null 2>&1
+        sleep 0.2; screen_copy > /dev/null 2>&1
 
 # Toggle ForceCompositionPipeline setting in nvidia-settings
 super + shift + n
-        $HOME/.scripts/togglenvidiapipeline > /dev/null 2>&1
+        togglenvidiapipeline > /dev/null 2>&1

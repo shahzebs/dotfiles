@@ -1,19 +1,18 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-    {" ", "$HOME/.scripts/statusbar/playback", 15, 3},
-    {"", "$HOME/.scripts/statusbar/weather/weather", 900, 0},
-    // {"", "$HOME/.scripts/statusbar/bluetooth", 10, 0},
-    {"", "$HOME/.scripts/statusbar/dropbx", 10, 0},
-    {"", "$HOME/.scripts/statusbar/cpuload", 3, 0},
-    {"", "$HOME/.scripts/statusbar/cputemp", 3, 0},
-    {"", "$HOME/.scripts/statusbar/memory", 5, 0},
-    {"", "$HOME/.scripts/statusbar/wifi", 10, 2},
-    {"", "$HOME/.scripts/statusbar/volume", 60, 1},
-    {"", "$HOME/.scripts/statusbar/iodevices", 10, 1},
-    {"", "$HOME/.scripts/statusbar/brightness", 0, 4},
-    {"", "$HOME/.scripts/statusbar/battery/battery BAT0", 15, 0},
-	{"", "$HOME/.scripts/statusbar/date", 30, 0},
+    {" ", "playback", 15, 3},
+    {"", "weather", 900, 0},
+    {"", "dropbx", 10, 0},
+    {"", "cpuload", 3, 0},
+    {"", "cputemp", 3, 0},
+    {"", "memory", 5, 0},
+    {"", "wifi", 10, 2},
+    {"", "volume", 60, 1},
+    {"", "iodevices", 10, 1},
+    {"", "brightness", 0, 4},
+    {"", "battery BAT0", 15, 0},
+	{"", "datetime", 30, 0},
 
 };
 
