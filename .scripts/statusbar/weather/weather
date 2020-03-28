@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yrreport="$($HOME/.scripts/statusbar/weatheryr/weather)"
+yrreport="$($HOME/.scripts/statusbar/weatheryr/weatheryr)"
 if [ "$(echo $yrreport)" ]; then
     printf "%s" "$yrreport"
 else
