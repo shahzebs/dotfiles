@@ -18,15 +18,25 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'psliwka/vim-smoothie'
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'unblevable/quick-scope'
 
- " List ends here. Plugins become visible to Vim after this call.
+" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-"
+
+" Set colorscheme early
+set background=dark
+colorscheme gruvbox-material
+
 " Polyglot config
 let g:polyglot_disabled = ['latex']
 
 " Auto-pairs config
 let g:AutoPairsShortcutFastWrap = ''
+
+" Quick-scope config
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+highlight QuickScopePrimary ctermfg=111
+highlight QuickScopeSecondary ctermfg=112
 
 """ Useful remaps
 inoremap jk <esc>
@@ -61,9 +71,6 @@ set splitbelow splitright
 if &term != 'st-256color'
     set termguicolors
 endif
-
-set background=dark
-colorscheme gruvbox-material
 
 " Make background transparent and the tildes visible
 hi Normal ctermbg=none 
