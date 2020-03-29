@@ -33,7 +33,7 @@
  :LightSleetSun
  :HeavySleetSun
  :LightSnowSun
- :HeavysnowSun
+ :HeavySnowSun
  :Drizzle
  :LightSleet
  :HeavySleet
