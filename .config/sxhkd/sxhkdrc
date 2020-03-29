@@ -29,6 +29,10 @@ super + c
 super + shift + c
         st -t "Python Shell" -e python3 -ic "import numpy as np"
 
+# Launch clipmenu: clipboard history
+super + alt + c
+        clipmenu
+
 # Play/pause audio
 super + p
         playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks

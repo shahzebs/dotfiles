@@ -38,3 +38,6 @@ setxkbmap -layout no -variant winkeys
 
 # turn on bluetooth controller
 bluetoothctl power on > /dev/null
+
+# start clipmenud, a clipboard history manager
+clipmenud &
