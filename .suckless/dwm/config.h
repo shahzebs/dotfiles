@@ -12,16 +12,16 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true" }; 
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#458588";  // #005577
-static const char col_bordersel[]   = "#ffffff";  // #38b33f
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, "#000000" },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_bordersel },
+static char normbgcolor[]           = "#222222";
+static char normbordercolor[]       = "#444444";
+static char normfgcolor[]           = "#bbbbbb";
+static char selfgcolor[]            = "#eeeeee";
+static char selbordercolor[]        = "#005577";
+static char selbgcolor[]            = "#005577";
+static char *colors[][3] = {
+       /*               fg           bg           border   */
+       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+       [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
 
 /* tagging */
@@ -95,6 +95,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -132,3 +133,74 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
 
+void
+setlayoutex(const Arg *arg)
+{
+	setlayout(&((Arg) { .v = &layouts[arg->i] }));
+}
+
+void
+viewex(const Arg *arg)
+{
+	view(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+viewall(const Arg *arg)
+{
+	view(&((Arg){.ui = ~0}));
+}
+
+void
+toggleviewex(const Arg *arg)
+{
+	toggleview(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+tagex(const Arg *arg)
+{
+	tag(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+toggletagex(const Arg *arg)
+{
+	toggletag(&((Arg) { .ui = 1 << arg->ui }));
+}
+
+void
+tagall(const Arg *arg)
+{
+	tag(&((Arg){.ui = ~0}));
+}
+
+/* signal definitions */
+/* signum must be greater than 0 */
+/* trigger signals using `xsetroot -name "fsignal:<signame> [<type> <value>]"` */
+static Signal signals[] = {
+	/* signum           function */
+	{ "focusstack",     focusstack },
+	{ "setmfact",       setmfact },
+	{ "togglebar",      togglebar },
+	{ "incnmaster",     incnmaster },
+	{ "togglefloating", togglefloating },
+	{ "focusmon",       focusmon },
+	{ "tagmon",         tagmon },
+	{ "zoom",           zoom },
+	{ "view",           view },
+	{ "viewall",        viewall },
+	{ "viewex",         viewex },
+	{ "toggleview",     view },
+	{ "toggleviewex",   toggleviewex },
+	{ "tag",            tag },
+	{ "tagall",         tagall },
+	{ "tagex",          tagex },
+	{ "toggletag",      tag },
+	{ "toggletagex",    toggletagex },
+	{ "killclient",     killclient },
+	{ "quit",           quit },
+	{ "setlayout",      setlayout },
+	{ "setlayoutex",    setlayoutex },
+    { "xrdb",           xrdb },
+};

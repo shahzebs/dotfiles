@@ -34,6 +34,14 @@ dmenu.foreground: #bbbbbb
 dmenu.selbackground: c04
 dmenu.selforeground: #eeeeee
 
+/* dwm: */
+dwm.normbordercolor: #000000
+dwm.normbgcolor: #222222
+dwm.normfgcolor: #bbbbbb
+dwm.selbordercolor: #ffffff
+dwm.selbgcolor: c04
+dwm.selfgcolor: #eeeeee
+
 /* colors: */
 *.color0:  c00
 *.color1:  c01
@@ -51,4 +59,3 @@ dmenu.selforeground: #eeeeee
 *.color13: c13
 *.color14: c14
 *.color15: c15
-

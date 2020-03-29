@@ -41,3 +41,6 @@ bluetoothctl power on > /dev/null
 
 # start clipmenud, a clipboard history manager
 clipmenud &
+
+# dwm read colors from xrdb (syntax from dwmc patch)
+dwmc xrdb
