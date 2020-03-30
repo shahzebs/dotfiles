@@ -25,8 +25,8 @@ if [ $(playerctl -l | wc -l) -ge 1 ]; then
 
     MAXLENGTH=15
 
-    artist="$(playerctl -p $player metadata | awk '/:artist/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
-    title="$(playerctl -p $player metadata | awk '/:title/{for(i=3;i<=NF;++i)printf $i " "}' | sed 's/ $//')"
+    artist="$(playerctl -p $player metadata artist)"
+    title="$(playerctl -p $player metadata title)"
     if [ "$(echo $artist)" ] && [ "$(echo $title)" ]; then
         if [ $(printf "$title" | wc -c) -gt $MAXLENGTH ]; then
             title="$(printf "$title" | cut -c 1-$MAXLENGTH | sed 's/\W*$//').."
