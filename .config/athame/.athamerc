@@ -1,0 +1,38 @@
+set nocompatible
+
+set ttimeoutlen=10 "Otherwise, you have to wait for the escape key.
+
+set backspace-=eol   "For more traditional shell behavior
+set backspace+=start "Without this, you can't delete shell completions
+
+set textwidth=0 "Don't try to wrap text
+
+"Start each line in insert mode. Most shell vi-modes do this:
+autocmd User Vimbed_StartLine call feedkeys("\<C-\>\<C-N>i","n")
+
+" These make arrows more shell like. Feel free to comment them out:
+if v:version>=800 || has("patch928")
+  " These maps can segfault in earlier vim versions.
+  inoremap <Up> <Up><ESC>A
+  inoremap <Down> <Down><ESC>A
+endif
+
+"" User defined config
+inoremap jk <ESC>
+map Y y$
+
+" Simple surround commands
+nnoremap "" "tciw"<C-R>""<ESC>
+nnoremap '' "tciw'<C-R>"'<ESC>
+nnoremap (( "tciw(<C-R>")<ESC>
+nnoremap [[ "tciw[<C-R>"]<ESC>
+nnoremap {{ "tciw{<C-R>"}<ESC>
+vnoremap "" "tc"<C-R>""<ESC>
+vnoremap '' "tc'<C-R>"'<ESC>
+vnoremap (( "tc(<C-R>")<ESC>
+vnoremap [[ "tc[<C-R>"]<ESC>
+vnoremap {{ "tc{<C-R>"}<ESC>
+
+set clipboard=unnamedplus
+set complete=.,w,b,u,t,i,kspell
+set dictionary=/usr/share/dict/american-english

@@ -1,0 +1,2 @@
+export ATHAME_TEST_RC="$HOME/.config/athame/.athamerc"
+
