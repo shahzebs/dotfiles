@@ -4,7 +4,7 @@ word="$(echo "" | dmenu -i -p "Enter word to look up in dictionary:")"
 
 [ "$word" != "" ] || exit 1
 
-curl -s dict://dict.org/d:$word > /tmp/def
+curl -s dict://dict.org/d:$word | sed '/^2/d' > /tmp/def
 
 ! [ "$(grep '^151' /tmp/def)" ] && notify-send "No definition for '$word'" && exit 1
 
