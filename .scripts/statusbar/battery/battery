@@ -6,7 +6,7 @@ status=$(cat /sys/class/power_supply/"$1"/status)
 
 charging=""
 notcharging=""
-stagnantcharge="♻️"
+stagnantcharge=""
 charged="⚡"
 lowbattery=""
 bgimage=""
@@ -38,6 +38,6 @@ printf " | "
 if [ "$status" == "Charging" ]; then
     feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/charging-$bgimage.png"
 else
-    $HOME/.scripts/local/fehbg
+    $HOME/.scripts/local/setbg
 #     feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/$bgimage.png"
 fi

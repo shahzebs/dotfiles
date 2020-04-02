@@ -28,11 +28,8 @@ if [ $(playerctl -l | wc -l) -ge 1 ]; then
     artist="$(playerctl -p $player metadata artist)"
     title="$(playerctl -p $player metadata title)"
     if [ "$(echo $artist)" ] && [ "$(echo $title)" ]; then
-        if [ $(printf "$title" | wc -c) -gt $MAXLENGTH ]; then
-            title="$(printf "$title" | cut -c 1-$MAXLENGTH | sed 's/\W*$//').."
-        fi
-        trackinfo="$artist - $title"
-        printf "$trackinfo"
+        [ $(printf "$title" | wc -c) -gt $MAXLENGTH ] && title="$(printf "$title" | cut -c 1-$MAXLENGTH | sed 's/\W*$//').."
+        printf "$artist - $title"
     fi
 
     printf " | "

@@ -2,6 +2,4 @@
 
 pdffile="$(find $HOME \( -iname '*.pdf' ! -iwholename '/home/shahzebs/.*' \) | sed 's|/home/shahzebs/||' | dmenu -i -l 10)"
 
-if [ "$(echo $pdffile)" ]; then
-    zathura "/home/shahzebs/$pdffile" &
-fi
+[ "$(echo $pdffile)" ] && zathura "/home/shahzebs/$pdffile" &

@@ -1,38 +1,38 @@
 #!/bin/bash
 
-function exitifblank {
-
-    if ! [ "$(echo $1)" ]; then
-        exit 
-    fi
-}
-
 function selectwifi {
+    notify-send "WiFi Connection" "Looking for wireless connections"
+
     activewifi="$(nmcli device wifi list | awk '/^\*/{print $3}')"
+    wifilist="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; /--/d' | awk '{print $2}')"
+    
+    [ -z $wifilist ] && wifilist="$(nmcli connection show | tail -n +2 | awk '{print $1}')"
+    
+    selectedwifi="$(echo "$wifilist" | dmenu -i -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
 
-    selectedwifi="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; s/--//' | awk '{print $2}' | dmenu -i -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
+    [ -z $selectedwifi ] && exit 1
 
-    exitifblank $selectedwifi
-
-    status="$(nmcli device wifi connect $selectedwifi)"
+    if [ -n "$(nmcli connection show | grep "$selectedwifi\s")" ]; then
+        status="$(nmcli connection up $selectedwifi)"
+    else
+        status=""
+    fi
 
     while [[ $status != *"success"* ]]; do
-        password="$(echo "" | dmenu -i -p "Enter password for $selectedwifi or ':q' to return to selection:")"
+        password="$(dmenu -i -p "Enter password for $selectedwifi or ':q' to return to selection:" <&-)"
 
-        exitifblank $password
+        [ -z $password ] && exit 1
         
-        if [[ $password == ":q" ]]; then
-            selectwifi
-            break
-        fi
+        [ "$password" == ":q" ] && selectwifi && return
 
-        nmcli connection delete $selectedwifi
+        [ -n "$(nmcli connection show | grep "$selectedwifi\s")" ] && nmcli connection delete $selectedwifi
         status="$(nmcli device wifi connect $selectedwifi password $password)"
     done
 }
 
 selectwifi
 
+notify-send "WiFi Connection" "Wireless connection with $selectedwifi successful"
 
 
 

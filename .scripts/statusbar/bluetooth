@@ -1,4 +1,0 @@
-#!/bin/bash
-
-[ "$(bluetoothctl info | awk '/Connected/ {print $2}')" = 'yes' ] && printf "" && printf " | "
-

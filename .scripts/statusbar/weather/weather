@@ -1,7 +1,7 @@
 #!/bin/bash
 
 yrreport="$($HOME/.scripts/statusbar/weatheryr/weatheryr)"
-if [ "$(echo $yrreport)" ]; then
+if [ -n $yrreport ]; then
     printf "%s" "$yrreport"
 else
     codes=$HOME/.scripts/statusbar/weather/weathercodes.txt
@@ -17,9 +17,7 @@ else
     key="$(awk -F: "/$weathercode/{print \$2}" $codes)"
     symbol="$(awk -F: -v var=$key '{if ($2 == var) {print $1}}' $symbols)"
 
-    if [ "$(echo $symbol)" ]; then
-        icon=$symbol
-    fi
+    [ -z $symbol ] || icon=$symbol
 
     printf "%s%s%s%s" "$icon " "$temp°C " " $precip" "mm"
 

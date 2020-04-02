@@ -3,9 +3,7 @@
 streamid="$(pactl list sink-inputs | grep -i "sink input #" | sed 's/[^0-9]//g')"
 streamname="$(pactl list sink-inputs | awk '/application\.name/{print $3}' | sed 's/\t//g; s/\"//g; s/^\(.\)/\U\1\E/g')"
 
-if ! [ "$(echo $streamid)" ]; then
-    notify-send "Audio Playback" "No applications are streaming audio"; exit
-fi
+[ -z $streamid ] && notify-send "Audio Playback" "No applications are streaming audio" && exit 1
 
 if [[ $(echo "$streamid" | wc -l) -ge 2 ]]; then
     name="$(echo "$streamname" | dmenu -i -p 'Select an audio stream to redirect:')" 
@@ -14,6 +12,8 @@ if [[ $(echo "$streamid" | wc -l) -ge 2 ]]; then
     streamid=$id
     streamname=$name
 fi
+
+[ -z $streamname ] && exit 0
 
 sinkinput="$(pactl list short sinks | awk '{print $2}' | dmenu -i -p "Change audio stream of $streamname to which sink?" -l 5)"
 

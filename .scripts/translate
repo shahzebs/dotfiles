@@ -1,19 +1,15 @@
 #!/bin/bash
 
-query=$(echo "" | dmenu -i -p 'Translate [from] [to] [query]:')
+query=$(dmenu -i -p 'Translate [from] [to] [query]:' <&-)
+[ -z $query ] && exit 0
 
 sl=$(echo $query | awk '{print $1}')
 tl=$(echo $query | awk '{print $2}')
 text=$(echo $query | cut -d " " -f 3- | sed 's/ /+/g')
-# awk '{for(i=3;i<=NF;++i)print $i}')
 
-if ! [ "$(echo $sl)" ] || ! [ "$(echo $tl)" ] || ! [ "$(echo $text)" ]; then
-    exit
-fi
+( [ -z $sl ] || [ -z $tl ] || [ -z $text ] ) && notify-send "Translation" "Invalid format.\nFormat: [source lang.] [dest. lang.] [trans. string]" && exit 1
 
 translation=$(curl -s "https://translate.googleapis.com/translate_a/single?client=gtx&sl=$sl&tl=$tl&dt=t&q=$text" | sed 's/^.\+\(".\+",".\+",null\).*/\1/g' | head -1 | sed 's/"//g;s/,null//g;s/,/\n/g' | dmenu -i -p "Translation results:" -l 5)
 
-if [ "$(echo $translation)" ]; then
-    echo "$translation" | xclip -selection clipboard
-fi
+[ -n $translation ] && printf "$translation" | xclip -selection clipboard
 
