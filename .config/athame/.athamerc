@@ -36,3 +36,20 @@ vnoremap {{ "tc{<C-R>"}<ESC>
 set clipboard=unnamedplus
 set complete=.,w,b,u,t,i,kspell
 set dictionary=/usr/share/dict/american-english
+
+" Fix Ctrl+Arrows mapping
+nnoremap <esc>[1;5A <C-Up>
+vnoremap <esc>[1;5A <C-Up>
+noremap! <esc>[1;5A <C-Up>
+
+nnoremap <esc>[1;5B <C-Down>
+vnoremap <esc>[1;5B <C-Down>
+noremap! <esc>[1;5B <C-Down>
+
+nnoremap <esc>[1;5C <C-Right>
+vnoremap <esc>[1;5C <C-Right>
+noremap! <esc>[1;5C <C-Right>
+
+nnoremap <esc>[1;5D <C-Left>
+vnoremap <esc>[1;5D <C-Left>
+noremap! <esc>[1;5D <C-Left>
