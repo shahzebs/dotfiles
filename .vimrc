@@ -61,6 +61,12 @@ vnoremap (( "tc(<C-R>")<ESC>
 vnoremap [[ "tc[<C-R>"]<ESC>
 vnoremap {{ "tc{<C-R>"}<ESC>
 
+" W and Q writes and quits like w and q
+command! W execute 'w'
+command! Q execute 'q'
+command! Wq execute 'wq'
+command! WQ execute 'wq'
+
 set scrolloff=10
 set number relativenumber
 set clipboard=unnamedplus
