@@ -1,1 +1,3 @@
 **/*.o
+dmenu/dmenu
+dmenu/stest
