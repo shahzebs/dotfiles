@@ -6,8 +6,4 @@ else
     dropbox='dropbox'
 fi
 
-if [[ "$(pgrep dropbox)" ]]; then
-    printf ""
-    $dropbox status | grep "Sync" > /dev/null && printf " 累"
-    printf "  | "
-fi
+[[ "$(pgrep dropbox)" ]] && $dropbox status | grep "Sync" > /dev/null && printf "  累  | "

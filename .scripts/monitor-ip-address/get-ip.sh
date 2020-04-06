@@ -6,7 +6,7 @@ old_ip=$(cat ~/.scripts/monitor-ip-address/ip.txt)
 
 
 # Check if router_ip was set to something sensible
-if [ -n $router_ip ]; then
+if [ -n "$router_ip" ]; then
     # If IP has changed, update and send email
     if [ "$old_ip" != "$router_ip" ]; then
         echo $router_ip > ~/.scripts/monitor-ip-address/ip.txt

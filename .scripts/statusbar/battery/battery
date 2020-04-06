@@ -29,7 +29,7 @@ else
     bgimage="battery0"
 fi
 
-[ -z $warn  ] && warn=""
+[ -z "$warn"  ] && warn=""
 
 printf "%s%s%s%s" "$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not charging/$notcharging /;s/Charging/$charging /;s/Unknown/$stagnantcharge /;s/Full/$charged /;s/ 0*/ /g;s/ :/ /g")" "$warn" "$capicon  " "$(echo "$capacity" | sed -e 's/$/%/')"
 

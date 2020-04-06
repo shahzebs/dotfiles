@@ -6,11 +6,11 @@ function selectwifi {
     activewifi="$(nmcli device wifi list | awk '/^\*/{print $3}')"
     wifilist="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; /--/d' | awk '{print $2}')"
     
-    [ -z $wifilist ] && wifilist="$(nmcli connection show | tail -n +2 | awk '{print $1}')"
+    [ -z "$wifilist" ] && wifilist="$(nmcli connection show | tail -n +2 | awk '{print $1}')"
     
     selectedwifi="$(echo "$wifilist" | dmenu -i -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
 
-    [ -z $selectedwifi ] && exit 1
+    [ -z "$selectedwifi" ] && exit 1
 
     if [ -n "$(nmcli connection show | grep "$selectedwifi\s")" ]; then
         status="$(nmcli connection up $selectedwifi)"
@@ -21,7 +21,7 @@ function selectwifi {
     while [[ $status != *"success"* ]]; do
         password="$(dmenu -i -p "Enter password for $selectedwifi or ':q' to return to selection:" <&-)"
 
-        [ -z $password ] && exit 1
+        [ -z "$password" ] && exit 1
         
         [ "$password" == ":q" ] && selectwifi && return
 

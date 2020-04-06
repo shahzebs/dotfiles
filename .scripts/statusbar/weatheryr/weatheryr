@@ -14,9 +14,9 @@ icon=""
 
 symbol="$(awk -F: -v var=$verbose "{if (\$2 == var) {print \$1}}" $HOME/.scripts/statusbar/weatheryr/icons.txt)"
 
-[ -n $symbol ] && icon=$symbol
+[ -n "$symbol" ] && icon=$symbol
 
-if [ -n $temp ] && [ -n $precip ]; then
+if [ -n "$temp" ] && [ -n "$precip" ]; then
     printf "%s%s%s%s" "$icon " "$temp°C " " $precip" "mm"
     printf " | "
 fi

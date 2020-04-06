@@ -3,13 +3,13 @@
 streamid="$(pactl list sink-inputs | grep -i "sink input #" | sed 's/[^0-9]//g')"
 streamname="$(pactl list sink-inputs | awk '/application\.name/{print $3}' | sed 's/\t//g; s/\"//g; s/^\(.\)/\U\1\E/g')"
 
-[ -z $streamid ] && notify-send "Audio Playback" "No applications are streaming audio" && exit 1
+[ -z "$streamid" ] && notify-send "Audio Playback" "No applications are streaming audio" && exit 1
 
 name="$(echo "$streamname" | dmenu -i -p 'Select an audio stream to toggle mute:')" 
 linenr=$(echo "$streamname" | awk "/$name/{print NR}")
 id="$(echo "$streamid" | sed -n "${linenr}p")"
 
-[ -z $name ] && exit 1
+[ -z "$name" ] && exit 1
 
 pactl set-sink-input-mute $id toggle
 status="$(pactl list sink-inputs | awk "/#$id/,/Mute/" | awk '/Mute/{print $2}' | sed 's/yes/muted/; s/no/unmuted/')"
