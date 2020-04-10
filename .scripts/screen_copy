@@ -1,4 +1,5 @@
 #!/bin/bash
 
-scrot -os /home/shahzebs/Pictures/screenshots/screengrab.png
-xclip -selection clipboard -t image/png -i /home/shahzebs/Pictures/screenshots/screengrab.png
+mkdir /tmp/screenshots/ 2> /dev/null
+scrot -os /tmp/screenshots/screengrab.png
+xclip -selection clipboard -t image/png -i /tmp/screenshots/screengrab.png
