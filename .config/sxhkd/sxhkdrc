@@ -29,6 +29,10 @@ super + c
 super + shift + c
         st -t "Python Shell" -e python3 -ic "import numpy as np"
 
+# Launch a scratchpad in vim
+super + w
+        st -t "Scratchpad" -g 100x30 -e scratchpad && xclip -se c -i /tmp/scratch.txt
+
 # Launch clipmenu: clipboard history
 super + alt + c
         clipmenu

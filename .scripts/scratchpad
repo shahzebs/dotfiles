@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vim -u <(echo source /etc/vimrc; cat ~/.vim/runtime/vimrcs/scratchpad.vim) /tmp/scratch.txt 
