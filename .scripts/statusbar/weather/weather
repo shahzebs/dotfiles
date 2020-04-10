@@ -7,7 +7,7 @@ else
     codes=$HOME/.scripts/statusbar/weather/weathercodes.txt
     symbols=$HOME/.scripts/statusbar/weather/weathersymbols.txt
 
-    report="$(curl -s wttr.in/?format=j1 | awk -F: '/precipMM/{print $2}; /temp_C/{print $2}; /weatherCode/{print $2;exit}' | sed 's/"//g; s/,//' | sed 's/^\s//')" || exit
+    report="$(curl --max-time 3 -s wttr.in/?format=j1 | awk -F: '/precipMM/{print $2}; /temp_C/{print $2}; /weatherCode/{print $2;exit}' | sed 's/"//g; s/,//' | sed 's/^\s//')" || exit
     precip="$(echo $report | awk '{print $1}')"
     temp="$(echo $report | awk '{print $2}')"
     weathercode="$(echo $report | awk '{print $3}')"
