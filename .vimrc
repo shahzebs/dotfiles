@@ -9,7 +9,6 @@ source ~/.vim/runtime/vimrcs/init.vim
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tpope/vim-sensible'
 Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
@@ -44,10 +43,6 @@ inoremap jk <esc>
 " Jump to first <++>, delete it, and enter insert mode
 nnoremap <silent> ;; /<++><CR>:noh<CR>"_cf>
 inoremap <silent> ;; <ESC>/<++><CR>:noh<CR>"_cf>
-
-" Delete/change until first <++> (forward direction)
-nnoremap d<Space> d/<++><CR>d4l:noh<CR>
-nnoremap c<Space> d/<++><CR>d4l:noh<CR>i
 
 " Simple surround commands
 nnoremap "" "tciw"<C-R>""<ESC>
