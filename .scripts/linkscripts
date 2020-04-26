@@ -3,6 +3,6 @@
 [ -d "$HOME/.local/bin" ] || mkdir $HOME/.local/bin
 
 for file in $(find $HOME/.scripts/ -executable -type f); do
-    ln -s $file $HOME/.local/bin/
+    ln -s $file $HOME/.local/bin/ 2> /dev/null && echo "Linking $file to $HOME/.local/bin/"
 done
 
