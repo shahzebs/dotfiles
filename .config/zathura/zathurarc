@@ -4,6 +4,9 @@ set highlight-transparency 0.1
 set selection-clipboard clipboard
 set sandbox none
 
+set default-bg rgba(40,40,40,0.8)
+set recolor-lightcolor rgba(0,0,0,0)
+
 unmap d
 unmap <C-d>
 unmap <C-u>
