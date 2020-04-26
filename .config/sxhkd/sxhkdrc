@@ -55,7 +55,7 @@ super + shift + p
 
 # Increase/decrease screen brightness
 super + shift + {plus,minus}
-        xbacklight -{inc,dec} 10 > /dev/null 2>&1; pkill -RTMIN+4 dwmblocks
+        brightctl {inc,dec} 10 > /dev/null 2>&1 && pkill -RTMIN+4 dwmblocks
 
 # dmenu prompt with list of processes to kill (processes executed by user shahzebs)
 super + ctrl + k

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+[ $# == 1 ] || [ $# -gt 2 ] && echo -e 'brightctl takes 0 or 2 arguments:\n0 arguments returns current brightness level\n2 arguments increases or decreases level by given percentage ([inc/dec] [percentage])' && exit
+
+max_bright=$(cat /sys/class/backlight/**/max_brightness)
+current_bright=$(cat /sys/class/backlight/**/brightness)
+current_bright_percent=$(( 100 * current_bright / max_bright ))
+
+[ $# == 0 ] && echo $current_bright_percent && exit
+
+if [ "$1" == "inc" ]; then
+    sign="+"
+elif [ "$1" == "dec" ]; then
+    sign="-"
+else
+    echo "First argument must be either 'inc' or 'dec'" && exit
+fi
+
+! [[ $2 =~ ^[0-9]+$ ]] && echo "Second operator must be an integer percentage" && exit
+
+new_bright=$(( current_bright $sign max_bright * $2 / 100 )) 
+
+[ $new_bright -lt 0 ] && new_bright=0
+[ $new_bright -gt $max_bright ] && new_bright=$max_bright
+
+printf "$new_bright" > /sys/class/backlight/**/brightness

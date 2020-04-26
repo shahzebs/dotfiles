@@ -1,13 +1,6 @@
 #!/bin/bash
 
-brightness=$(xbacklight)
+[ -z "$(brightctl)" ] && exit
 
-regexnumber='^[0-9]+([.][0-9]+)?$'
-if ! [[ $brightness =~ $regexnumber ]]; then
-    exit
-fi
-
-brightness="$(echo $brightness | awk '{print int($1 + 0.5)}')"
-
-printf "%s %.*f%%" "盛" 0 $brightness
+printf "%s %s%%" "盛" $(brightctl)
 printf " | "
