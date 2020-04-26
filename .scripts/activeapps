@@ -1,0 +1,8 @@
+#!/bin/bash
+
+icons=""
+
+[ "$(pgrep -i discord)" ] && icons+="ﭮ "
+[ "$(pgrep -i steam)" ] && icons+=" "
+
+[ -n "$icons" ] && for icon in $icons; do printf "$icon "; done && printf " | "
