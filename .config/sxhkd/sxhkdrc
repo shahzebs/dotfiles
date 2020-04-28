@@ -3,116 +3,145 @@
 
 # Launch st terminal
 super + Return
-        st
+    st
 
 # Lock screen
 super + shift + l
-        isinstalled slock && ( sleep 0.5; xset dpms force off && slock & playerctl pause )
+    isinstalled slock && ( sleep 0.5; xset dpms force off && slock & playerctl pause )
 
 # Launch Brave/Firefox/Chrome browser
 super + {+,shift,ctrl} + x
-        {brave,firefox,google-chrome} > /dev/null 2>&1
+    {brave,firefox,google-chrome} > /dev/null 2>&1
 
 # Launch Thunderbird
 super + e
-        thunderbird > /dev/null 2>&1
+    thunderbird > /dev/null 2>&1
 
 # Launch Spotify
 super + ctrl + s
-        spotify > /dev/null 2>&1
+    spotify > /dev/null 2>&1
 
 # Launch dmenu prompt for editing config files
 super + c
-        dmenu_configs
+    dmenu_configs
 
 # Launch python shell with numpy
 super + shift + c
-        st -t "Python Shell" -e python3 -ic "import numpy as np"
+    st -t "Python Shell" -e python3 -ic "import numpy as np"
 
 # Launch a scratchpad in vim
 super + w
-        st -t "Scratchpad" -g 100x30 -e scratchpad && xclip -se c -i /tmp/scratch.txt
+    st -t "Scratchpad" -g 100x30 -e scratchpad && xclip -se c -i /tmp/scratch.txt
 
 # Launch clipmenu: clipboard history
 super + alt + c
-        clipmenu
+    clipmenu
 
 # Play/pause audio
 super + p
-        playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
+    playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
 
 # Go to next/previous track
 super + {Right,Left}
-        playerctl {next,previous} > /dev/null 2>&1; sleep 0.1; pkill -RTMIN+3 dwmblocks
+    playerctl {next,previous} > /dev/null 2>&1; sleep 0.1; pkill -RTMIN+3 dwmblocks
 
 # Increase/decrease volume by 10%
 super + {plus,minus}
-        amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+    amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # Mute/unmute audio
 super + shift + p
-        amixer -D pulse set Master toggle > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+    amixer -D pulse set Master toggle > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # Increase/decrease screen brightness
 super + shift + {plus,minus}
-        brightctl {inc,dec} 10 > /dev/null 2>&1 && pkill -RTMIN+4 dwmblocks
+    brightctl {inc,dec} 10 > /dev/null 2>&1 && pkill -RTMIN+4 dwmblocks
 
 # dmenu prompt with list of processes to kill (processes executed by user shahzebs)
 super + ctrl + k
-        killallclients > /dev/null 2>&1
+    killallclients > /dev/null 2>&1
 
 # dmenu prompt to change WiFi (should give feedback)
 super + ctrl + w
-        wificonnect > /dev/null 2>&1
+    wificonnect > /dev/null 2>&1
 
 # dmenu prompt to open a pdf file under the home directory
 super + ctrl + o
-        openpdf > /dev/null 2>&1
+    openpdf > /dev/null 2>&1
 
 # dmenu prompt for translating text
 super + ctrl + t
-        translate > /dev/null 2>&1
+    translate > /dev/null 2>&1
 
 # dmenu prompt for finding a window client
 super + ctrl + f
-        findclient > /dev/null 2>&1
+    findclient > /dev/null 2>&1
 
 # dmenu prompt for changing audio streams of applications
 super + ctrl + a
-        selectaudioinput > /dev/null 2>&1
+    selectaudioinput > /dev/null 2>&1
 
 # dmenu prompt for changing default audio sink
 super + ctrl + shift + a
-        setdefaultsink > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+    setdefaultsink > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # dmenu prompt for muting an audio stream
 super + alt + a
-        muteaudioinput > /dev/null 2>&1
+    muteaudioinput > /dev/null 2>&1
 
 # dmenu prompt for selecting emoji to add to clipboard
 super + ctrl + e
-        dmenuemoji > /dev/null 2>&1
+    dmenuemoji > /dev/null 2>&1
 
 # dmenu prompt for looking up word in dictionary
 super + ctrl + d
-        dictionary > /dev/null 2>&1
+    dictionary > /dev/null 2>&1
 
 # Shutdown/reboot
 super + ctrl + alt + {p,r}
-        {shutdown now,reboot}
+    {shutdown now,reboot}
 
 # Restart dwmblocks (status bar)
 super + shift + b
-        killall dwmblocks; dwmblocks > /dev/null 2>&1 &
+    killall dwmblocks; dwmblocks > /dev/null 2>&1 &
 
 # Screenshot by selection and add to clipboard
 super + shift + F12
-        sleep 0.2; screen_copy > /dev/null 2>&1
+    sleep 0.2; screen_copy > /dev/null 2>&1
 
 # Grab color of selected pixel to clipboard
 super + F11
-        grabcolor
+    grabcolor
 
 # Toggle ForceCompositionPipeline setting in nvidia-settings
 super + shift + n
-        togglenvidiapipeline > /dev/null 2>&1
+    togglenvidiapipeline > /dev/null 2>&1
+
+
+# XF86 keys
+XF86AudioMute
+    amixer -D pulse set Master toggle > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+
+XF86Audio{Raise,Lower}Volume
+    amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+
+XF86Audio{Next,Prev}
+    playerctl {next,previous} > /dev/null 2>&1; sleep 0.1; pkill -RTMIN+3 dwmblocks
+
+XF86Audio{Pause,Play,Stop}
+    playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
+
+XF86Calculator
+    st -t "Python Shell" -e python3 -ic "import numpy as np"
+
+XF86WWW
+    brave
+
+XF86DOS
+    st
+
+XF86Mail
+    thunderbird
+
+#XF86PowerOff
+#XF86Sleep
