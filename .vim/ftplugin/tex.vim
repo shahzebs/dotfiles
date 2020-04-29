@@ -14,12 +14,15 @@ setlocal spell spelllang=en_us | hi clear SpellBad | hi clear SpellRare | hi cle
 
 inoremap <C-\> \(\)<++><Esc>F\i
 inoremap `/ \frac{}{<++>}<++><Esc>F{hi
-nnoremap <leader>bb "tciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
-inoremap <leader>bb <Esc>"tciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
 nnoremap cim /\\)<CR>%lc/\\)<CR><ESC>:noh<CR>li
+
+nnoremap ;bb "tciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
+inoremap ;bb <Esc>"tciw\begin{<C-R>"}<CR>\end{<C-R>"}<Esc>kA
+
 nnoremap ;f i\begin{figure}[]<CR>\centering<CR>\includegraphics[width=<++>\textwidth]{<++>}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><++><ESC>?\\begin<CR>:noh<CR>f[a
 inoremap ;f \begin{figure}[]<CR>\centering<CR>\includegraphics[width=<++>\textwidth]{<++>}<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{figure}<CR><++><ESC>?\\begin<CR>:noh<CR>f[a
 
 nnoremap ;b i@Book{,<CR>publisher = {<++>},<CR>isbn = {<++>},<CR>year = {<++>},<CR>title = {<++>},<CR>author = {<++>},<CR>}<ESC>%li
 inoremap ;b @Book{,<CR>publisher = {<++>},<CR>isbn = {<++>},<CR>year = {<++>},<CR>title = {<++>},<CR>author = {<++>},<CR>}<ESC>%li
 
+inoremap ;c \cref{}<left>
