@@ -33,14 +33,14 @@ dwmblocks > /dev/null 2>&1 &
 # update X resources database (for st)
 xrdb $HOME/.Xresources
 
+# dwm read colors from xrdb (syntax from dwmc patch)
+dwmc xrdb
+
 # set Norwegian win-keys layout
 setxkbmap -layout no -variant winkeys
 
 # turn on bluetooth controller
-bluetoothctl power on > /dev/null
+bluetoothctl power on > /dev/null &
 
 # start clipmenud, a clipboard history manager
 clipmenud &
-
-# dwm read colors from xrdb (syntax from dwmc patch)
-dwmc xrdb
