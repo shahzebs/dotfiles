@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ -x "$(command -v dropbox-cli)" ]; then
-    dropbox='dropbox-cli'
-else
-    dropbox='dropbox'
-fi
-
-[[ "$(pgrep dropbox)" ]] && $dropbox status | grep "Sync" > /dev/null && printf "  累  | "
