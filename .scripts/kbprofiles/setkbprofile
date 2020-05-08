@@ -1,0 +1,4 @@
+#!/bin/bash
+
+[ $# == 0 ] && profile="$HOME/.scripts/kbprofiles/profile1"
+sudo g815-led -p $profile
