@@ -6,12 +6,14 @@ volstat="$(amixer -D pulse get Master)"
 
 vol=$(echo "$volstat" | awk -F[][] '/%/ {print $2;exit}' | awk -F% '{print $1}')
 
-if [ "$vol" -gt "50" ]; then
+if [ "$vol" -ge "70" ]; then
     icon=""
-elif [ "$vol" -lt "30" ]; then
-    icon=""
-else
+elif [ "$vol" -ge "40" ]; then
+    icon="墳"
+elif [ "$vol" -ge "20" ]; then
     icon=""
+else
+    icon=""
 fi
 
 printf "%s %s%%" "$icon" "$vol"
