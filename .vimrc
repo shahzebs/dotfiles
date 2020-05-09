@@ -65,8 +65,8 @@ command! WQ execute 'wq'
 set scrolloff=10
 set number relativenumber
 set clipboard=unnamedplus
-set complete=.,w,b,u,t,i,kspell
 set dictionary=/usr/share/dict/american-english
+set complete=.,w,b,u,t,i,k
 set splitbelow splitright
 
 if &term != 'st-256color'
