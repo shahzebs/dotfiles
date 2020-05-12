@@ -26,6 +26,7 @@ dwmc xrdb
 
 # set Norwegian win-keys layout
 setxkbmap -layout no -variant winkeys
+setxkbmap -option caps:ctrl_modifier
 
 # start clipmenud, a clipboard history manager
 clipmenud &
