@@ -1,0 +1,125 @@
+#!/bin/bash
+
+
+function hex2rgb(){
+    hex="$(echo "$1" | sed 's/#//')"
+    a=`echo $hex | cut -c-2`
+    b=`echo $hex | cut -c3-4`
+    c=`echo $hex | cut -c5-6`
+
+    r=`echo "obase=10; ibase=16; $a" | bc`
+    g=`echo "obase=10; ibase=16; $b" | bc`
+    b=`echo "obase=10; ibase=16; $c" | bc`
+
+    echo "$r $g $b"
+}
+
+
+function rgb2hex() {
+    a="$(echo "obase=16; ibase=10; $1" | bc)"
+    b="$(echo "obase=16; ibase=10; $2" | bc)"
+    c="$(echo "obase=16; ibase=10; $3" | bc)"
+
+    [ $(printf "$a" | wc -c) -lt 2 ] && a="0$a"
+    [ $(printf "$b" | wc -c) -lt 2 ] && b="0$b"
+    [ $(printf "$c" | wc -c) -lt 2 ] && c="0$c"
+
+    echo "$a$b$c"
+}
+
+
+function hex2term() {
+  hex=$1
+  if [[ $hex == "#"* ]]; then
+    hex=$(echo $1 | awk '{print substr($0,2)}')
+  fi
+  r=$(printf '0x%0.2s' "$hex")
+  g=$(printf '0x%0.2s' ${hex#??})
+  b=$(printf '0x%0.2s' ${hex#????})
+  echo -e `printf "%03d" "$(((r<75?0:(r-35)/40)*6*6+(g<75?0:(g-35)/40)*6+(b<75?0:(b-35)/40)+16))"`
+}
+
+
+function blend_color() {
+    rgb1="$(hex2rgb $1)"
+    rgb2="$(hex2rgb $2)"
+
+    r1=`echo $rgb1 | awk '{print $1}'`
+    g1=`echo $rgb1 | awk '{print $2}'`
+    b1=`echo $rgb1 | awk '{print $3}'`
+
+    r2=`echo $rgb2 | awk '{print $1}'`
+    g2=`echo $rgb2 | awk '{print $2}'`
+    b2=`echo $rgb2 | awk '{print $3}'`
+
+    r3=$(( r1 / 2 + r2 / 2  ))
+    g3=$(( g1 / 2 + g2 / 2  ))
+    b3=$(( b1 / 2 + b2 / 2  ))
+
+    echo "$(rgb2hex $r3 $g3 $b3)"
+}
+
+
+function darken_color() {
+    rgb1="$(hex2rgb $1)"
+    amount="$2"
+
+    r1=`echo $rgb1 | awk '{print $1}'`
+    g1=`echo $rgb1 | awk '{print $2}'`
+    b1=`echo $rgb1 | awk '{print $3}'`
+
+    r=$(echo "scale=2; $r1 * (1 - $amount)" | bc )
+    g=$(echo "scale=2; $g1 * (1 - $amount)" | bc )
+    b=$(echo "scale=2; $b1 * (1 - $amount)" | bc )
+
+    r=${r%.*}
+    g=${g%.*}
+    b=${b%.*}
+
+    echo "$(rgb2hex $r $g $b)"
+}
+
+[ "$1" == "-p" ] && path="$2" || path="$1"
+
+
+if ! [ -f $HOME/.cache/gencolorpal/$(echo "$path" | sed 's|^.*/\(\w*\)\.\w*$|\1|') ]; then
+    rawcolors="$(magick convert "$path" -resize 25% -colors 16 -unique-colors txt:- | tail -n +2 | awk '{print $3}')"
+    [ $(echo "$rawcolors" | wc -l) -lt 16 ] && echo "Color pallette generation failed. Less than 16 colors generated" && exit
+
+    colors="$(echo "$rawcolors" | sed -n '1p') $(echo "$rawcolors" | sed -n '9,16p') $(echo "$rawcolors" | sed -n '9,15p')"
+    colors=`echo "$colors" | tr ' ' '\n' | sed 's/#//'`
+
+    # Adjust colors
+    oldcolor=`echo "$colors" | sed -n '1p'`
+    [ "$(echo $oldcolor | cut -c 1)" != "0" ] && newcolor=`darken_color "$oldcolor" "0.40"` && colors="$(echo "$colors" | sed "0,/$oldcolor/{s/$oldcolor/$newcolor/}")"
+
+    oldcolor=`echo "$colors" | sed -n '8p'`
+    newcolor=`blend_color "$oldcolor" "EEEEEE"`
+    colors="$(echo "$colors" | sed "0,/$oldcolor/{s/$oldcolor/$newcolor/}")"
+
+    oldcolor=`echo "$colors" | sed -n '9p'`
+    newcolor=`darken_color "$(echo "$colors" | sed -n '8p')" "0.30"`
+    colors="$(echo "$colors" | sed "0,/$oldcolor/{s/$oldcolor/$newcolor/}")"
+
+    oldcolor=`echo "$colors" | sed -n '16p'`
+    newcolor=`blend_color "$oldcolor" "EEEEEE"`
+    colors="$(echo "$colors" | sed "0,/$oldcolor/{s/$oldcolor/$newcolor/}")"
+
+    mkdir -p $HOME/.cache/gencolorpal/
+    echo "$colors" > $HOME/.cache/gencolorpal/$(echo $1 | sed 's|^.*/\(\w*\)\.\w*$|\1|')
+else
+    colors="$(cat $HOME/.cache/gencolorpal/$(echo "$path" | sed 's|^.*/\(\w*\)\.\w*$|\1|'))"
+fi
+
+if [[ "$@" == *"-p"* ]]; then
+    for i in {1..16}; do
+        col=$(echo "$colors" | sed -n "${i}p")
+        termcol=`hex2term $col`
+        printf "\e[48;5;%sm    \e[0m" $termcol
+        # return "\033]4;%s;%s\033\\" % (index, color)
+        [ $i == 8 ] && echo
+    done
+    echo
+else
+    echo "$colors"
+fi
