@@ -69,6 +69,9 @@ set dictionary=/usr/share/dict/american-english
 set complete=.,w,b,u,t,i,k
 set splitbelow splitright
 
+" Look for tags file in parent directories
+set tags=tags;/
+
 if &term != 'st-256color'
     set termguicolors
 endif
