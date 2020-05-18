@@ -1,4 +1,4 @@
 #!/bin/bash
 
-[ $# == 0 ] && profile="$HOME/.scripts/kbprofiles/profile1"
+[ $# == 0 ] && profile="$HOME/.scripts/kbprofiles/profile2"
 sudo g815-led -p $profile
