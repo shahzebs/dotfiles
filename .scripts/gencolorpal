@@ -106,7 +106,7 @@ if ! [ -f $HOME/.cache/gencolorpal/$(echo "$path" | sed 's|^.*/\(\w*\)\.\w*$|\1|
     colors="$(echo "$colors" | sed "0,/$oldcolor/{s/$oldcolor/$newcolor/}")"
 
     mkdir -p $HOME/.cache/gencolorpal/
-    echo "$colors" > $HOME/.cache/gencolorpal/$(echo $1 | sed 's|^.*/\(\w*\)\.\w*$|\1|')
+    echo "$colors" > $HOME/.cache/gencolorpal/$(echo "$path" | sed 's|^.*/\(\w*\)\.\w*$|\1|')
 else
     colors="$(cat $HOME/.cache/gencolorpal/$(echo "$path" | sed 's|^.*/\(\w*\)\.\w*$|\1|'))"
 fi
