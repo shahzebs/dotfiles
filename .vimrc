@@ -68,6 +68,7 @@ set clipboard=unnamedplus
 set dictionary=/usr/share/dict/american-english
 set complete=.,w,b,u,t,i,k
 set splitbelow splitright
+let g:tex_flavor = "latex"
 
 " Look for tags file in parent directories
 set tags=tags;/
