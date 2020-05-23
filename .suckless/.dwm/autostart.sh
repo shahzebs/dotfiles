@@ -7,7 +7,7 @@
 localcommands > /dev/null 2>&1 &
 
 # turn off auto screen dimming
-xset s off dpms 0 0 0 &
+xset s off dpms 3600 7200 0 &
 
 # simple X hotkey daemon for keybindings
 sxhkd -m 1 > /dev/null 2>&1 &
