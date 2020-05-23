@@ -65,7 +65,8 @@ command! WQ execute 'wq'
 set scrolloff=10
 set number relativenumber
 set clipboard=unnamedplus
-set dictionary=/usr/share/dict/american-english
+set dictionary+=~/.vim/dict/english-words.txt
+set thesaurus+=~/.vim/thesaurus/english.txt
 set complete=.,w,b,u,t,i,k
 set splitbelow splitright
 let g:tex_flavor = "latex"
