@@ -1,0 +1,10 @@
+#!/bin/bash
+
+region="central_norway"
+
+[ "$1" == "-mm" ] && type="accumulated_06h" || type="preciptype"
+
+notify-send "Loading Precipitation Radar" "Please wait one moment..."
+
+mpv --loop-file=inf "https://api.met.no/weatherapi/radar/2.0/?type=$type&area=$region&content=animation"
+
