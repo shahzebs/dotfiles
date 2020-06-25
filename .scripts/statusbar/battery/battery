@@ -27,6 +27,7 @@ else
     capicon=""
     warn="$lowbattery "
     bgimage="battery0"
+    [ "$capacity" -le 5 ] && [ "$status" != "Charging" ] && notify-send "BATTERY LEVEL LOW!" "Plug in a charger!"
 fi
 
 [ -z "$warn"  ] && warn=""
@@ -37,7 +38,4 @@ printf " | "
 
 if [ "$status" == "Charging" ]; then
     feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/charging-$bgimage.png"
-else
-    $HOME/.scripts/local/setbg
-#     feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/$bgimage.png"
 fi
