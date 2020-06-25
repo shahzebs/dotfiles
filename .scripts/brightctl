@@ -1,4 +1,5 @@
 #!/bin/bash
+# Run this script as sudo for it to work (maybe add this script as NOPASSWD in sudoers file)
 
 [ $# == 1 ] || [ $# -gt 2 ] && echo -e 'brightctl takes 0 or 2 arguments:\n0 arguments returns current brightness level\n2 arguments increases or decreases level by given percentage ([inc/dec] [percentage])' && exit
 

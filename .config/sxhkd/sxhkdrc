@@ -53,10 +53,6 @@ super + {plus,minus}
 super + shift + p
     amixer -D pulse set Master toggle > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
-# Increase/decrease screen brightness
-super + shift + {plus,minus}
-    brightctl {inc,dec} 10 > /dev/null 2>&1 && pkill -RTMIN+4 dwmblocks
-
 # dmenu prompt with list of processes to kill (processes executed by user shahzebs)
 super + ctrl + k
     killallclients > /dev/null 2>&1
@@ -142,6 +138,9 @@ XF86DOS
 
 XF86Mail
     thunderbird
+
+XF86MonBrightness{Up,Down}
+    sudo brightctl {inc,dec} 10 > /dev/null 2>&1 && pkill -RTMIN+4 dwmblocks
 
 #XF86PowerOff
 #XF86Sleep
