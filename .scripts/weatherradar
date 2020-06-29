@@ -1,6 +1,6 @@
 #!/bin/bash
 
-region="central_norway"
+region="eastern_norway"
 
 [ "$1" == "-mm" ] && type="accumulated_06h" || type="preciptype"
 
