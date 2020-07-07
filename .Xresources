@@ -28,7 +28,7 @@ st.alpha: 0.80
 
 /* dmenu: */
 !! dmenu font and colors
-dmenu.font: UbuntuMono\ Nerd\ Font:size=10
+dmenu.font: UbuntuMono Nerd Font:size=12
 dmenu.background: #222222
 dmenu.foreground: #bbbbbb
 dmenu.selbackground: c04
