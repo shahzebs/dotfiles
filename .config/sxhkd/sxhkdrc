@@ -45,9 +45,9 @@ super + p
 super + {Right,Left}
     playerctl {next,previous} > /dev/null 2>&1; sleep 0.1; pkill -RTMIN+3 dwmblocks
 
-# Increase/decrease volume by 10%
+# Increase/decrease volume by 5%
 super + {plus,minus}
-    amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+    amixer -D pulse set Master 5%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 # Mute/unmute audio
 super + shift + p
@@ -119,7 +119,7 @@ XF86AudioMute
     amixer -D pulse set Master toggle > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 XF86Audio{Raise,Lower}Volume
-    amixer -D pulse set Master 10%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
+    amixer -D pulse set Master 5%{+,-} > /dev/null 2>&1; pkill -RTMIN+1 dwmblocks
 
 XF86Audio{Next,Prev}
     playerctl {next,previous} > /dev/null 2>&1; sleep 0.1; pkill -RTMIN+3 dwmblocks
@@ -140,7 +140,7 @@ XF86Mail
     thunderbird
 
 XF86MonBrightness{Up,Down}
-    sudo brightctl {inc,dec} 10 > /dev/null 2>&1 && pkill -RTMIN+4 dwmblocks
+    sudo brightctl {inc,dec} 5 > /dev/null 2>&1 && pkill -RTMIN+4 dwmblocks
 
 #XF86PowerOff
 #XF86Sleep
