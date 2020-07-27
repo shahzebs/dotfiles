@@ -16,9 +16,6 @@ fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-# Dropbox client
-dropbox-cli start > /dev/null 2>&1 &
-
 # turn on bluetooth controller
 bluetoothctl power on > /dev/null 2>&1 &
 

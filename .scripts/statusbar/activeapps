@@ -2,7 +2,7 @@
 
 icons=""
 
-[ "$(pgrep -i dropbox)" ] && dropbox-cli status | grep "Sync" > /dev/null && icons+="  累 "
+[ "$(pgrep -i nextcloud-sync)" ] && icons+="  累 "
 [ "$(pgrep -i discord)" ] && icons+="ﭮ "
 [ "$(pgrep -i steam)" ] && icons+=" "
 
