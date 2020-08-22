@@ -1,4 +1,4 @@
-vimrc           /home/shahzebs/.vimrc
+vimrc           /home/shahzebs/.config/nvim/init.vim
 dwm             /home/shahzebs/.suckless/dwm/config.h
 dwmblocks       /home/shahzebs/.suckless/dwmblocks/config.h
 dwm_autostart   /home/shahzebs/.suckless/.dwm/autostart.sh

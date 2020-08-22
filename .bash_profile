@@ -14,6 +14,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+export EDITOR="nvim"
+export BROWSER="brave"
+export PDFVIEWER="zathura"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # turn on bluetooth controller

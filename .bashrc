@@ -121,10 +121,6 @@ shopt -s autocd
 
 cd $HOME
 
-export EDITOR="vim"
-export BROWSER="brave"
-export PDFVIEWER="zathura"
-
 # Colorful LESS-pager
 export LESS=-R
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
