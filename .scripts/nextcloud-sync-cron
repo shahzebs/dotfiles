@@ -609,6 +609,10 @@ EOF
 	echo "$PROG: error: $REASON" >&2
     fi
     EXIT_STATUS=$STATUS_ERROR
+    
+    # Notification when failed
+    notify-send "NEXTCLOUD SYNC" "Nextcloud sync failed:\n$REASON"
+
 fi
 
 #----------------------------------------------------------------
