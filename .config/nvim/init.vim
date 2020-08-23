@@ -5,10 +5,8 @@ set t_Co=256
 
 source ~/.config/nvim/runtime/vimrcs/init.vim
 
-" Plugins will be downloaded under the specified directory.
 call plug#begin('~/.config/nvim/plugged')
 
-" Declare the list of plugins.
 Plug 'lervag/vimtex'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
@@ -18,8 +16,9 @@ Plug 'psliwka/vim-smoothie'
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'unblevable/quick-scope'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
 
-" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 " Set colorscheme early
@@ -76,6 +75,7 @@ hi EndOfBuffer ctermbg=none ctermfg=243
 hi LineNr ctermbg=none
 hi CursorLineNr ctermbg=none
 hi FoldColumn ctermbg=none
+hi SignColumn ctermbg=none
 
 " Set a visible Visual highlight bg color
 hi Visual ctermbg=241
@@ -95,3 +95,18 @@ autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
 " Run xrdb on Xresources on write
 autocmd BufWritePost .Xresources :!xrdb %
 
+" Source coc.nvim vimrc
+source ~/.config/nvim/runtime/vimrcs/coc.vim
+
+" Toggle coc.nvim on/off
+let s:cocenabled = 1
+function! ToggleCoc()
+    if s:cocenabled
+        CocDisable
+        let s:cocenabled = 0
+    else
+        CocEnable
+        let s:cocenabled = 1
+    endif
+endfunction
+nnoremap <leader>c :call ToggleCoc()<CR>
