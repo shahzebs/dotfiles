@@ -48,13 +48,9 @@ inoremap <silent> ;; <ESC>/<++><CR>:noh<CR>"_cf>
 nnoremap "" "tciw"<C-R>""<ESC>
 nnoremap '' "tciw'<C-R>"'<ESC>
 nnoremap (( "tciw(<C-R>")<ESC>
-nnoremap [[ "tciw[<C-R>"]<ESC>
-nnoremap {{ "tciw{<C-R>"}<ESC>
 vnoremap "" "tc"<C-R>""<ESC>
 vnoremap '' "tc'<C-R>"'<ESC>
 vnoremap (( "tc(<C-R>")<ESC>
-vnoremap [[ "tc[<C-R>"]<ESC>
-vnoremap {{ "tc{<C-R>"}<ESC>
 
 " W and Q writes and quits like w and q
 command! W execute 'w'
