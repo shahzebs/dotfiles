@@ -39,7 +39,7 @@ super + alt + c
 
 # Play/pause audio
 super + p
-    playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
+    playerctl -p spotify play-pause || playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
 
 # Go to next/previous track
 super + {Right,Left}
@@ -125,7 +125,7 @@ XF86Audio{Next,Prev}
     playerctl {next,previous} > /dev/null 2>&1; sleep 0.1; pkill -RTMIN+3 dwmblocks
 
 XF86Audio{Pause,Play,Stop}
-    playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
+    playerctl -p spotify play-pause || playerctl -a play-pause > /dev/null 2>&1; pkill -RTMIN+3 dwmblocks
 
 XF86Calculator
     st -t "Python Shell" -e python3 -ic "import numpy as np"
