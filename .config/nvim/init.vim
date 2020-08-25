@@ -84,8 +84,7 @@ hi Visual ctermbg=241
 set acd
 
 " Recompile when writing a suckless program, e.g. dwm or st
-let myfilepath = expand('%:p')
-if myfilepath =~ "\.suckless"
+if expand('%:p') =~ "\.suckless"
     autocmd BufWritePost *.c,*.h :!make && sudo make install
 endif
 

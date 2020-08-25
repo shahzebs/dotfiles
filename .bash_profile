@@ -18,6 +18,7 @@ export EDITOR="nvim"
 export BROWSER="brave"
 export PDFVIEWER="zathura"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export SUDO_ASKPASS="/usr/lib/ssh/ssh-askpass"
 
 # turn on bluetooth controller
 bluetoothctl power on > /dev/null 2>&1 &
