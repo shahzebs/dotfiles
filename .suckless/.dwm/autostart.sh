@@ -30,3 +30,7 @@ setxkbmap -option caps:ctrl_modifier
 
 # start clipmenud, a clipboard history manager
 clipmenud &
+
+# turn on bluetooth controller
+bluetoothctl power on > /dev/null 2>&1 &
+
