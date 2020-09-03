@@ -1,0 +1,5 @@
+#!/bin/bash
+
+ssh opti logs/genlogs
+scp opti:logs/report.html $HOME/Documents/
+brave $HOME/Documents/report.html
