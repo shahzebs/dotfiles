@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh minecraft@shahzebs.xyz -t 'screen -r mc'
