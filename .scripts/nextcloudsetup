@@ -1,0 +1,35 @@
+#!/bin/bash
+
+echo "Starting Nextcloud setup script..."
+read -p "All exisiting settings will be overwritten. Are you sure you want to continue? (y/N) " answer
+[ "$answer" != "y" ] && exit
+
+echo "Installing Nextcloud client"
+sudo pacman -S --needed nextcloud-client
+
+echo "Creating Nextcloud directory"
+mkdir $HOME/Nextcloud 2> /dev/null
+
+echo "Creating Nextcloud sync config file"
+mkdir $HOME/.config/Nextcloud 2> /dev/null
+read -p "Enter server address (e.g. subdomain.domain.com): " address
+echo -e "local: /home/shahzebs/Nextcloud\nremote: https://$address" > $HOME/.config/Nextcloud/my-nc-sync.conf
+
+echo "Creating a netrc file for authentication"
+read -p "Enter Nextcloud username: " login
+read -p "Enter Nextcloud password: " password
+echo -e "default\nlogin $login\npassword $password" > $HOME/.netrc
+chmod 600 $HOME/.netrc
+
+cron="*/2 * * * * DISPLAY=:0 /home/shahzebs/.local/bin/nextcloud-sync-cron /home/shahzebs/.config/Nextcloud/my-nc-sync.conf"
+echo -e "Add this line to crontab for the sync client to be run every 2nd minute (added to clipboard):\n$cron"
+echo "$cron" | xclip -sel c
+<<<<<<< HEAD
+echo "But first run the GUI client once"
+nextcloud
+=======
+$TERMINAL -e crontab -e 2> /dev/null
+>>>>>>> d6c55dd... Add script for first time nextcloud setup
+
+echo "Setup done."
+
