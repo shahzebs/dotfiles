@@ -2,7 +2,7 @@
 alias v='$EDITOR'
 alias vimrc='$EDITOR ~/.config/nvim/init.vim'
 alias bashrc='$EDITOR ~/.bashrc'
-alias dfs='/usr/bin/git --git-dir=$HOME/.git-dotfiles/ --work-tree=$HOME'
+alias d='/usr/bin/git --git-dir=$HOME/.git-dotfiles/ --work-tree=$HOME'
 alias starwars='telnet towel.blinkenlights.nl'
 alias :q='exit'
 alias rip='rm -rf'

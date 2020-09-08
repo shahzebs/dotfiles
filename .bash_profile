@@ -17,6 +17,7 @@ fi
 export EDITOR="nvim"
 export BROWSER="brave"
 export PDFVIEWER="zathura"
+export TERMINAL="st"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SUDO_ASKPASS="/usr/lib/ssh/ssh-askpass"
 
