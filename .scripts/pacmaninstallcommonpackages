@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages="alsa-utils bash-completion bluez bluez-utils clipmenu clipnotify cmake discord dmenu efibootmgr fakeroot figlet gcc git grub htop imagemagick libnotify make man-db man-pages mlocate mpv neofetch networkmanager nitrogen notification-daemon noto-fonts-emoji ntfs-3g ntp openssh os-prober pacman-contrib pamixer patch pavucontrol picom pkgconf playerctl pulseaudio-alsa pulseaudio-bluetooth python-pip qpdf scrot slock sudo sxhkd sxiv the_silver_searcher thunderbird tldr ttf-joypixels ttf-ubuntu-font-family unzip xclip xdotool xorg-xclipboard xorg-xinit xorg-xkill xorg-xsetroot youtube-dl zathura zathura-pdf-poppler x11-ssh-askpass yarn neovim"
+packages="alsa-utils bash-completion bluez bluez-utils clipmenu clipnotify cmake discord dmenu efibootmgr fakeroot figlet gcc git grub htop imagemagick libnotify make man-db man-pages mlocate mpv neofetch networkmanager nitrogen notification-daemon noto-fonts-emoji ntfs-3g ntp openssh os-prober pacman-contrib pamixer patch pavucontrol picom pkgconf playerctl pulseaudio-alsa pulseaudio-bluetooth python-pip qpdf scrot slock sudo sxhkd sxiv the_silver_searcher thunderbird tldr ttf-joypixels ttf-ubuntu-font-family unzip xclip xdotool xorg-xclipboard xorg-xinit xorg-xkill xorg-xsetroot youtube-dl zathura zathura-pdf-poppler x11-ssh-askpass yarn neovim nextcloud-client"
 
 texpackages="texlive-core texlive-fontsextra texlive-latexextra texlive-pictures texlive-publishers texlive-science"
 
