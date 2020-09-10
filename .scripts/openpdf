@@ -1,5 +1,5 @@
 #!/bin/bash
 
-pdffile="$(find $HOME \( -iname '*.pdf' ! -iwholename '/home/shahzebs/.*' \) | sed 's|/home/shahzebs/||' | dmenu -i -l 10)"
+pdffile="$( ag -g "\.pdf$" $HOME | sed 's|/home/shahzebs/||' | dmenu -i -l 10)"
 
 [ "$(echo $pdffile)" ] && zathura "/home/shahzebs/$pdffile" &
