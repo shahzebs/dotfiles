@@ -13,7 +13,10 @@ mkdir $HOME/Nextcloud 2> /dev/null
 echo "Creating Nextcloud sync config file"
 mkdir $HOME/.config/Nextcloud 2> /dev/null
 read -p "Enter server address (e.g. subdomain.domain.com): " address
-echo -e "local: /home/shahzebs/Nextcloud\nremote: https://$address" > $HOME/.config/Nextcloud/my-nc-sync.conf
+read -p "Enter remote directory names to exclude from sync (selective sync) separated by spaces: " directories
+directories="nosync/ $directories"
+echo "$directories" | tr " " "\n" | sed 's/\([^\/]\)$/\1\//g' >> $HOME/.config/Nextcloud/nosync.lst
+echo -e "local: /home/shahzebs/Nextcloud\nremote: https://$address\nunsyncedfolders: $HOME/.config/Nextcloud/nosync.lst" > $HOME/.config/Nextcloud/my-nc-sync.conf
 
 echo "Creating a netrc file for authentication"
 read -p "Enter Nextcloud username: " login
@@ -24,12 +27,7 @@ chmod 600 $HOME/.netrc
 cron="*/2 * * * * DISPLAY=:0 /home/shahzebs/.local/bin/nextcloud-sync-cron /home/shahzebs/.config/Nextcloud/my-nc-sync.conf"
 echo -e "Add this line to crontab for the sync client to be run every 2nd minute (added to clipboard):\n$cron"
 echo "$cron" | xclip -sel c
-<<<<<<< HEAD
-echo "But first run the GUI client once"
-nextcloud
-=======
 $TERMINAL -e crontab -e 2> /dev/null
->>>>>>> d6c55dd... Add script for first time nextcloud setup
 
 echo "Setup done."
 
