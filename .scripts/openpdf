@@ -1,5 +1,15 @@
 #!/bin/bash
 
-pdffile="$( ag -g "\.pdf$" $HOME | sed 's|/home/shahzebs/||' | dmenu -i -l 10)"
+if [ -z "$1" ]; then
 
-[ "$(echo $pdffile)" ] && zathura "/home/shahzebs/$pdffile" &
+    pdffile="$( ag -g "\.pdf$" $HOME | sed 's|/home/shahzebs/||' | dmenu -i -l 10)"
+
+    [ "$(echo $pdffile)" ] && $PDFVIEWER "/home/shahzebs/$pdffile" &
+
+else
+    [ "$(echo "$1" | ag '\.pdf$')" ] && $PDFVIEWER "$1" && exit 
+
+    pdffile="/tmp/$(echo "$1" | sed 's/\.\w*$//').pdf"
+    unoconv -f pdf -o "$pdffile" "$1"
+    [ "$(echo $pdffile)" ] && $PDFVIEWER "$pdffile"
+fi
