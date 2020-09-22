@@ -31,7 +31,7 @@ st.alpha: 0.80
 dmenu.font: UbuntuMono Nerd Font:size=12
 dmenu.background: #222222
 dmenu.foreground: #bbbbbb
-dmenu.selbackground: c04
+dmenu.selbackground: c06
 dmenu.selforeground: #eeeeee
 
 /* dwm: */
@@ -39,7 +39,7 @@ dwm.normbordercolor: #000000
 dwm.normbgcolor: #222222
 dwm.normfgcolor: #bbbbbb
 dwm.selbordercolor: #ffffff
-dwm.selbgcolor: c04
+dwm.selbgcolor: c06
 dwm.selfgcolor: #eeeeee
 
 /* colors: */
