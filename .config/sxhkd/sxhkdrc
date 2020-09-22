@@ -27,7 +27,7 @@ super + c
 
 # Launch python shell with numpy
 super + shift + c
-    st -t "Python Shell" -e python3 -ic "import numpy as np"
+    st -t "Python Shell" -e python -ic "from numpy import *"
 
 # Launch a scratchpad in vim
 super + w
