@@ -5,6 +5,9 @@ set t_Co=256
 
 source ~/.config/nvim/runtime/vimrcs/init.vim
 
+" Polyglot config
+let g:polyglot_disabled = ['latex']
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'lervag/vimtex'
@@ -18,15 +21,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'unblevable/quick-scope'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
 " Set colorscheme early
 set background=dark
 colorscheme gruvbox-material
-
-" Polyglot config
-let g:polyglot_disabled = ['latex']
 
 " Auto-pairs config
 let g:AutoPairsShortcutFastWrap = ''
