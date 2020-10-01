@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true; do
+    ag -g . $HOME/Nextcloud/ | entr -d $HOME/.scripts/nextcloud-sync-cron
+done
+

@@ -130,8 +130,9 @@ done
 ## Process remaining arguments
 
 if [ $# -eq 0 ]; then
-    echo "$PROG: usage error: missing configuration file ('-h' for help)" >&2
-    exit $STATUS_USAGE_ERROR
+    # echo "$PROG: usage error: missing configuration file ('-h' for help)" >&2
+    # exit $STATUS_USAGE_ERROR
+    CONF_FILE="$HOME/.config/Nextcloud/my-nc-sync.conf"
 elif [ $# -eq 1 ]; then
     CONF_FILE="$1"
 else

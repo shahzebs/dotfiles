@@ -33,4 +33,3 @@ clipmenud &
 
 # turn on bluetooth controller
 bluetoothctl power on > /dev/null 2>&1 &
-
