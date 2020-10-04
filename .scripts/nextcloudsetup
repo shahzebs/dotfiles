@@ -4,8 +4,8 @@ echo "Starting Nextcloud setup script..."
 read -p "All exisiting settings will be overwritten. Are you sure you want to continue? (y/N) " answer
 [ "$answer" != "y" ] && exit
 
-echo "Installing Nextcloud client"
-sudo pacman -S --needed nextcloud-client
+echo "Installing Nextcloud client, silver searcher and entr"
+sudo pacman -S --needed nextcloud-client entr the_silver_searcher
 
 echo "Creating Nextcloud directory"
 mkdir $HOME/Nextcloud 2> /dev/null
@@ -24,8 +24,13 @@ read -p "Enter Nextcloud password: " password
 echo -e "default\nlogin $login\npassword $password" > $HOME/.netrc
 chmod 600 $HOME/.netrc
 
-cron="*/2 * * * * DISPLAY=:0 /home/shahzebs/.local/bin/nextcloud-sync-cron /home/shahzebs/.config/Nextcloud/my-nc-sync.conf"
-echo -e "Add this line to crontab for the sync client to be run every 2nd minute (added to clipboard):\n$cron"
+echo "Setting up syncing as a service on file changes"
+systemctl --user enable nextcloud.service
+systemctl --user start nextcloud.service
+systemctl --user status nextcloud.service
+
+cron="*/10 * * * * DISPLAY=:0 /home/shahzebs/.local/bin/nextcloud-sync-cron /home/shahzebs/.config/Nextcloud/my-nc-sync.conf"
+echo -e "Add this line to crontab for the sync client to be run every 10th minute (added to clipboard):\n$cron"
 echo "$cron" | xclip -sel c
 $TERMINAL -e crontab -e 2> /dev/null
 
