@@ -3,17 +3,17 @@
 function selectwifi {
     notify-send "WiFi Connection" "Looking for wireless connections"
 
-    activewifi="$(nmcli device wifi list | awk '/^\*/{print $3}')"
-    wifilist="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; /--/d' | awk '{print $2}')"
+    activewifi="$(nmcli device wifi list --rescan yes | grep '\*' | sed 's/\*//; /--/d; s/ *Infra.*$//g; s/^.*:\w\w  //g')"
+    wifilist="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; /--/d; s/ *Infra.*$//g; s/^.*:\w\w  //g')"
     
-    [ -z "$wifilist" ] && wifilist="$(nmcli connection show | tail -n +2 | awk '{print $1}')"
-    
+    [ -z "$wifilist" ] && wifilist="$(nmcli connection show | tail -n +2 | sed 's/  .*$//g')"
+
     selectedwifi="$(echo "$wifilist" | dmenu -i -l 10 -p "Current WiFi is $activewifi. Select WiFi:")"
 
     [ -z "$selectedwifi" ] && exit 1
 
     if [ -n "$(nmcli connection show | grep "$selectedwifi\s")" ]; then
-        status="$(nmcli connection up $selectedwifi)"
+        status="$(nmcli connection up "$selectedwifi")"
     else
         status=""
     fi
@@ -25,8 +25,9 @@ function selectwifi {
         
         [ "$password" == ":q" ] && selectwifi && return
 
-        [ -n "$(nmcli connection show | grep "$selectedwifi\s")" ] && nmcli connection delete $selectedwifi
-        status="$(nmcli device wifi connect $selectedwifi password $password)"
+        [ -n "$(nmcli connection show | grep "$selectedwifi\s")" ] && nmcli connection delete "$selectedwifi"
+
+        status="$(nmcli device wifi connect "$selectedwifi" password "$password")"
     done
 }
 
