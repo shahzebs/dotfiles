@@ -3,7 +3,7 @@
 function selectwifi {
     notify-send "WiFi Connection" "Looking for wireless connections"
 
-    activewifi="$(nmcli device wifi list --rescan yes | grep '\*' | sed 's/\*//; /--/d; s/ *Infra.*$//g; s/^.*:\w\w  //g')"
+    activewifi="$(nmcli device wifi list --rescan yes | sed '/^[^\*]/d; s/\*//; /--/d; s/ *Infra.*$//g; s/^.*:\w\w  //g')"
     wifilist="$(nmcli device wifi list | tail -n +2 | sed 's/\*//; /--/d; s/ *Infra.*$//g; s/^.*:\w\w  //g')"
     
     [ -z "$wifilist" ] && wifilist="$(nmcli connection show | tail -n +2 | sed 's/  .*$//g')"
