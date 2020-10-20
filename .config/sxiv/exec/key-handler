@@ -1,0 +1,22 @@
+#!/bin/bash
+
+while read file
+do
+    case "$1" in
+        "m")
+            sort -u /tmp/sxivdirs -o /tmp/sxivdirs
+            [ -f "/tmp/sxivdirs" ] && destdir="$(sed "s|$HOME/||" /tmp/sxivdirs | dmenu -i -l 10 -p "Move file(s) to where?" | sed "s|^|$HOME/|" | tee -a /tmp/sxivdirs)"
+            [ ! -f "/tmp/sxivdirs" ] && destdir="$(dmenu -p "Move file(s) to where?" <&- | sed "s|^|$HOME/|" | tee -a /tmp/sxivdirs)"
+            [ -z "$destdir" ] && exit
+            [ ! -d "$destdir" ] && notify-send "$destdir is not a directory, cancelled." && exit
+            newfname="$(dmenu -p "New filename?" <&-)"
+            [ -n "$newfname" ] && newfname+="$(echo "$file" | sed "s/^.*\./\./")"
+            mv -i "$file" "$destdir/$newfname" && notify-send "$(readlink -f "$file")" "$file moved to $destdir/$newfname." &
+		    ;;
+        
+        "d")
+            answer="$(echo -e "No\nYes" | dmenu -i -p "Delete file(s)?")"
+            [ "$answer" == "Yes" ] && rm "$file" & ;;
+    esac
+done
+
