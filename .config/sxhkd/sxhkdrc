@@ -61,6 +61,10 @@ super + ctrl + k
 super + ctrl + w
     wificonnect > /dev/null 2>&1
 
+# dmenu prompt to (dis)connect network devices (interfaces)
+super + shift + w
+    toggleif > /dev/null 2>&1
+
 # dmenu prompt to open a pdf file under the home directory
 super + ctrl + o
     openpdf > /dev/null 2>&1
