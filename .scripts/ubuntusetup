@@ -4,7 +4,7 @@ sudo apt-get purge lightdm* gdm3 xfce* gnome* xubuntu-desktop
 sudo apt autoremove
 sudo apt update
 
-sudo apt install neovim vim git make gcc libx11-dev libxft-dev libxinerama-dev libx11-xcb-dev libxcb-res0-dev suckless-tools xorg sxhkd lm-sensors neofetch curl
+sudo apt install neovim vim git make gcc libx11-dev libxft-dev libxinerama-dev libx11-xcb-dev libxcb-res0-dev suckless-tools xorg sxhkd lm-sensors neofetch curl arandr zathura yarn nodejs mlocate
 
 read -p "Are you using this Ubuntu machine inside virtualbox? [y/N]" vbans
 [ $vbans == "y" ] && sudo apt install virtualbox-guest-utils virtualbox-guest-x11
