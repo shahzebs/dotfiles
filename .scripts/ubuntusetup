@@ -3,9 +3,8 @@
 sudo apt-get purge lightdm* gdm3 xfce* gnome* xubuntu-desktop
 sudo apt autoremove
 sudo apt update
-sudo apt upgrade
 
-sudo apt install vim nvim git make gcc libx11-dev libxft-dev libxinerama-dev suckless-tools xorg sxhkd lm-sensors neofetch
+sudo apt install neovim vim git make gcc libx11-dev libxft-dev libxinerama-dev libx11-xcb-dev libxcb-res0-dev suckless-tools xorg sxhkd lm-sensors neofetch curl
 
 read -p "Are you using this Ubuntu machine inside virtualbox? [y/N]" vbans
 [ $vbans == "y" ] && sudo apt install virtualbox-guest-utils virtualbox-guest-x11
@@ -43,4 +42,4 @@ cd $HOME/.suckless/st && make && sudo make install
 cd $HOME/.suckless/dmenu && make && sudo make install
 echo "exec dwm" > $HOME/.xsession
 
-echo -e "\nReboot, log in and run \`startx\` to enter dwm"
+echo -e "\nChange branch to ubuntu, reboot, log in and run \`startx\` to enter dwm"
