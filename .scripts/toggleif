@@ -1,0 +1,8 @@
+#!/bin/bash
+
+device="$(nmcli device show | awk '/DEVICE/{dev=$2};/STATE/{print dev,$3}' | dmenu -i -p 'Toggle which device?')"
+
+[ "${device#* }" == "(connected)" ] && status="$(nmcli device disconnect "${device% *}")"
+[ "${device#* }" == "(disconnected)" ] && status="$(nmcli device connect "${device% *}")"
+
+[ -n "$status" ] && notify-send "Network Device" "$status"
