@@ -1,3 +1,3 @@
 #!/bin/bash
 
-killall -SIGKILL "$(pgrep -u shahzebs -l | awk '{first = $1; $1 = "";print $0}' | sed 's/^\s//' | sort -u | dmenu -i -l 20)"
+killall -SIGKILL "$(pgrep -u $USER -l | awk '{first = $1; $1 = "";print $0}' | sed 's/^\s//' | sort -u | dmenu -i -l 20)"
