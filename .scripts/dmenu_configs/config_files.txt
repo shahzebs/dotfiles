@@ -1,8 +1,8 @@
-vimrc           /home/shahzebs/.config/nvim/init.vim
-dwm             /home/shahzebs/.suckless/dwm/config.h
-dwmblocks       /home/shahzebs/.suckless/dwmblocks/config.h
-dwm_autostart   /home/shahzebs/.suckless/.dwm/autostart.sh
-st              /home/shahzebs/.suckless/st/config.h
-bashrc          /home/shahzebs/.bashrc
-bash_aliases    /home/shahzebs/.bash_aliases
-sxhkd           /home/shahzebs/.config/sxhkd/sxhkdrc
+vimrc           .config/nvim/init.vim
+dwm             .suckless/dwm/config.h
+dwmblocks       .suckless/dwmblocks/config.h
+dwm_autostart   .suckless/.dwm/autostart.sh
+st              .suckless/st/config.h
+bashrc          .bashrc
+bash_aliases    .bash_aliases
+sxhkd           .config/sxhkd/sxhkdrc
