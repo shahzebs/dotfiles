@@ -6,7 +6,7 @@ sudo apt autoremove
 
 # Install needed packages
 sudo apt update
-sudo apt install neovim vim git make gcc libx11-dev libxft-dev libxinerama-dev libx11-xcb-dev libxcb-res0-dev suckless-tools xorg sxhkd lm-sensors neofetch curl arandr zathura yarn nodejs mlocate apt-transport-https gnupg
+sudo apt install neovim vim git make gcc libx11-dev libxft-dev libxinerama-dev libx11-xcb-dev libxcb-res0-dev suckless-tools xorg sxhkd lm-sensors neofetch curl arandr zathura yarn nodejs mlocate apt-transport-https gnupg tldr silversearcher-ag
 
 # Install Brave
 curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
