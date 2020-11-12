@@ -11,7 +11,7 @@ super + shift + l
 
 # Launch Brave/Firefox/Chrome browser
 super + {+,shift,ctrl} + x
-    {brave,firefox,google-chrome} > /dev/null 2>&1
+    {brave-browser,firefox,google-chrome} > /dev/null 2>&1
 
 # Launch Thunderbird
 super + e
