@@ -5,9 +5,6 @@ set t_Co=256
 
 source ~/.config/nvim/runtime/vimrcs/init.vim
 
-" Polyglot config
-let g:polyglot_disabled = ['latex']
-
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'lervag/vimtex'
@@ -37,39 +34,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 highlight QuickScopePrimary ctermfg=111
 highlight QuickScopeSecondary ctermfg=112
 
-""" Useful remaps
-inoremap jk <esc>
-
-" Jump to first <++>, delete it, and enter insert mode
-nnoremap <silent> ;; /<++><CR>:noh<CR>"_cf>
-inoremap <silent> ;; <ESC>/<++><CR>:noh<CR>"_cf>
-
-" Simple surround commands
-nnoremap "" "tciw"<C-R>""<ESC>
-nnoremap '' "tciw'<C-R>"'<ESC>
-nnoremap (( "tciw(<C-R>")<ESC>
-vnoremap "" "tc"<C-R>""<ESC>
-vnoremap '' "tc'<C-R>"'<ESC>
-vnoremap (( "tc(<C-R>")<ESC>
-
-" W and Q writes and quits like w and q
-command! W execute 'w'
-command! Q execute 'q'
-command! Wq execute 'wq'
-command! WQ execute 'wq'
-
-set scrolloff=10
-set number relativenumber
-set clipboard=unnamedplus
-set dictionary+=~/.config/nvim/dict/english-words.txt
-set thesaurus+=~/.config/nvim/thesaurus/english.txt
-set complete=.,w,b,u,t,i,k
-set splitbelow splitright
-let g:tex_flavor = "latex"
-
-" Look for tags file in parent directories
-set tags=tags;/
-
 " Make background transparent and the tildes visible
 hi Normal ctermbg=none
 hi EndOfBuffer ctermbg=none ctermfg=243 
@@ -80,9 +44,6 @@ hi SignColumn ctermbg=none
 
 " Set a visible Visual highlight bg color
 hi Visual ctermbg=241
-
-" Changes working directory
-set acd
 
 " Recompile when writing a suckless program, e.g. dwm or st
 if expand('%:p') =~ "\.suckless"
