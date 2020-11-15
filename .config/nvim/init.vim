@@ -51,7 +51,7 @@ if expand('%:p') =~ "\.suckless"
 endif
 
 " After writing sxhkdrc, kill existing instance and launch new
-autocmd BufWritePost sxhkdrc :!killall sxhkd; setsid sxhkd &
+autocmd BufWritePost sxhkdrc :call jobstart('killall sxhkd; sxhkd', {'detach':1})
 
 " Run xrdb on Xresources on write
 autocmd BufWritePost .Xresources :!xrdb %
