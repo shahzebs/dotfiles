@@ -178,3 +178,40 @@ vnoremap <esc>[1;5D <C-Left>
 noremap! <esc>[1;5D <C-Left>
 
 map Y y$
+
+""" Useful remaps
+inoremap jk <esc>
+
+" Jump to first <++>, delete it, and enter insert mode
+nnoremap <silent> ;; /<++><CR>:noh<CR>"_cf>
+inoremap <silent> ;; <ESC>/<++><CR>:noh<CR>"_cf>
+
+" Simple surround commands
+nnoremap "" "tciw"<C-R>""<ESC>
+nnoremap '' "tciw'<C-R>"'<ESC>
+nnoremap (( "tciw(<C-R>")<ESC>
+vnoremap "" "tc"<C-R>""<ESC>
+vnoremap '' "tc'<C-R>"'<ESC>
+vnoremap (( "tc(<C-R>")<ESC>
+
+" W and Q writes and quits like w and q
+command! W execute 'w'
+command! Q execute 'q'
+command! Wq execute 'wq'
+command! WQ execute 'wq'
+
+set scrolloff=10
+set number relativenumber
+set clipboard=unnamedplus
+set dictionary+=~/.config/nvim/dict/english-words.txt
+set thesaurus+=~/.config/nvim/thesaurus/english.txt
+set complete=.,w,b,u,t,i,k
+set splitbelow splitright
+let g:tex_flavor = "latex"
+
+" Look for tags file in parent directories
+set tags=tags;/
+
+" Changes working directory
+set acd
+
