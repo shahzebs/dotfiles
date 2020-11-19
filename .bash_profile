@@ -15,7 +15,7 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export EDITOR="nvim"
-export BROWSER="brave"
+export BROWSER="brave-browser"
 export PDFVIEWER="zathura"
 export TERMINAL="st"
 export _JAVA_AWT_WM_NONREPARENTING=1
