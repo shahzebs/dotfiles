@@ -71,3 +71,9 @@ function! ToggleCoc()
     endif
 endfunction
 nnoremap <leader>c :call ToggleCoc()<CR>
+
+" TODO:
+" List of coc extensions in vimrc
+" Auto-import mapping
+" Extract into method (java)
+" Language sensitive commenting
