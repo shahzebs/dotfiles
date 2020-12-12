@@ -59,6 +59,9 @@ autocmd BufWritePost .Xresources :!xrdb %
 " Source coc.nvim vimrc
 source ~/.config/nvim/runtime/vimrcs/coc.vim
 
+" List of coc-extensions
+let g:coc_global_extensions = ['coc-java', 'coc-git', 'coc-sh']
+
 " Toggle coc.nvim on/off
 let s:cocenabled = 1
 function! ToggleCoc()
@@ -73,7 +76,5 @@ endfunction
 nnoremap <leader>c :call ToggleCoc()<CR>
 
 " TODO:
-" List of coc extensions in vimrc
-" Auto-import mapping
 " Extract into method (java)
 " Language sensitive commenting
