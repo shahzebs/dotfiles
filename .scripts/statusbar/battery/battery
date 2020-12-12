@@ -35,7 +35,3 @@ fi
 printf "%s%s%s%s" "$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not charging/$notcharging /;s/Charging/$charging /;s/Unknown/$stagnantcharge /;s/Full/$charged /;s/ 0*/ /g;s/ :/ /g")" "$warn" "$capicon  " "$(echo "$capacity" | sed -e 's/$/%/')"
 
 printf " | "
-
-if [ "$status" == "Charging" ]; then
-    feh --no-fehbg --bg-fill "$HOME/.scripts/statusbar/battery/images/charging-$bgimage.png"
-fi
