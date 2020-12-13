@@ -19,6 +19,7 @@ Plug 'unblevable/quick-scope'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'ap/vim-css-color'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
@@ -60,7 +61,7 @@ autocmd BufWritePost .Xresources :!xrdb %
 source ~/.config/nvim/runtime/vimrcs/coc.vim
 
 " List of coc-extensions
-let g:coc_global_extensions = ['coc-java', 'coc-git', 'coc-sh']
+let g:coc_global_extensions = ['coc-java', 'coc-sh', 'coc-snippets', 'coc-jedi', 'coc-python', 'coc-vimlsp', 'coc-actions']
 
 " Toggle coc.nvim on/off
 let s:cocenabled = 1
@@ -77,4 +78,3 @@ nnoremap <leader>c :call ToggleCoc()<CR>
 
 " TODO:
 " Extract into method (java)
-" Language sensitive commenting
