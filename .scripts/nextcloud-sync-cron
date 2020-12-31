@@ -405,6 +405,10 @@ if [ -e "$BAD_FILE" ]; then
 	NOW_SECS=`date +%s`
 	ELAPSED=$(($NOW_SECS - $PREV_FAIL_SECS))
 
+    if [ $ELAPSED -lt 0 ]; then
+        ELAPSED=$DELAY
+    fi
+
 	if [ $ELAPSED -lt $DELAY ]; then
 	    if [ -n "$VERBOSE" ]; then
 		echo "$PROG: skipping (can sync in $(($DELAY-$ELAPSED))s)" >&2
