@@ -2,7 +2,7 @@
 ## Basic binds
 
 # Launch st terminal
-super + Return
+super + {Return,less}
     st
 
 # Lock screen
