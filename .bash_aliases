@@ -1,5 +1,7 @@
 #alias vim='vim --servername vim'
 alias v='$EDITOR'
+alias vim='$EDITOR'
+alias vimm='vim'
 alias vimrc='$EDITOR ~/.config/nvim/init.vim'
 alias bashrc='$EDITOR ~/.bashrc'
 alias d='/usr/bin/git --git-dir=$HOME/.git-dotfiles/ --work-tree=$HOME'
