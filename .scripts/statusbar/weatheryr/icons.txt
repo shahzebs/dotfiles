@@ -2,6 +2,7 @@
  :LightCloud
  :PartlyCloud
  :Cloud
+ :Cloudy
  :LightRainSun
  :LightRainThunderSun
  :SleetSun
