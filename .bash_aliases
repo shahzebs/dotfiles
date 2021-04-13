@@ -17,6 +17,9 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 alias mv='mv -i'
 alias cp='cp -i'
+alias sys='sudo systemctl'
+
+# Radio
 alias talksport='mpv https://radio.talksport.com/stream'
 alias nrkp3='mpv http://streema.com/radios/play/NRK_Event'
 alias nrj='mpv http://streema.com/radios/play/NRJ_Norway'
