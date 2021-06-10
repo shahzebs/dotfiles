@@ -27,9 +27,11 @@ dwmc xrdb
 # set Norwegian win-keys layout
 setxkbmap -layout no -variant winkeys
 setxkbmap -option caps:ctrl_modifier
+setxkbmap -option altwin:menu_win
 
 # start clipmenud, a clipboard history manager
 clipmenud &
 
 # turn on bluetooth controller
 bluetoothctl power on > /dev/null 2>&1 &
+
