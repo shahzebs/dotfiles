@@ -32,15 +32,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class          instance    title               tags mask     iscentered    isfloating   isterminal   noswallow   monitor */
-	{ "Gimp",         NULL,       NULL,               0,            0,            1,           0,           0,          -1 },
-    { "Brave",        NULL,       NULL,               1 << 8,       0,            0,           0,           0,          -1 },
-	{ "discord",      NULL,       NULL,               1 << 6,       0,            0,           0,           0,          -1 },
-	{ "Thunderbird",  NULL,       NULL,               1 << 5,       0,            0,           0,           0,          -1 },
-    { "St",           NULL,       NULL,               0,            0,            0,           1,           1,          -1 },
-    { "Steam",        NULL,       NULL,               1 << 7,       1,            1,           0,           0,          -1 },
-    { "Matplotlib",   NULL,       NULL,               0,            1,            1,           0,           0,          -1 },
-    { "St",           NULL,       "Scratchpad",       0,            1,            1,           0,           0,          -1 },
+	/* class          instance    title               tags mask     iscentered    isfloating   monitor */
+	{ "Gimp",         NULL,       NULL,               0,            0,            1,           -1 },
+    { "Brave",        NULL,       NULL,               1 << 8,       0,            0,           -1 },
+	{ "discord",      NULL,       NULL,               1 << 6,       0,            0,           -1 },
+    { "Steam",        NULL,       NULL,               1 << 7,       1,            1,           -1 },
+    { "Matplotlib",   NULL,       NULL,               0,            1,            1,           -1 },
+    { "St",           NULL,       "Scratchpad",       0,            1,            1,           -1 },
 };
 
 /* layout(s) */
