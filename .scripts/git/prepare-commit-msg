@@ -8,6 +8,7 @@ fi
 if [ -n "$(echo $MESSAGE | grep -Eo '^[a-z]+:')" ]; then
     MESSAGE="$(echo $MESSAGE | sed "s/:/($TICKET):/")"
 elif [ -z "$(echo $MESSAGE | grep -Eo '^[a-zA-Z0-9\-]+:')" ]; then
-    read -p 'Enter a verb, e.g. feat or fix: ' VERB < /dev/tty && MESSAGE="$VERB($TICKET): $MESSAGE"
+    read -p 'Enter a verb, e.g. feat or fix: ' VERB < /dev/tty
+    [ -n "$VERB" ] && MESSAGE="$VERB($TICKET): $MESSAGE"
 fi
 echo "$MESSAGE" > $FILE
