@@ -43,4 +43,4 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gst='git stash'
 alias gstp='git stash pop'
-
+alias gch='git checkout'
