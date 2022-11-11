@@ -56,8 +56,13 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+git_prompt() {
+    branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'`
+    [ -n "$branch" ] && echo " $branch "
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1="\[\e[01;31m\][\[\e[01;33m\]\u\[\e[01;36m\]@\[\e[01;35m\]\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[01;31m\]]\[\e[00m\]\$ "
+    PS1="\[\e[01;31m\][\[\e[01;33m\]\u\[\e[01;36m\]@\[\e[01;35m\]\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[01;31m\]]\[\e[00m\]\$(git_prompt)\$ "
     # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -131,6 +136,9 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-source $HOME/.config/athame/athame
+# source $HOME/.config/athame/athame
+set -o vi
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
 
 complete -C /usr/bin/terraform terraform
