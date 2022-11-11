@@ -18,6 +18,8 @@ export EDITOR="nvim"
 export BROWSER="brave"
 export PDFVIEWER="zathura"
 export TERMINAL="st"
-export _JAVA_AWT_WM_NONREPARENTING=1
 export SUDO_ASKPASS="/usr/lib/ssh/ssh-askpass"
 
+# Java env vars
+export _JAVA_AWT_WM_NONREPARENTING=1
+export JAVA_HOME="/usr/lib/jvm/default"
