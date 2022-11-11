@@ -45,3 +45,7 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias gch='git checkout'
 alias gaap='git add --all && git commit --amend --no-edit && git push -f'
+
+# Auto complete git checkout alias
+source /usr/share/bash-completion/completions/git
+__git_complete gch _git_checkout
