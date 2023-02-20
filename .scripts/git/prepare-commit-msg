@@ -1,14 +1,15 @@
 #!/bin/bash
 FILE=$1
 MESSAGE=$(cat $FILE)
-TICKET=$(git branch --show-current | grep -Eo '^(\w+/)?(\w+[-_])?[0-9]+' | grep -Eo '(\w+[-])?[0-9]+' | tr "[:lower:]" "[:upper:]")
+TICKET=$(git branch --show-current | grep -Eo '^(\w+/)?((\w+[-_])?[0-9]+/?)*' | grep -Eo '(\w+[-])?[0-9]+' | tr "[:lower:]" "[:upper:]" | tr "\n" " " | sed 's/\s$//')
+
 if [[ -z "$TICKET" || $TICKET == "[]" || -n "$(echo $MESSAGE | grep -Eo '^[a-z]+\([a-zA-Z0-9\-]+\):')" ]];then
   exit 0;
 fi
 if [ -n "$(echo $MESSAGE | grep -Eo '^[a-z]+:')" ]; then
-    MESSAGE="$(echo $MESSAGE | sed "s/:/($TICKET):/")"
+    MESSAGE=$(echo $MESSAGE | sed "s/:/: $TICKET/")
 elif [ -z "$(echo $MESSAGE | grep -Eo '^[a-zA-Z0-9\-]+:')" ]; then
     read -p 'Enter a verb, e.g. feat or fix: ' VERB < /dev/tty
-    [ -n "$VERB" ] && MESSAGE="$VERB($TICKET): $MESSAGE"
+    [ -n "$VERB" ] && MESSAGE="$VERB: $TICKET $MESSAGE"
 fi
 echo "$MESSAGE" > $FILE
