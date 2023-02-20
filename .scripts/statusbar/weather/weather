@@ -1,7 +1,7 @@
 #!/bin/bash
 
 yrreport="$($HOME/.scripts/statusbar/weatheryr/weatheryr)"
-if [ -n "$yrreport" ]; then
+if [[ -n "$yrreport" && $? -eq 0 ]]; then
     printf "%s" "$yrreport"
 else
     codes=$HOME/.scripts/statusbar/weather/weathercodes.txt

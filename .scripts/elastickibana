@@ -1,0 +1,5 @@
+#!/bin/sh
+
+screen -dmS elastic $HOME/elastic/elasticsearch-7.17.7/bin/elasticsearch &
+screen -dmS kibana $HOME/elastic/kibana-7.17.7-linux-x86_64/bin/kibana &
+
