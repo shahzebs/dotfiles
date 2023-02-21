@@ -3,7 +3,7 @@ FILE=$1
 MESSAGE=$(cat $FILE)
 TICKET=$(git branch --show-current | grep -Eo '^(\w+/)?((\w+[-_])?[0-9]+/?)*' | grep -Eo '(\w+[-])?[0-9]+' | tr "[:lower:]" "[:upper:]" | tr "\n" " " | sed 's/\s$//')
 
-if [[ -z "$TICKET" || $TICKET == "[]" || -n "$(echo $MESSAGE | grep -Eo '^[a-z]+\([a-zA-Z0-9\-]+\):')" ]];then
+if [[ -z "$TICKET" || $TICKET == "[]" || -n "$(echo $MESSAGE | grep -Eo '^[a-z]+:\s*[a-zA-Z]+[0-9\-]+')" ]];then
   exit 0;
 fi
 if [ -n "$(echo $MESSAGE | grep -Eo '^[a-z]+:')" ]; then
