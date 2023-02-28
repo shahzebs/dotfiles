@@ -124,7 +124,9 @@ fi
 
 shopt -s autocd
 
-cd $HOME
+if [[ $TERM = "st-256color" ]]; then 
+    cd $HOME
+fi
 
 # Colorful LESS-pager
 export LESS=-R
