@@ -2,6 +2,7 @@
 alias v='$EDITOR'
 alias vim='$EDITOR'
 alias vimm='vim'
+alias vimdiff='$EDITOR -d'
 alias vimrc='$EDITOR ~/.config/nvim/init.vim'
 alias bashrc='$EDITOR ~/.bashrc'
 alias starwars='telnet towel.blinkenlights.nl'
@@ -45,6 +46,7 @@ alias gst='git stash'
 alias gstp='git stash pop'
 alias gch='git checkout'
 alias gaap='git add --all && git commit --amend --no-edit && git push -f'
+alias gf='git fetch'
 
 # Auto complete git checkout alias
 source /usr/share/bash-completion/completions/git
