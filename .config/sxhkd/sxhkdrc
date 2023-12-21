@@ -1,6 +1,18 @@
 
 ## Basic binds
 
+# Type Toppris PR reviewers
+super + shift + r
+    pr-reviewers
+
+# Activate dual scrren setup at KLP
+super + alt + d
+    /home/shahzebs/.screenlayout/klp-dual-screen-1080p.sh
+
+# Launch Intellij repo menu
+super + ctrl + i
+    openwithintellij
+
 # Launch st terminal
 super + {Return,less}
     st
