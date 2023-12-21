@@ -76,5 +76,15 @@ function! ToggleCoc()
 endfunction
 nnoremap <leader>c :call ToggleCoc()<CR>
 
+command! Jsonpretty execute '%!jq'
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " TODO:
 " Extract into method (java)
