@@ -1,0 +1,7 @@
+#!/bin/bash
+
+repodir="$HOME/code"
+repos=`ls -1 -d $repodir/**/.idea | sed "s|/\.idea\$||;s|^$repodir/||"`
+
+selectedrepo=`echo $repos | sed 's/\s/\n/g' | dmenu -i -l 5 -p "Which repo do you want to open with Intellij?"`
+[ -n "$selectedrepo" ] && intellij-idea-ultimate-edition $repodir/$selectedrepo & disown

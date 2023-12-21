@@ -1,0 +1,22 @@
+#!/bin/sh
+
+sleep 0.5
+xdotool type "hans.fredrik.fahle@klp.no"
+sleep 0.5
+xdotool key KP_Enter
+xdotool type "ingvild.finsas@klp.no"
+sleep 0.5
+xdotool key KP_Enter
+xdotool type "silje.ovstetun@klp.no"
+sleep 0.5
+xdotool key KP_Enter
+xdotool type "lars.henrik.nordli@klp.no"
+sleep 0.5
+xdotool key KP_Enter
+xdotool type "marikken.sundnes@klp.no"
+sleep 0.5
+xdotool key KP_Enter
+xdotool type "jorgen.stockert@klp.no"
+sleep 0.5
+xdotool key KP_Enter
+

@@ -1,5 +1,14 @@
 #!/bin/sh
 
-screen -dmS elastic $HOME/elastic/elasticsearch-7.17.7/bin/elasticsearch &
-screen -dmS kibana $HOME/elastic/kibana-7.17.7-linux-x86_64/bin/kibana &
+if [ "$1" = "-k" ]; then
+    echo "Shutting down Elasticsearch and Kibana..."
+    screen -X -S elastic quit
+    screen -X -S kibana quit
+else 
+    [ "$1" = -8 ] && version="8.10.3" || version="7.17.7"
+    echo "Starting up Elasticsearch and Kibana..."
+    screen -dmS elastic $HOME/elastic/elasticsearch-$version/bin/elasticsearch
+    screen -dmS kibana $HOME/elastic/kibana-$version/bin/kibana
+fi
+screen -ls
 
