@@ -9,7 +9,7 @@ text=$(echo $query | cut -d " " -f 3- | sed 's/ /+/g')
 
 ( [ -z "$sl" ] || [ -z "$tl" ] || [ -z "$text" ] ) && notify-send "Translation" "Invalid format.\nFormat: [source lang.] [dest. lang.] [trans. string]" && exit 1
 
-translation=$(curl -s "https://translate.googleapis.com/translate_a/single?client=gtx&sl=$sl&tl=$tl&dt=t&q=$text" | sed 's/^.\+\(".\+",".\+",null\).*/\1/g' | head -1 | sed 's/"//g;s/,null//g;s/,/\n/g' | dmenu -i -p "Translation results:" -l 5)
+translation=$(curl -s "https://translate.googleapis.com/translate_a/single?client=gtx&sl=$sl&tl=$tl&dt=t&q=$text" | jq -r '.[0][0][0], .[0][0][1]' | dmenu -i -p "Translation results:" -l 5)
 
 [ -n "$translation" ] && printf "$translation" | xclip -selection clipboard
 
