@@ -4,7 +4,10 @@ geolocation="$(curl --max-time 3 -s https://freegeoip.app/json/ | sed 's/,/\n/g;
 lat=$(echo $geolocation | awk '{print $1}')
 lon=$(echo $geolocation | awk '{print $2}')
 
-url="https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=$lat&lon=$lon"
+k_lat="60.0766"
+k_lon="11.1432"
+
+url="https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=${lat:-$k_lat}&lon=${lon:-$k_lon}"
 
 report="$(curl --max-time 3 -s "$url" | jq '.properties.timeseries[0].data | .instant.details.air_temperature, .next_1_hours')"
 temp="$(echo "$report" | sed '1!d')"
