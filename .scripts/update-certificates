@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cert_dir="/etc/ca-certificates/trust-source/anchors/"
+
+while IFS= read -r $url; do
+    domain=$(echo $url | sed -e 's|^[^/]*//||' -e 's|/.*$||')
+    output_file="${cert_dir}${domain}.crt"
+
+    openssl s_client -connect $domain:443 -servername $domain -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > "${output_file}"
+done < "/home/shahzebs/.local/share/klp/domains.txt"
+
+update-ca-trust
