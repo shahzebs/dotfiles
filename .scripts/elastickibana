@@ -5,7 +5,7 @@ if [ "$1" = "-k" ]; then
     screen -X -S elastic quit
     screen -X -S kibana quit
 else 
-    [ "$1" = -8 ] && version="8.10.3" || version="7.17.7"
+    [ "$1" = -7 ] && version="7.17.7" || version="8.10.3"
     echo "Starting up Elasticsearch and Kibana..."
     screen -dmS elastic $HOME/elastic/elasticsearch-$version/bin/elasticsearch
     screen -dmS kibana $HOME/elastic/kibana-$version/bin/kibana

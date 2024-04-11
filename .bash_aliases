@@ -19,6 +19,7 @@ alias .5='cd ../../../../..'
 alias mv='mv -i'
 alias cp='cp -i'
 alias sys='sudo systemctl'
+alias ls='/home/shahzebs/.scripts/catls'
 
 # Radio
 alias talksport='mpv https://radio.talksport.com/stream'
@@ -54,3 +55,5 @@ __git_complete gch _git_checkout
 
 # Maven
 alias mci='mvn clean install'
+
+alias shellgpt='cd ~/shellgpt && source config && source shellgpt/bin/activate'

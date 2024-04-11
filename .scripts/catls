@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ -z "$@" ]]; then
+    ls --color=auto
+else
+    [[ -f "$1" ]] && cat "$1" || ls --color=auto "$@"
+fi
