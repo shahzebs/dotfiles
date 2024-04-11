@@ -5,9 +5,9 @@
 super + shift + r
     pr-reviewers
 
-# Activate dual scrren setup at KLP
+# Activate dual scrren setup at work
 super + alt + d
-    /home/shahzebs/.screenlayout/klp-dual-screen-1080p.sh
+    /home/shahzebs/.screenlayout/dual-screens.sh
 
 # Launch Intellij repo menu
 super + ctrl + i
