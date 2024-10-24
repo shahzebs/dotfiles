@@ -86,5 +86,9 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+"Disable CoC by default
+autocmd VimEnter * silent! :CocDisable
+
+
 " TODO:
 " Extract into method (java)
