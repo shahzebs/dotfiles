@@ -2,7 +2,7 @@
 
 cert_dir="/etc/ca-certificates/trust-source/anchors/"
 
-while IFS= read -r $url; do
+while IFS= read -r url; do
     domain=$(echo $url | sed -e 's|^[^/]*//||' -e 's|/.*$||')
     output_file="${cert_dir}${domain}.crt"
 
